@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848F7D218B746C00ABA01D /* AppDelegate.swift */; };
+		7E848F80218B746C00ABA01D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848F7F218B746C00ABA01D /* ViewController.swift */; };
+		7E848F83218B746C00ABA01D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E848F81218B746C00ABA01D /* Main.storyboard */; };
+		7E848F86218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E848F84218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld */; };
+		7E848F88218B746E00ABA01D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E848F87218B746E00ABA01D /* Assets.xcassets */; };
+		7E848F8B218B746E00ABA01D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E848F89218B746E00ABA01D /* LaunchScreen.storyboard */; };
+		7E848F96218B746E00ABA01D /* PikSpeech_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848F95218B746E00ABA01D /* PikSpeech_V1Tests.swift */; };
+		7E848FA1218B746E00ABA01D /* PikSpeech_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FA0218B746E00ABA01D /* PikSpeech_V1UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E848F92218B746E00ABA01D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E848F72218B746C00ABA01D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E848F79218B746C00ABA01D;
+			remoteInfo = PikSpeech.V1;
+		};
+		7E848F9D218B746E00ABA01D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E848F72218B746C00ABA01D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E848F79218B746C00ABA01D;
+			remoteInfo = PikSpeech.V1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E848F7A218B746C00ABA01D /* PikSpeech.V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PikSpeech.V1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E848F7D218B746C00ABA01D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7E848F7F218B746C00ABA01D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7E848F82218B746C00ABA01D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E848F85218B746C00ABA01D /* PikSpeech_V1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PikSpeech_V1.xcdatamodel; sourceTree = "<group>"; };
+		7E848F87218B746E00ABA01D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E848F8A218B746E00ABA01D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7E848F8C218B746E00ABA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E848F91218B746E00ABA01D /* PikSpeech.V1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PikSpeech.V1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E848F95218B746E00ABA01D /* PikSpeech_V1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PikSpeech_V1Tests.swift; sourceTree = "<group>"; };
+		7E848F97218B746E00ABA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E848F9C218B746E00ABA01D /* PikSpeech.V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PikSpeech.V1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E848FA0218B746E00ABA01D /* PikSpeech_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PikSpeech_V1UITests.swift; sourceTree = "<group>"; };
+		7E848FA2218B746E00ABA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E848F77218B746C00ABA01D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E848F8E218B746E00ABA01D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E848F99218B746E00ABA01D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E848F71218B746C00ABA01D = {
+			isa = PBXGroup;
+			children = (
+				7E848F7C218B746C00ABA01D /* PikSpeech.V1 */,
+				7E848F94218B746E00ABA01D /* PikSpeech.V1Tests */,
+				7E848F9F218B746E00ABA01D /* PikSpeech.V1UITests */,
+				7E848F7B218B746C00ABA01D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7E848F7B218B746C00ABA01D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E848F7A218B746C00ABA01D /* PikSpeech.V1.app */,
+				7E848F91218B746E00ABA01D /* PikSpeech.V1Tests.xctest */,
+				7E848F9C218B746E00ABA01D /* PikSpeech.V1UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E848F7C218B746C00ABA01D /* PikSpeech.V1 */ = {
+			isa = PBXGroup;
+			children = (
+				7E848F7D218B746C00ABA01D /* AppDelegate.swift */,
+				7E848F7F218B746C00ABA01D /* ViewController.swift */,
+				7E848F81218B746C00ABA01D /* Main.storyboard */,
+				7E848F87218B746E00ABA01D /* Assets.xcassets */,
+				7E848F89218B746E00ABA01D /* LaunchScreen.storyboard */,
+				7E848F8C218B746E00ABA01D /* Info.plist */,
+				7E848F84218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld */,
+			);
+			path = PikSpeech.V1;
+			sourceTree = "<group>";
+		};
+		7E848F94218B746E00ABA01D /* PikSpeech.V1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7E848F95218B746E00ABA01D /* PikSpeech_V1Tests.swift */,
+				7E848F97218B746E00ABA01D /* Info.plist */,
+			);
+			path = PikSpeech.V1Tests;
+			sourceTree = "<group>";
+		};
+		7E848F9F218B746E00ABA01D /* PikSpeech.V1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				7E848FA0218B746E00ABA01D /* PikSpeech_V1UITests.swift */,
+				7E848FA2218B746E00ABA01D /* Info.plist */,
+			);
+			path = PikSpeech.V1UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E848F79218B746C00ABA01D /* PikSpeech.V1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E848FA5218B746E00ABA01D /* Build configuration list for PBXNativeTarget "PikSpeech.V1" */;
+			buildPhases = (
+				7E848F76218B746C00ABA01D /* Sources */,
+				7E848F77218B746C00ABA01D /* Frameworks */,
+				7E848F78218B746C00ABA01D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PikSpeech.V1;
+			productName = PikSpeech.V1;
+			productReference = 7E848F7A218B746C00ABA01D /* PikSpeech.V1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7E848F90218B746E00ABA01D /* PikSpeech.V1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E848FA8218B746E00ABA01D /* Build configuration list for PBXNativeTarget "PikSpeech.V1Tests" */;
+			buildPhases = (
+				7E848F8D218B746E00ABA01D /* Sources */,
+				7E848F8E218B746E00ABA01D /* Frameworks */,
+				7E848F8F218B746E00ABA01D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E848F93218B746E00ABA01D /* PBXTargetDependency */,
+			);
+			name = PikSpeech.V1Tests;
+			productName = PikSpeech.V1Tests;
+			productReference = 7E848F91218B746E00ABA01D /* PikSpeech.V1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7E848F9B218B746E00ABA01D /* PikSpeech.V1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E848FAB218B746E00ABA01D /* Build configuration list for PBXNativeTarget "PikSpeech.V1UITests" */;
+			buildPhases = (
+				7E848F98218B746E00ABA01D /* Sources */,
+				7E848F99218B746E00ABA01D /* Frameworks */,
+				7E848F9A218B746E00ABA01D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E848F9E218B746E00ABA01D /* PBXTargetDependency */,
+			);
+			name = PikSpeech.V1UITests;
+			productName = PikSpeech.V1UITests;
+			productReference = 7E848F9C218B746E00ABA01D /* PikSpeech.V1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E848F72218B746C00ABA01D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = cmpt275group11;
+				TargetAttributes = {
+					7E848F79218B746C00ABA01D = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					7E848F90218B746E00ABA01D = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 7E848F79218B746C00ABA01D;
+					};
+					7E848F9B218B746E00ABA01D = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 7E848F79218B746C00ABA01D;
+					};
+				};
+			};
+			buildConfigurationList = 7E848F75218B746C00ABA01D /* Build configuration list for PBXProject "PikSpeech.V1" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E848F71218B746C00ABA01D;
+			productRefGroup = 7E848F7B218B746C00ABA01D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E848F79218B746C00ABA01D /* PikSpeech.V1 */,
+				7E848F90218B746E00ABA01D /* PikSpeech.V1Tests */,
+				7E848F9B218B746E00ABA01D /* PikSpeech.V1UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E848F78218B746C00ABA01D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E848F8B218B746E00ABA01D /* LaunchScreen.storyboard in Resources */,
+				7E848F88218B746E00ABA01D /* Assets.xcassets in Resources */,
+				7E848F83218B746C00ABA01D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E848F8F218B746E00ABA01D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E848F9A218B746E00ABA01D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E848F76218B746C00ABA01D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E848F80218B746C00ABA01D /* ViewController.swift in Sources */,
+				7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */,
+				7E848F86218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E848F8D218B746E00ABA01D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E848F96218B746E00ABA01D /* PikSpeech_V1Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E848F98218B746E00ABA01D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E848FA1218B746E00ABA01D /* PikSpeech_V1UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E848F93218B746E00ABA01D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E848F79218B746C00ABA01D /* PikSpeech.V1 */;
+			targetProxy = 7E848F92218B746E00ABA01D /* PBXContainerItemProxy */;
+		};
+		7E848F9E218B746E00ABA01D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E848F79218B746C00ABA01D /* PikSpeech.V1 */;
+			targetProxy = 7E848F9D218B746E00ABA01D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7E848F81218B746C00ABA01D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E848F82218B746C00ABA01D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7E848F89218B746E00ABA01D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E848F8A218B746E00ABA01D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E848FA3218B746E00ABA01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7E848FA4218B746E00ABA01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E848FA6218B746E00ABA01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PikSpeech.V1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7E848FA7218B746E00ABA01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PikSpeech.V1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7E848FA9218B746E00ABA01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PikSpeech.V1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PikSpeech.V1.app/PikSpeech.V1";
+			};
+			name = Debug;
+		};
+		7E848FAA218B746E00ABA01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PikSpeech.V1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PikSpeech.V1.app/PikSpeech.V1";
+			};
+			name = Release;
+		};
+		7E848FAC218B746E00ABA01D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PikSpeech.V1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PikSpeech.V1;
+			};
+			name = Debug;
+		};
+		7E848FAD218B746E00ABA01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PikSpeech.V1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PikSpeech.V1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E848F75218B746C00ABA01D /* Build configuration list for PBXProject "PikSpeech.V1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E848FA3218B746E00ABA01D /* Debug */,
+				7E848FA4218B746E00ABA01D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E848FA5218B746E00ABA01D /* Build configuration list for PBXNativeTarget "PikSpeech.V1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E848FA6218B746E00ABA01D /* Debug */,
+				7E848FA7218B746E00ABA01D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E848FA8218B746E00ABA01D /* Build configuration list for PBXNativeTarget "PikSpeech.V1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E848FA9218B746E00ABA01D /* Debug */,
+				7E848FAA218B746E00ABA01D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E848FAB218B746E00ABA01D /* Build configuration list for PBXNativeTarget "PikSpeech.V1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E848FAC218B746E00ABA01D /* Debug */,
+				7E848FAD218B746E00ABA01D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7E848F84218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7E848F85218B746C00ABA01D /* PikSpeech_V1.xcdatamodel */,
+			);
+			currentVersion = 7E848F85218B746C00ABA01D /* PikSpeech_V1.xcdatamodel */;
+			path = PikSpeech_V1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7E848F72218B746C00ABA01D /* Project object */;
+}
