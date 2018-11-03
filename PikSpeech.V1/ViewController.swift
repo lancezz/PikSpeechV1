@@ -24,6 +24,13 @@ class ViewController: UIViewController {
 //        UIDevice.current.setValue(value, forKey:"orientation")
       
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //hide Nav Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
  
     
 //    Locking to landscapeMode
