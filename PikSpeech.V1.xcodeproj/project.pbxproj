@@ -15,6 +15,9 @@
 		7E848F8B218B746E00ABA01D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E848F89218B746E00ABA01D /* LaunchScreen.storyboard */; };
 		7E848F96218B746E00ABA01D /* PikSpeech_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848F95218B746E00ABA01D /* PikSpeech_V1Tests.swift */; };
 		7E848FA1218B746E00ABA01D /* PikSpeech_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FA0218B746E00ABA01D /* PikSpeech_V1UITests.swift */; };
+		7E848FAF218D0A5600ABA01D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */; };
+		7E848FB0218D0A5600ABA01D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */; };
+		7E848FB1218D0A5600ABA01D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 		7E848F9C218B746E00ABA01D /* PikSpeech.V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PikSpeech.V1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E848FA0218B746E00ABA01D /* PikSpeech_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PikSpeech_V1UITests.swift; sourceTree = "<group>"; };
 		7E848FA2218B746E00ABA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				7E848F89218B746E00ABA01D /* LaunchScreen.storyboard */,
 				7E848F8C218B746E00ABA01D /* Info.plist */,
 				7E848F84218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld */,
+				7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */,
 			);
 			path = PikSpeech.V1;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				7E848F80218B746C00ABA01D /* ViewController.swift in Sources */,
 				7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */,
 				7E848F86218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld in Sources */,
+				7E848FAF218D0A5600ABA01D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E848F96218B746E00ABA01D /* PikSpeech_V1Tests.swift in Sources */,
+				7E848FB0218D0A5600ABA01D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E848FA1218B746E00ABA01D /* PikSpeech_V1UITests.swift in Sources */,
+				7E848FB1218D0A5600ABA01D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -462,7 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cmpt275group11.PikSpeech-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
