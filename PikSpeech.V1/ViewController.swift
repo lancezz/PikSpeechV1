@@ -18,8 +18,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var appDataTileData = Initializer.getAppDataTileData()//immutable.. carries all the info of all the pictures
     
     //all the outlets of the elements
-    
-
     @IBOutlet weak var selectionCollection: UICollectionView!
     @IBAction func speakButton(_ sender: Any) {
     }
@@ -108,9 +106,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             //when a different category has been chosen, the array gets updated to the latest one
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
-            cell.setLabel(selectionBarTileData[indexPath.row].getImageTitle())
-            var img = UIImage(named: selectionBarTileData[indexPath.row].getImageFileName())
-            cell.setImage(img!)
+            cell.tileData = selectionBarTileData[indexPath.row]
+//            cell.setLabel(selectionBarTileData[indexPath.row].getImageTitle())
+//            var img = UIImage(named: selectionBarTileData[indexPath.row].getImageFileName())
+//            cell.setImage(img!)
             //            cell.setLabel(String(numbers[indexPath.row]))
             //        cell.labelView.text = String(numbers[indexPath.row])
             //does this put a cell into the array or takes it away?
@@ -120,8 +119,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             //you should return the amount of categories there are
             //you should return a tile that contains category info
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
-            cell.setLabel(categoryBarTileData[indexPath.row].getImageTitle())
-            cell.setImage(UIImage(named: categoryBarTileData[indexPath.row].getImageFileName())!)
+            cell.tileData = categoryBarTileData[indexPath.row]
+//            cell.setLabel(categoryBarTileData[indexPath.row].getImageTitle())
+//            cell.setImage(UIImage(named: categoryBarTileData[indexPath.row].getImageFileName())!)
             //            cell.setLabel(String(numbers[indexPath.row]))
             //        cell.labelView.text = String(numbers[indexPath.row])
             //does this put a cell into the array or takes it away?
@@ -130,8 +130,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else{
             //you need to return a tile that is in the speech thing
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
-            cell.setLabel(speechBarTileData[indexPath.row].getImageTitle())
-            cell.setImage(UIImage(named: speechBarTileData[indexPath.row].getImageFileName())!)
+            cell.tileData = speechBarTileData[indexPath.row]
+//            cell.setLabel(speechBarTileData[indexPath.row].getImageTitle())
+//            cell.setImage(UIImage(named: speechBarTileData[indexPath.row].getImageFileName())!)
             //            cell.setLabel(String(numbers[indexPath.row]))
             //        cell.labelView.text = String(numbers[indexPath.row])
             //does this put a cell into the array or takes it away?
@@ -205,19 +206,31 @@ class TileData{
 
 class Tile: UICollectionViewCell {
     
-    let imageView : UIImageView = {
-        let imgView = UIImageView()
-        imgView.backgroundColor = .blue
-        imgView.image = UIImage(named: "TeamLogoIcon")
-        return imgView
-    }()
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var labelView: UILabel!
+    //    let imageView : UIImageView = {
+//        let imgView = UIImageView()
+//        imgView.backgroundColor = .blue
+//        imgView.image = UIImage(named: "TeamLogoIcon")
+//        return imgView
+//    }()
+//
+//    let labelView : UILabel = {
+//        let labelView = UILabel()
+//        labelView.textColor = .red
+//        labelView.text = "uilabel"
+//        return labelView
+//    }()
     
-    let labelView : UILabel = {
-        let labelView = UILabel()
-        labelView.textColor = .red
-        labelView.text = "uilabel"
-        return labelView
-    }()
+    var tileData: TileData! {
+        didSet {
+            //if let tileData = tileData {
+            var img = UIImage(named: tileData.getImageFileName())
+                imageView.image = img
+                labelView.text = tileData.getImageTitle()
+           // }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -231,7 +244,10 @@ class Tile: UICollectionViewCell {
     }
     
     func setLabel(_ text: String){
+        print(text)
+        print(labelView.text)
         labelView.text = text
+        
     }
     
     func setImage(_ image: UIImage){
