@@ -18,6 +18,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var appDataTileData = Initializer.getAppDataTileData()//immutable.. carries all the info of all the pictures
     
     //all the outlets of the elements
+    
+
     @IBOutlet weak var selectionCollection: UICollectionView!
     @IBAction func speakButton(_ sender: Any) {
     }
@@ -26,6 +28,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var categoryCollection: UICollectionView!
     @IBOutlet weak var sentenceCollection: UICollectionView!
+    
     
     /*
      There are three collection views:
@@ -43,6 +46,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         //        selectionCollection.register(Tile.self, forCellWithReuseIdentifier: "cellId")
+        let width = view.frame.size.width / 6.0
+        let layout = selectionCollection.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: width)
         selectionCollection.delegate = self
         selectionCollection.dataSource = self
         
@@ -103,7 +109,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             //when a different category has been chosen, the array gets updated to the latest one
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
             cell.setLabel(selectionBarTileData[indexPath.row].getImageTitle())
-            cell.setImage(UIImage(named: selectionBarTileData[indexPath.row].getImageFileName())!)
+            var img = UIImage(named: selectionBarTileData[indexPath.row].getImageFileName())
+            cell.setImage(img!)
             //            cell.setLabel(String(numbers[indexPath.row]))
             //        cell.labelView.text = String(numbers[indexPath.row])
             //does this put a cell into the array or takes it away?
@@ -142,8 +149,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             //you should return the amount of what is inside your specific collection in the category
             //if the selection is pressed, you wanna hand the data over to the speech bar
             speechBarTileData.append(selectionBarTileData[indexPath.row])
-            //            selectionCollection.reloadData()
-            //            selectionCollection.layoutIfNeeded()
+            sentenceCollection.reloadData()
+            sentenceCollection.layoutIfNeeded()
+            //
             
             //TODO: do we need to update the speech bar?
         }
@@ -152,6 +160,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             //if the selection is pressed, you wanna hand data into the selection bar thing
             selectionBarTileData = replaceSelectionDataForCategory(indexPath.row)
             print("categoryCollection selected")
+            selectionCollection.reloadData()
+            selectionCollection.layoutIfNeeded()
         }
         else{
             //do nothing if youre the speech bar, maybe you can talk if anything
@@ -246,5 +256,6 @@ class Tile: UICollectionViewCell {
 
 
 //////////////////////////
+
 
 

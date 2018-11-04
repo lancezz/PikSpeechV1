@@ -42,6 +42,7 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="s7h-gY-lpl" firstAttribute="top" secondItem="wQy-BR-lvg" secondAttribute="top" id="4sE-mh-oSz"/>
                                             <constraint firstAttribute="trailing" secondItem="s7h-gY-lpl" secondAttribute="trailing" id="CxY-bJ-0z7"/>
@@ -79,6 +80,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -132,6 +134,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -158,7 +161,7 @@
                     </view>
                     <connections>
                         <outlet property="categoryCollection" destination="H2Y-BC-bbQ" id="xPM-79-aJb"/>
-                        <outlet property="selectionCollection" destination="H2Y-BC-bbQ" id="DDW-fn-uiU"/>
+                        <outlet property="selectionCollection" destination="xiO-sa-sZ8" id="xaV-Qx-5ua"/>
                         <outlet property="sentenceCollection" destination="cKH-aI-FQe" id="81c-bm-naD"/>
                         <segue destination="Trl-2K-ID4" kind="show" identifier="SettingsSegue" id="QqD-GG-Rbc"/>
                     </connections>

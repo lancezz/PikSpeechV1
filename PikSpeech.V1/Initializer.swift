@@ -33,7 +33,7 @@ class Initializer: NSObject {
             ["glasses","gloves","hat","jacket","shirt","shoes","shorts","socks"],
             ["Juice","Milk","Soda","Tea"],
             ["Angry","Cold","confused","disgust","Happy","Hot","hungry","Love","Sad","shocked","Sick","Sleepy"],
-            ["Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetable"]
+            ["Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetables"]
         ]
         var appDataTileDataArray = [[TileData]]()
         
