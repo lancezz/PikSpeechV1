@@ -8,9 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     //all the outlets of the elements
+    @IBOutlet weak var selectionCollection: UICollectionView!
+    @IBAction func speakButton(_ sender: Any) {
+    }
+    @IBAction func deletionButton(_ sender: Any) {
+    }
+
+    @IBOutlet weak var categoryCollection: UICollectionView!
+    @IBOutlet weak var sentenceCollection: UICollectionView!
+    
     @IBAction func settingsButton(_sender: UIButton) {
         performSegue(withIdentifier: "SettingsSegue", sender: self)
     }
@@ -19,10 +28,7 @@ class ViewController: UIViewController {
     //function viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-//        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-//        UIDevice.current.setValue(value, forKey:"orientation")
-      
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,13 +39,34 @@ class ViewController: UIViewController {
     }
  
     
-//    Locking to landscapeMode
-//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//    return .landscapeLeft
-//    }
-//    override var shouldAutorotate: Bool {
-//        return true
-//    }
+    //method numberOfItemsInSection for collectionview
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    
+    //method cellForItemAt for collectionview
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    
+    
+    //method did selectitem at for collectionview
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
+    
+    
+    
+    //    Locking to landscapeMode
+    //    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    //    return .landscapeLeft
+    //    }
+    //    override var shouldAutorotate: Bool {
+    //        return true
+    //    }
 }
 
 
