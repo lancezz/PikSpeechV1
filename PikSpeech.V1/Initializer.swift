@@ -14,17 +14,21 @@ class Initializer: NSObject {
         var categoryDataArray = [TileData]()
         
         //append the amount of categories that you want
-        categoryDataArray.append(TileData("bear", "Animals"))
+        categoryDataArray.append(TileData("cat", "Animals"))
         categoryDataArray.append(TileData("glasses", "Clothing"))
-        categoryDataArray.append(TileData("Juice", "Drinks"))
-        categoryDataArray.append(TileData("Angry", "Feelings"))
-        categoryDataArray.append(TileData("Bagels", "Food"))
+        categoryDataArray.append(TileData("Milk", "Drinks"))
+        categoryDataArray.append(TileData("Love", "Feelings"))
+        categoryDataArray.append(TileData("Pizza", "Food"))
+        categoryDataArray.append(TileData("go","common"))
+        categoryDataArray.append(TileData("girl","people"))
         
         return categoryDataArray
     }
     
     static func getCategorySize() -> Int{
-        return 5
+       
+        
+        return 7
     }
     
     static func getAppDataTileData() -> [[TileData]]{
@@ -33,7 +37,9 @@ class Initializer: NSObject {
             ["glasses","gloves","hat","jacket","shirt","shoes","shorts","socks"],
             ["Juice","Milk","Soda","Tea"],
             ["Angry","Cold","confused","disgust","Happy","Hot","hungry","Love","Sad","shocked","Sick","Sleepy"],
-            ["Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetables"]
+            ["Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetables"],
+            ["go","i","like","no","question","stop","you","yeet"],
+            ["baby","boy","dad","girl","grandpa"]
         ]
         var appDataTileDataArray = [[TileData]]()
         

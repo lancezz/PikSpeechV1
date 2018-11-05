@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -19,9 +20,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //all the outlets of the elements
     @IBOutlet weak var selectionCollection: UICollectionView!
+    
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
     @IBAction func speakButton(_ sender: Any) {
+        
+        
+        for TileData in speechBarTileData{
+            myUtterance = AVSpeechUtterance(string: TileData.getImageTitle())
+            myUtterance.rate = 0.3
+            synth.speak(myUtterance)
+        }
     }
     @IBAction func deletionButton(_ sender: Any) {
+        if speechBarTileData.count>0{
+        speechBarTileData.removeLast()
+            sentenceCollection.reloadData()
+            sentenceCollection.layoutIfNeeded()
+        }
     }
     
     @IBOutlet weak var categoryCollection: UICollectionView!
