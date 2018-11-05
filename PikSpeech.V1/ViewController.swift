@@ -23,6 +23,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
+    @IBAction func holddeletion(_ sender: Any) {
+        if speechBarTileData.count>0{
+            speechBarTileData.removeLast()
+            if speechBarTileData.count>0{
+               speechBarTileData.removeLast()
+            }
+            sentenceCollection.reloadData()
+            sentenceCollection.layoutIfNeeded()
+        }
+        
+    }
     @IBAction func speakButton(_ sender: Any) {
         
         
@@ -162,7 +173,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //THIS IS WHERE THE UI TALKS TO ITESELF AND ITS OBJECTS THIS IS IMPORTANT
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.selectionCollection{
-            print("selectionCollection selected index \(indexPath.row)")
+//            print("selectionCollection selected index \(indexPath.row)")
             //you should return the amount of what is inside your specific collection in the category
             //if the selection is pressed, you wanna hand the data over to the speech bar
             speechBarTileData.append(selectionBarTileData[indexPath.row])
@@ -176,13 +187,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             //you should return the amount of categories there are
             //if the selection is pressed, you wanna hand data into the selection bar thing
             selectionBarTileData = replaceSelectionDataForCategory(indexPath.row)
-            print("categoryCollection selected")
+//            print("categoryCollection selected")
             selectionCollection.reloadData()
             selectionCollection.layoutIfNeeded()
         }
         else{
             //do nothing if youre the speech bar, maybe you can talk if anything
-            print("sentenceCollection selected")
+//            print("sentenceCollection selected")
         }
     }
     
@@ -260,8 +271,8 @@ class Tile: UICollectionViewCell {
     }
     
     func setLabel(_ text: String){
-        print(text)
-        print(labelView.text)
+//        print(text)
+//        print(labelView.text)
         labelView.text = text
         
     }
