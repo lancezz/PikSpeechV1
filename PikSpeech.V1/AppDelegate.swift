@@ -3,6 +3,7 @@
 //  PikSpeech.V1
 //
 //  Created by Lance Zhang on 2018-11-01.
+//  Collaboration with Miguel Taningco and Sheel Soneji
 //  Copyright © 2018 CMPT 275 Group11: A-team. All rights reserved.
 //
 //  Change Log:
