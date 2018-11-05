@@ -18,6 +18,8 @@
 		7E848FAF218D0A5600ABA01D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */; };
 		7E848FB0218D0A5600ABA01D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */; };
 		7E848FB1218D0A5600ABA01D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */; };
+		7E848FC5218FC7A500ABA01D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E848FC4218FC7A500ABA01D /* AVFoundation.framework */; };
+		8A7EA3EF218F6F0A00737705 /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7EA3EE218F6F0A00737705 /* Initializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		7E848FA0218B746E00ABA01D /* PikSpeech_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PikSpeech_V1UITests.swift; sourceTree = "<group>"; };
 		7E848FA2218B746E00ABA01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7E848FC4218FC7A500ABA01D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8A7EA3EE218F6F0A00737705 /* Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E848FC5218FC7A500ABA01D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,7 @@
 				7E848F94218B746E00ABA01D /* PikSpeech.V1Tests */,
 				7E848F9F218B746E00ABA01D /* PikSpeech.V1UITests */,
 				7E848F7B218B746C00ABA01D /* Products */,
+				7E848FC3218FC7A400ABA01D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +117,7 @@
 				7E848F8C218B746E00ABA01D /* Info.plist */,
 				7E848F84218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld */,
 				7E848FAE218D0A5600ABA01D /* SettingsViewController.swift */,
+				8A7EA3EE218F6F0A00737705 /* Initializer.swift */,
 			);
 			path = PikSpeech.V1;
 			sourceTree = "<group>";
@@ -131,6 +138,14 @@
 				7E848FA2218B746E00ABA01D /* Info.plist */,
 			);
 			path = PikSpeech.V1UITests;
+			sourceTree = "<group>";
+		};
+		7E848FC3218FC7A400ABA01D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E848FC4218FC7A500ABA01D /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +283,7 @@
 				7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */,
 				7E848F86218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld in Sources */,
 				7E848FAF218D0A5600ABA01D /* SettingsViewController.swift in Sources */,
+				8A7EA3EF218F6F0A00737705 /* Initializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
