@@ -195,10 +195,10 @@ class Tile: UICollectionViewCell{
     }
     
     //  Constructor for Tile using a frame
-    override init(frame: CGRect){
-        super.init(frame: frame)
-        setupViews()
-    }
+//    override init(frame: CGRect){
+//        super.init(frame: frame)
+////        setupViews()
+//    }
     
     //  Constructor for Tile using a labelName, imageName, and a rect
     init(_ labelName: String, _ imageName: String, _ rect: CGRect){
@@ -208,20 +208,20 @@ class Tile: UICollectionViewCell{
     }
     
     //  Sets the label of the Tile
-    func setLabel(_ text: String){
-        labelView.text = text
-    }
-    
-    //  Sets the image of the Tile
-    func setImage(_ image: UIImage){
-        imageView.image = image
-    }
-    
-    //  Sets up the views of the tile
-    func setupViews(){
-        addSubview(imageView)
-        addSubview(labelView)
-    }
+//    func setLabel(_ text: String){
+//        labelView.text = text
+//    }
+//
+//    //  Sets the image of the Tile
+//    func setImage(_ image: UIImage){
+//        imageView.image = image
+//    }
+//
+//    //  Sets up the views of the tile
+//    func setupViews(){
+//        addSubview(imageView)
+//        addSubview(labelView)
+//    }
     
     //  Required constructor for the Tile
     required init?(coder aDecoder: NSCoder) {

@@ -76,9 +76,7 @@ class PikSpeech_V1UITests: XCTestCase {
         
     }
     
-    func test1(){
-        
-        
+    func testaddtionAndDeletion(){
         let app = XCUIApplication()
         let cellsQuery = XCUIApplication().collectionViews.cells
         let catElement = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 2).cells.otherElements.containing(.image, identifier:"cat").element
@@ -98,7 +96,22 @@ class PikSpeech_V1UITests: XCTestCase {
         app.buttons["DeletionButton"].tap()
         XCTAssertFalse(loveinSentence.exists, "There is not supposed to have love on this page")
 
+        }
+    func testSpeakButton() {
         
+        let app = XCUIApplication()
+        let cellsQuery = app.collectionViews.cells
+        cellsQuery.otherElements.containing(.image, identifier:"chicken").element.tap()
+        cellsQuery.otherElements.containing(.image, identifier:"cow").element.tap()
+        cellsQuery.otherElements.containing(.image, identifier:"rabbit").element.tap()
+        app.buttons["SpeakButton"].tap()
+        let chickeninSentence = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 0).cells.otherElements.containing(.image, identifier:"chicken").element
+        let cowinSentence = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 0).cells.otherElements.containing(.image, identifier:"cow").element
+        let rabbitinSentence = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 0).cells.otherElements.containing(.image, identifier:"rabbit").element
+        XCTAssert(chickeninSentence.exists, "Chicken should be present in sentence")
+        XCTAssert(cowinSentence.exists, "Cow should be present in sentence")
+        XCTAssert(rabbitinSentence.exists, "rabbit should be present in sentence")
         
     }
+    
 }

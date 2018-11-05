@@ -1,34 +1,47 @@
 //
-//  PikSpeech_V1Tests.swift
-//  PikSpeech.V1Tests
+//  PikSpeech_V1UITests.swift
+//  PikSpeech.V1UITests
 //
 //  Created by Lance Zhang on 2018-11-01.
 //  Copyright © 2018 cmpt275group11. All rights reserved.
 //
-
+//  Copyright © 2018 CMPT 275 Group11: A-team. All rights reserved.
+//
+//  Change Log:
+//      11/04/2018: Created performance test for loading the image name array (Lance Zhang)
 import XCTest
 @testable import PikSpeech_V1
 
 class PikSpeech_V1Tests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testStoryboardLoad() {
+//
+//    }
+    func test2() {
+        
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func testarrayloadPerformance() {
+        // This is an example of a loading array performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            Initializer.getAppDataTileData()
+            Initializer.getCategoryData()
         }
+        
+    }
+    func test1() {
+//        AppDelegate.application(_, application: UIApplication, didFinishLaunchingWithOptions, launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
+        
+        
     }
 
+}
 }
