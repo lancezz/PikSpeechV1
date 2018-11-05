@@ -14,11 +14,11 @@ class Initializer: NSObject {
         var categoryDataArray = [TileData]()
         
         //append the amount of categories that you want
-        categoryDataArray.append(TileData("bear", "Animals"))
+        categoryDataArray.append(TileData("cat", "Animals"))
         categoryDataArray.append(TileData("glasses", "Clothing"))
-        categoryDataArray.append(TileData("Juice", "Drinks"))
-        categoryDataArray.append(TileData("Angry", "Feelings"))
-        categoryDataArray.append(TileData("Bagels", "Food"))
+        categoryDataArray.append(TileData("Milk", "Drinks"))
+        categoryDataArray.append(TileData("Love", "Feelings"))
+        categoryDataArray.append(TileData("Pizza", "Food"))
         
         return categoryDataArray
     }
