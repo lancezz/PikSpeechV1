@@ -18,6 +18,9 @@
 
 import UIKit
 import AVFoundation
+import FirebaseDatabase
+
+
 
 
 
@@ -31,6 +34,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
+    
     
     @IBOutlet weak var selectionCollection: UICollectionView!
     
@@ -76,7 +80,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //  Initializes properties of views
     override func viewDidLoad(){
         super.viewDidLoad()
+        //Firebase
         
+        //Firebase
         let width = view.frame.size.width / 6.0
         let layout = selectionCollection.collectionViewLayout as! UICollectionViewFlowLayout
         
@@ -90,6 +96,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         sentenceCollection.delegate = self
         sentenceCollection.dataSource = self
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let rootRef = ref.child("user3")
+        let values: [String: Any] = ["name": "reading3"]
+        rootRef.setValue(values)
+        ref.observe(.value) { (snapshot) in
+            print(snapshot)
+        }
         
     }
     
