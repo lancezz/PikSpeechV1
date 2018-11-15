@@ -14,14 +14,14 @@ class LoginViewController: UIViewController {
     
     
     
-    @IBOutlet weak var textFieldLoginEmail: UITextField!
+    @IBOutlet weak var loginEmailField: UITextField!
     
     
-    @IBOutlet weak var textFieldLoginPassword: UITextField!
+    @IBOutlet weak var loginPasswordField: UITextField!
     
     
     @IBAction func loginButton(_ sender: Any) {
-        
+        //Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!)
         performSegue(withIdentifier: "logintoMain", sender: nil)
     }
     
