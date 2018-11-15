@@ -14,15 +14,20 @@ class LoginViewController: UIViewController {
     
     
     
+  
     @IBOutlet weak var loginEmailField: UITextField!
     
-    
+
     @IBOutlet weak var loginPasswordField: UITextField!
     
-    
     @IBAction func loginButton(_ sender: Any) {
-        //Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!)
-        performSegue(withIdentifier: "logintoMain", sender: nil)
+        Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!){
+            user, error in
+            if user != nil {
+                self.performSegue(withIdentifier: "logintoMain", sender: nil)
+            }
+        }
+        
     }
     
     @IBAction func signupButoon(_ sender: Any) {
@@ -77,7 +82,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        let listener = Auth.auth().addStateDidChangeListener{
+//            auth, user in
+//            if user != nil {
+//                self.performSegue(withIdentifier: "logintoMain", sender: nil)
+//            }
+//        }
+//        Auth.auth().removeStateDidChangeListener(listener)
         // Do any additional setup after loading the view.
     }
     

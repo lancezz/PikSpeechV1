@@ -52,8 +52,8 @@
                         <viewLayoutGuide key="safeArea" id="j5O-Px-iG5"/>
                     </view>
                     <connections>
-                        <outlet property="textFieldLoginEmail" destination="Kqv-8L-q4D" id="Zza-kB-Znw"/>
-                        <outlet property="textFieldLoginPassword" destination="XZP-dm-uZQ" id="r5Z-5e-WfH"/>
+                        <outlet property="loginEmailField" destination="Kqv-8L-q4D" id="0c8-6Y-lJh"/>
+                        <outlet property="loginPasswordField" destination="XZP-dm-uZQ" id="9dq-jj-sN3"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="logintoMain" id="v5k-wH-F2l"/>
                     </connections>
                 </viewController>
