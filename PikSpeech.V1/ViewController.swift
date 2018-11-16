@@ -160,8 +160,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func replaceSelectionDataForCategory(_ categoryIndex: Int) -> [TileData]{
         return appDataTileData[categoryIndex]
     }
+    
+   
 }
-
+//class UIviewcontroller ends
 
 
 //  TileData Class contains information needed to make a Tile UICollectionViewCell
