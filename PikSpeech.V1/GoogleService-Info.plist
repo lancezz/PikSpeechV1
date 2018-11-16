@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>958885691458-839338c7p7b07j97i8c9juo6pf41q39h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.958885691458-839338c7p7b07j97i8c9juo6pf41q39h</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD7VX7NHQj_sbAZL0MzJD2EEMc9eeCvf4g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>958885691458</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cmpt275group11.PikSpeech-V1.1</string>
+	<key>PROJECT_ID</key>
+	<string>pikspeech-a4f7c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pikspeech-a4f7c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:958885691458:ios:c00728af7920a8b4</string>
+	<key>DATABASE_URL</key>
+	<string>https://pikspeech-a4f7c.firebaseio.com</string>
+</dict>
+</plist>
