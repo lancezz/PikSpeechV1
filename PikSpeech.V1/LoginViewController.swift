@@ -57,6 +57,18 @@ class LoginViewController: UIViewController {
 //                                                }
 //                                            }
                                             
+                                            //initialize the user in the realtime database
+                                            guard let uid = user?.user.uid else {
+                                                return
+                                            }
+                                            var ref: DatabaseReference!
+                                            ref = Database.database().reference()
+                                            let userRef = ref.child("user").child(uid)
+                                            let values: [String: Any] = ["email": emailtext.text!]
+                                            userRef.setValue(values)
+                                            ref.observe(.value) { (snapshot) in
+                                                print(snapshot)
+                                            }
                                         }
                                         
         }
