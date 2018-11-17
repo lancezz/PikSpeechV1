@@ -23,9 +23,12 @@ class LoginViewController: UIViewController {
     @IBAction func loginButton(_ sender: Any) {
         Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!){
             user, error in
-            if user != nil {
-                self.performSegue(withIdentifier: "logintoMain", sender: nil)
+            if error != nil {
+                print("some log in error occurred")
             }
+            //successsfuly logged in
+                self.performSegue(withIdentifier: "logintoMain", sender: nil)
+            
         }
         
     }
@@ -42,11 +45,12 @@ class LoginViewController: UIViewController {
                                         let passwordtext = alert.textFields![1]
                                         
                                         
-                                        
+                                        //Create user with email and password on Firebase authentication
+                                        //and initialize the user uid information in the real time database
                                         Auth.auth().createUser(withEmail: emailtext.text!, password: passwordtext.text!) {
                                             user, error in
                                             if error != nil {
-                                                print(error?.localizedDescription)
+                                                print("some registeration error occurred")
                                             }
                                               //send verification link
 //                                            if user != nil {
@@ -63,12 +67,40 @@ class LoginViewController: UIViewController {
                                             }
                                             var ref: DatabaseReference!
                                             ref = Database.database().reference()
+                                            //Create a Child reference under the root based on the uid of that user
                                             let userRef = ref.child("user").child(uid)
-                                            let values: [String: Any] = ["email": emailtext.text!]
-                                            userRef.setValue(values)
-                                            ref.observe(.value) { (snapshot) in
-                                                print(snapshot)
-                                            }
+                                            //load the default structure of a user including
+                                            //name, email, categoryData/animal/image, title,selectionData/word1
+//                                            let values: [String: Any] = ["email": emailtext.text!]
+//                                            userRef.setValue(values)
+//                                            userRef.observe(.value) { (snapshot) in
+//                                                print(snapshot)
+//                                            }
+                                            ///////crate a reference to category Data under the uid
+                                            let categoryDataRef = userRef.child("categoryData")
+                                            let animalRef = categoryDataRef.child("Animals")
+//                                            let animalElement = [
+//                                               0 = {
+//                                                "title" = "Animals";
+//                                                "image" = "287392";
+//                                                    "selectionData" = [
+//                                                        "cow",
+//                                                        "cat"
+//                                                    ]
+//                                                }
+//                                            ]
+//                                            let clothingRef = categoryDataRef.child("Clothing")
+//                                            let drinksRef = categoryDataRef.child("Drinks")
+//                                            let feelingsRef = categoryDataRef.child("Feelings")
+//                                            let foodRef = categoryDataRef.child("food")
+//                                            let commonRef = categoryDataRef.child("common")
+//                                            let peopleRef = categoryDataRef.child("people")
+                                            
+                                            let animalsvalues: [String: Any] = ["title": "Animals","image": "cow.jpg"]
+                                            animalRef.setValue(animalsvalues)
+                                            let selectionDataRef = animalRef.child("selectionData")
+                                            let selectionDataValues = ["cow","cat"]
+                                            selectionDataRef.setValue(selectionDataValues)
                                         }
                                         
         }
@@ -104,7 +136,10 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     /*
      // MARK: - Navigation
      

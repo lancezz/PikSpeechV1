@@ -401,7 +401,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="- Colours"/>
+                                        <state key="normal" title="- Colours/Sizes"/>
                                         <connections>
                                             <segue destination="gQE-FZ-Quz" kind="show" id="nd9-wr-3LK"/>
                                         </connections>
@@ -415,9 +415,9 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="- Title Size"/>
+                                        <state key="normal" title="Log out"/>
                                         <connections>
-                                            <segue destination="gQE-FZ-Quz" kind="show" id="hav-7f-Yaa"/>
+                                            <action selector="logoutButton:" destination="fHB-V1-Ptv" eventType="touchUpInside" id="H9M-v0-O2f"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-qN-jAP">
@@ -463,6 +463,9 @@
                         <viewLayoutGuide key="safeArea" id="DtB-96-gbb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Customization Menu" id="bcR-rz-MdN"/>
+                    <connections>
+                        <segue destination="a3z-Kn-qtX" kind="show" identifier="logoutSegue" id="ids-yd-kWo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opz-FI-cbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -566,7 +569,6 @@
         <image name="settings" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hav-7f-Yaa"/>
-        <segue reference="v5k-wH-F2l"/>
+        <segue reference="IdA-yh-n2n"/>
     </inferredMetricsTieBreakers>
 </document>
