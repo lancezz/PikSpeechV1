@@ -19,6 +19,7 @@
 import UIKit
 import AVFoundation
 import FirebaseDatabase
+import Firebase
 
 
 
@@ -31,6 +32,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var selectionBarTileData = Initializer.getDefaultSelectionBarData()
     var categoryBarTileData = Initializer.getCategoryData()//TODO: i think this should be a let
     var appDataTileData = Initializer.getAppDataTileData()//TODO: i think this should be a let
+    //var image2DArray = [[UIImages]]
     
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
@@ -83,6 +85,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //Firebase
         
         //Firebase
+        //All these are default things
+        let actualWidth = view.frame.size.width
         let width = view.frame.size.width / 6.0
         let layout = selectionCollection.collectionViewLayout as! UICollectionViewFlowLayout
         
@@ -98,7 +102,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         sentenceCollection.dataSource = self
         
         
-        
+        //Download actual Data
+        TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
+        //here, we want to download the actual TileData, which can be taken from TileDataManager.downloadAllSelectionDataAs2DArray(...)
+        //what we want in the tile manager is something that grabs a 2DArrayof images
     }
     
     //  Provides the necessary behaviour when view appears
@@ -161,6 +168,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return appDataTileData[categoryIndex]
     }
     
+    
    
 }
 //class UIviewcontroller ends
@@ -198,7 +206,8 @@ class Tile: UICollectionViewCell{
     
     var tileData: TileData!{
         didSet{
-            var img = UIImage(named: tileData.getImageFileName())
+            //over here, we do the observe thing... we query for the specific image, and we run that asynchronously
+            var img = UIImage(named: tileData.getImageFileName())//var img = getImageFrom2DArray(tileData.getImageFileName())
             imageView.image = img
             labelView.text = tileData.getImageTitle()
         }
