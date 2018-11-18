@@ -104,8 +104,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //Download actual Data
         TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
+//        selectionCollection.backgroundColor = UIColor(displayP3Red: 1, green: 0, blue: 1, alpha: 1)
+        ColorManager.downloadColorForCollectionView(collectionView: selectionCollection, collectionEnum: SpecificCollectionView.selectionCollectionView, appView: view)
+        ColorManager.downloadColorForCollectionView(collectionView: categoryCollection, collectionEnum: SpecificCollectionView.categoryCollectionView, appView: view)
+        ColorManager.downloadColorForCollectionView(collectionView: sentenceCollection, collectionEnum: SpecificCollectionView.speechCollectionView, appView: view)
+        
         //here, we want to download the actual TileData, which can be taken from TileDataManager.downloadAllSelectionDataAs2DArray(...)
         //what we want in the tile manager is something that grabs a 2DArrayof images
+        
     }
     
     //  Provides the necessary behaviour when view appears
@@ -167,7 +173,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func replaceSelectionDataForCategory(_ categoryIndex: Int) -> [TileData]{
         return appDataTileData[categoryIndex]
     }
-    
     
    
 }

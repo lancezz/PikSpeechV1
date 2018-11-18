@@ -71,8 +71,10 @@ class LoginViewController: UIViewController {
                                             ref = Database.database().reference()
                                             //Create a Child reference under the root based on the uid of that user
                                             let userRef = ref.child("user").child(uid)
+                                
                                             //Initlize tilesPerRow
                                             
+                                
                                             let numberOfTiles = ["tilesPerRow": 5]
                                             userRef.setValue(numberOfTiles)
                                             //load the default structure of a user including
@@ -82,6 +84,16 @@ class LoginViewController: UIViewController {
                                             //                                            userRef.observe(.value) { (snapshot) in
                                             //                                                print(snapshot)
                                             //                                            }
+                                            //initialize selectioncolor
+                                            let selectioncolorRef = userRef.child("selectionColor")
+                                            let colorValues: [String: Any] = ["R": 0.1, "G": 0.2, "B": 0.3]
+                                            selectioncolorRef.setValue(colorValues)
+                                            
+                                            let categoryColorRef = userRef.child("categoryColor")
+                                            categoryColorRef.setValue(colorValues)
+                                            
+                                            let speechColorRef = userRef.child("speechColor")
+                                            speechColorRef.setValue(colorValues)
                                             ///////crate a reference to category Data under the uid
                                             let categoryDataRef = userRef.child("categoryData")
                                             let animalRef = categoryDataRef.child("Animals")
