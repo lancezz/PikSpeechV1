@@ -19,6 +19,7 @@
 import UIKit
 import AVFoundation
 import FirebaseDatabase
+import Firebase
 
 
 
@@ -83,6 +84,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //Firebase
         
         //Firebase
+        let actualWidth = view.frame.size.width
         let width = view.frame.size.width / 6.0
         let layout = selectionCollection.collectionViewLayout as! UICollectionViewFlowLayout
         
@@ -97,17 +99,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         sentenceCollection.delegate = self
         sentenceCollection.dataSource = self
         
-//         print ("from viewdidload, the returned value is ", TileSizeManager.getTilesPerRow())
-        
-        let intHolder = IntHolder()
-        
-        
-        TileSizeManager.getTilesPerRow(valueToUpdate: intHolder, callback: {(data:Int) -> Int in
-            return data
-        })
-        
-        print("after everything.......... ", intHolder.getInt())
-        
+        TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
     }
     
     //  Provides the necessary behaviour when view appears
@@ -169,6 +161,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func replaceSelectionDataForCategory(_ categoryIndex: Int) -> [TileData]{
         return appDataTileData[categoryIndex]
     }
+    
     
    
 }
