@@ -97,7 +97,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         sentenceCollection.delegate = self
         sentenceCollection.dataSource = self
         
+//         print ("from viewdidload, the returned value is ", TileSizeManager.getTilesPerRow())
         
+        let intHolder = IntHolder()
+        
+        
+        TileSizeManager.getTilesPerRow(valueToUpdate: intHolder, callback: {(data:Int) -> Int in
+            return data
+        })
+        
+        print("after everything.......... ", intHolder.getInt())
         
     }
     

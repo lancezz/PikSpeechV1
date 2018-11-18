@@ -21,13 +21,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginPasswordField: UITextField!
     
     @IBAction func loginButton(_ sender: Any) {
+
         Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!){
             user, error in
             if error != nil {
                 print("some log in error occurred")
             }
             //successsfuly logged in
-            self.performSegue(withIdentifier: "logintoMain", sender: nil)
+            else{
+                self.performSegue(withIdentifier: "logintoMain", sender: nil)}
             
         }
         
@@ -69,6 +71,10 @@ class LoginViewController: UIViewController {
                                             ref = Database.database().reference()
                                             //Create a Child reference under the root based on the uid of that user
                                             let userRef = ref.child("user").child(uid)
+                                            //Initlize tilesPerRow
+                                            
+                                            let numberOfTiles = ["tilesPerRow": 5]
+                                            userRef.setValue(numberOfTiles)
                                             //load the default structure of a user including
                                             //name, email, categoryData/animal/image, title,selectionData/word1
                                             //                                            let values: [String: Any] = ["email": emailtext.text!]
@@ -90,14 +96,14 @@ class LoginViewController: UIViewController {
                                             let animalsvalues: [String: Any] = ["title": "Animals","image": "cow.jpg"]
                                             animalRef.setValue(animalsvalues)
                                             let selectionAnimalsRef = animalRef.child("selectionData")
-                                            var selectionAnimalsValues = ["bear","cat","chicken","cow","dog","fish","pig","rabbit","squirrel","turtle"]
+                                            let selectionAnimalsValues = ["bear","cat","chicken","cow","dog","fish","pig","rabbit","squirrel","turtle"]
                                             selectionAnimalsRef.setValue(selectionAnimalsValues)
                                             
                                             //clothing default reference
                                             let clothingvalues: [String: Any] = ["title": "Clothing","image": "glasses.jpg"]
                                             clothingRef.setValue(clothingvalues)
                                             let selectionClothingRef = clothingRef.child("selectionData")
-                                            var selectionClothingValues = ["glasses","gloves","hat","jacket","shirt","shoes","shorts","socks"]
+                                            let selectionClothingValues = ["glasses","gloves","hat","jacket","shirt","shoes","shorts","socks"]
                                             
                                             selectionClothingRef.setValue(selectionClothingValues)
                                             
@@ -105,40 +111,40 @@ class LoginViewController: UIViewController {
                                             let drinksvalues: [String: Any] = ["title": "Drinks","image": "Milk.jpg"]
                                             drinksRef.setValue(drinksvalues)
                                             let selectionDrinksRef = drinksRef.child("selectionData")
-                                            var selectionDrinksValues = ["Juice","Milk","Soda","Tea"]
+                                            let selectionDrinksValues = ["Juice","Milk","Soda","Tea"]
                                             selectionDrinksRef.setValue(selectionDrinksValues)
                                             
                                             //feeling default reference
                                             let feelingsvalues: [String: Any] = ["title": "Feelings","image": "Love.jpeg"]
                                             feelingsRef.setValue(feelingsvalues)
                                             let selectionFeelingsRef = feelingsRef.child("selectionData")
-                                            var selectionFeelingsValues = ["Angry","Cold","confused","disgust","Happy","Hot","hungry","Love","Sad","shocked","Sick","Sleepy"]
+                                            let selectionFeelingsValues = ["Angry","Cold","confused","disgust","Happy","Hot","hungry","Love","Sad","shocked","Sick","Sleepy"]
                                             selectionFeelingsRef.setValue(selectionFeelingsValues)
                                             //foodref default reference
                                             let foodvalues: [String: Any] = ["title": "Food","image": "Pizza.jpeg"]
                                             foodRef.setValue(foodvalues)
                                             let selectionFoodRef = foodRef.child("selectionData")
-                                            var selectionFoodValues = ["Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetables"]
+                                            let selectionFoodValues = ["Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetables"]
                                             selectionFoodRef.setValue(selectionFoodValues)
                                             
                                             //common default reference
                                             let commonvalues: [String: Any] = ["title": "common","image": "go.jpg"]
                                             commonRef.setValue(commonvalues)
                                             let selectionCommonRef = commonRef.child("selectionData")
-                                            var selectionCommonValues = ["go","i","like","no","question","stop","you","yeet"]
+                                            let selectionCommonValues = ["go","i","like","no","question","stop","you","yeet"]
                                             selectionCommonRef.setValue(selectionCommonValues)
                                             
                                             //people defualt reference
                                             let peoplevalues: [String: Any] = ["title": "people","image": "girl.jpg"]
                                             peopleRef.setValue(peoplevalues)
                                             let selectionPeopleRef = peopleRef.child("selectionData")
-                                            var selectionPeopleValues = ["baby","boy","dad","girl","grandpa"]
+                                            let selectionPeopleValues = ["baby","boy","dad","girl","grandpa"]
                                             selectionPeopleRef.setValue(selectionPeopleValues)
                                             
                                             //initialize tileData reference which stores the actual information of the images
                                             let imageDefaultArray = ["bear","cat","chicken","cow","dog","fish","pig","rabbit","squirrel","turtle","glasses","gloves","hat","jacket","shirt","shoes","shorts","socks","Juice","Milk","Soda","Tea","Angry","Cold","confused","disgust","Happy","Hot","hungry","Love","Sad","shocked","Sick","Sleepy","Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetables","go","i","like","no","question","stop","you","yeet","baby","boy","dad","girl","grandpa"]
                                             
-                                            //
+                                            
                                               let tileDataRef = userRef.child("tileData")
 
                                             for defaultimages in imageDefaultArray {
@@ -148,6 +154,7 @@ class LoginViewController: UIViewController {
                                             }
                                             
                                         }
+                                      
                                         
         }
         
@@ -180,6 +187,7 @@ class LoginViewController: UIViewController {
         //        }
         //        Auth.auth().removeStateDidChangeListener(listener)
         // Do any additional setup after loading the view.
+       
     }
     
     override func viewWillAppear(_ animated: Bool){
