@@ -15,9 +15,16 @@
 //                  Data flow of tiles now correctly illustrated by collectionViews (Miguel Taningco)
 //                  Implemented Text-to-Speech feature                              (Lance Zhang)
 //      11/05/2018: Provided documentation                                          (Miguel Taningco)
+//      11/18/2018: Allowed to authenticate users and query for data                (Miguel Taningco and Lance Zhang)
+
 
 import UIKit
 import AVFoundation
+import FirebaseDatabase
+import Firebase
+import FirebaseStorage
+
+
 
 
 
@@ -26,11 +33,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var speechBarTileData = [TileData]()
     var selectionBarTileData = Initializer.getDefaultSelectionBarData()
-    var categoryBarTileData = Initializer.getCategoryData()//TODO: i think this should be a let
-    var appDataTileData = Initializer.getAppDataTileData()//TODO: i think this should be a let
+    var categoryBarTileData = Initializer.getCategoryData()
+    var appDataTileData = Initializer.getAppDataTileData()
     
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
+    
     
     @IBOutlet weak var selectionCollection: UICollectionView!
     
@@ -76,7 +84,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //  Initializes properties of views
     override func viewDidLoad(){
         super.viewDidLoad()
+        //Firebase
         
+        //Firebase
+        //All these are default things
+        let actualWidth = view.frame.size.width
         let width = view.frame.size.width / 6.0
         let layout = selectionCollection.collectionViewLayout as! UICollectionViewFlowLayout
         
@@ -90,6 +102,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         sentenceCollection.delegate = self
         sentenceCollection.dataSource = self
+        
+        
+        //Download actual Data
+        TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
+        ColorManager.downloadColorForCollectionView(collectionView: selectionCollection, collectionEnum: SpecificCollectionView.selectionCollectionView, appView: view)
+        ColorManager.downloadColorForCollectionView(collectionView: categoryCollection, collectionEnum: SpecificCollectionView.categoryCollectionView, appView: view)
+        ColorManager.downloadColorForCollectionView(collectionView: sentenceCollection, collectionEnum: SpecificCollectionView.speechCollectionView, appView: view)
+        
+        downloadAllSelectionDataAs2DArray()
+        
         
     }
     
@@ -152,8 +174,135 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func replaceSelectionDataForCategory(_ categoryIndex: Int) -> [TileData]{
         return appDataTileData[categoryIndex]
     }
-}
+    
+    func downloadAllSelectionDataAs2DArray(){
+        let user = Auth.auth().currentUser
+        guard let uid = user?.uid else
+        {
+            return
+        }
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let userRef = ref.child("user").child(uid)
+        
+        //Listen to changes under categoryData JSON tree
+        userRef.child("categoryData").observe(DataEventType.value, with:
+            {
+                (snapshot) in
+                print("entered the observe function, the snapshot for this one is")
+                print(snapshot)
+                let dict = snapshot.value as? NSDictionary
+                var downloadedCategoryData = [TileData]()
+                var downloadedAppData2DString = [[String]]()
+                
+                
+                //go through each category
+                for currentCategory in dict!{
+                    let postDict = currentCategory.value as? NSDictionary
 
+                    var categoryImageFileName = ""
+                    let categoryTitle = currentCategory.key as! String
+                    
+                    //go for each attribute in the category
+                    for categoryChild in postDict!{
+                        
+                        if(categoryChild.key as? String == "selectionData"){
+                            let selectionDataArray = categoryChild.value as? NSArray
+                            var stringDataArrayForSection = [String]()
+                            
+                            //go for each word in the selectionDataArray
+                            for currentSelectionData in selectionDataArray!{
+                                //at this point, you have finally gone down to the lowest level in the selectionData of 1 category
+                                stringDataArrayForSection.append(currentSelectionData as! String)
+                            }
+                            
+                            downloadedAppData2DString.append(stringDataArrayForSection)
+                        }
+                        if(categoryChild.key as? String == "image"){
+                            categoryImageFileName = (categoryChild.value as? String)!
+                            downloadedCategoryData.append(TileData(categoryImageFileName, categoryTitle))
+                        }
+                    }
+                }
+                
+                
+                //at this point, the tileData for the categories (downloadedCategoryData) is set up, and the (downloadedAppData2DString)is also set up.
+                //we now need to take the image file names of each of the pictures
+                print("below is the downloadedCategoryData")
+                for currentRow in downloadedCategoryData{
+                    print("TileData:")
+                    print("\t", currentRow.getImageTitle())
+                    print("\t", currentRow.getImageFileName())
+                }
+                print("below is the downloadedAppData2DString")
+                for currentRow in downloadedAppData2DString{
+                    print(currentRow)
+                }
+                var downloadedAppData2DTileData = [[TileData]]()
+                var downloadedSelectionBarTileData = [TileData]()
+                
+                userRef.child("tileData").observe(DataEventType.value, with:
+                    {
+                        (nestedSnapshot) in
+                        print("now inside the nested observe, here is the snapshot")
+                        print(nestedSnapshot)
+                        let dictTileData = nestedSnapshot.value as? NSDictionary
+                        
+                        //go through each tileData in the tileData attribute
+                        var tileDataArray = [TileData]()
+                        for currentTileData in dictTileData!{
+                            let tileDataDict = currentTileData.value as? NSDictionary
+                            tileDataArray.append(TileData(tileDataDict!["Image"] as! String, tileDataDict!["title"] as! String))
+                        }
+                        
+                        for currentRow in downloadedAppData2DString{
+                            var currentCategoryTileData = [TileData]()
+                            for currentString in currentRow{
+                                for currentTileData in tileDataArray{
+                                    if(currentTileData.getImageTitle() == currentString){
+                                        currentCategoryTileData.append(currentTileData)
+                                    }
+                                }
+                            }
+                            downloadedAppData2DTileData.append(currentCategoryTileData)
+                        }
+                        
+                        //at this point, your downloadedAppData2DTileData has been properly initialized
+                        print("below is the downloadedAppData2DTileData")
+                        for currentRow in downloadedAppData2DTileData{
+                            print("printing one row of 2D Tile Data:")
+                            for currentTile in currentRow{
+                                print("\tTileData:")
+                                print("\t\t", currentTile.getImageTitle())
+                                print("\t\t", currentTile.getImageFileName())
+                            }
+                        }
+                        downloadedSelectionBarTileData = downloadedAppData2DTileData[0]
+                        
+                        self.appDataTileData = downloadedAppData2DTileData
+                        self.categoryBarTileData = downloadedCategoryData
+                        self.selectionBarTileData = downloadedSelectionBarTileData
+                        
+                        self.selectionCollection.reloadData()
+                        self.categoryCollection.reloadData()
+                        self.sentenceCollection.reloadData()
+                        
+                        print("successfully did all the printing... we have updated the arrays and reloaded the collectionViews")
+                        
+                }
+                ){
+                    (error) in
+                    print(error.localizedDescription)
+                }
+        }
+        ){
+            (error) in
+            print(error.localizedDescription)
+        }
+    }
+}
+//class UIviewcontroller ends
 
 
 //  TileData Class contains information needed to make a Tile UICollectionViewCell
@@ -188,17 +337,10 @@ class Tile: UICollectionViewCell{
     
     var tileData: TileData!{
         didSet{
-            var img = UIImage(named: tileData.getImageFileName())
-            imageView.image = img
             labelView.text = tileData.getImageTitle()
+            imageView.loadImageUsingCacheWithFileNameString(fileName: tileData.getImageFileName())
         }
     }
-    
-    //  Constructor for Tile using a frame
-//    override init(frame: CGRect){
-//        super.init(frame: frame)
-////        setupViews()
-//    }
     
     //  Constructor for Tile using a labelName, imageName, and a rect
     init(_ labelName: String, _ imageName: String, _ rect: CGRect){
@@ -206,22 +348,6 @@ class Tile: UICollectionViewCell{
         labelView.text = labelName
         imageView.image = UIImage(named: imageName)
     }
-    
-    //  Sets the label of the Tile
-//    func setLabel(_ text: String){
-//        labelView.text = text
-//    }
-//
-//    //  Sets the image of the Tile
-//    func setImage(_ image: UIImage){
-//        imageView.image = image
-//    }
-//
-//    //  Sets up the views of the tile
-//    func setupViews(){
-//        addSubview(imageView)
-//        addSubview(labelView)
-//    }
     
     //  Required constructor for the Tile
     required init?(coder aDecoder: NSCoder) {
