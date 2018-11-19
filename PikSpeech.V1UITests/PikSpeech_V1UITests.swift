@@ -9,109 +9,153 @@
 //
 //  Change Log:
 //      11/04/2018: Created three three major UI tests        (Lance Zhang)
+//      11/19/2018: Created major UI testcases for version 2 (Sheel Soneji)
+
 import XCTest
 
 class PikSpeech_V1UITests: XCTestCase {
-
+    
     private var app: XCUIApplication!
     
     override func setUp() {
         
         super.setUp()
         continueAfterFailure = false
-
+        
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app = XCUIApplication()
         app.launch()
         XCUIDevice.shared.orientation = .landscapeRight
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
-
+    
     override func tearDown() {
         super.tearDown()
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
     
-    func testSettingsButtonNav() {
-        //testing the button on the main page that directs to the Customization Menu
+    func testlogin() {
+        //testing login
         let app = XCUIApplication()
+        let validpassword = "testing"
+        let validemail = "CMPT275Group11Test@gmail.com"
+        
+        let userNameTextField =  app.textFields["Email"]
+        XCTAssertTrue(userNameTextField.exists)
+        userNameTextField.tap()
+        userNameTextField.typeText(validemail)
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordSecureTextField.exists)
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText(validpassword)
+        
+        app.buttons["Log In"].tap()
+        
+    }
+    
+    
+    func testdrawing() {
+        //testing login and drawing
+        let app = XCUIApplication()
+        let validpassword = "testing"
+        let validemail = "CMPT275Group11Test@gmail.com"
+        
+        let userNameTextField =  app.textFields["Email"]
+        XCTAssertTrue(userNameTextField.exists)
+        userNameTextField.tap()
+        userNameTextField.typeText(validemail)
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordSecureTextField.exists)
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText(validpassword)
+        
+        app.buttons["Log In"].tap()
+        app.buttons["SettingsButton"].tap()
+        app/*@START_MENU_TOKEN@*/.buttons["- Drawing"]/*[[".otherElements[\"SettingsView\"].buttons[\"- Drawing\"]",".buttons[\"- Drawing\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+        element/*@START_MENU_TOKEN@*/.swipeRight()/*[[".swipeDown()",".swipeRight()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        app.buttons["LightBlue"].tap()
+        element.swipeUp()
+        app.buttons["Yellow"].tap()
+        element.swipeUp()
+        element/*@START_MENU_TOKEN@*/.swipeLeft()/*[[".swipeUp()",".swipeLeft()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        app.buttons["Reset"].tap()
+        app.navigationBars["PikSpeech_V1.DrawingView"].buttons["Customization Menu"].tap()
+        app/*@START_MENU_TOKEN@*/.buttons["Back to Main"]/*[[".otherElements[\"SettingsView\"].buttons[\"Back to Main\"]",".buttons[\"Back to Main\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+    }
+    
+    
+    func testcoloursize() {
+        //testing login and drawing
+        let app = XCUIApplication()
+        let validpassword = "testing"
+        let validemail = "CMPT275Group11Test@gmail.com"
+        
+        let userNameTextField =  app.textFields["Email"]
+        XCTAssertTrue(userNameTextField.exists)
+        userNameTextField.tap()
+        userNameTextField.typeText(validemail)
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordSecureTextField.exists)
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText(validpassword)
+        
+        app.buttons["Log In"].tap()
+        
         let settingsbuttonButton = app.buttons["SettingsButton"]
-        let navBar = app.navigationBars["Customization Menu"]
         settingsbuttonButton.tap()
-        XCTAssert(navBar.exists, "The settings Navigation Bar does not exist")
+        
+        let coloursSizesButton = app/*@START_MENU_TOKEN@*/.buttons["- Colours/Sizes"]/*[[".otherElements[\"SettingsView\"].buttons[\"- Colours\/Sizes\"]",".buttons[\"- Colours\/Sizes\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        coloursSizesButton.tap()
+        app.buttons["color 1"].tap()
+        
+        let customizationMenuButton = app.navigationBars["PikSpeech_V1.ColorTileSizeView"].buttons["Customization Menu"]
+        customizationMenuButton.tap()
+        
+        let backToMainButton = app/*@START_MENU_TOKEN@*/.buttons["Back to Main"]/*[[".otherElements[\"SettingsView\"].buttons[\"Back to Main\"]",".buttons[\"Back to Main\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        backToMainButton.tap()
+        settingsbuttonButton.tap()
+        coloursSizesButton.tap()
+        app.buttons["Large"].tap()
+        customizationMenuButton.tap()
+        backToMainButton.tap()
         
     }
-
-    func testCameraRollButtonNav(){
-        
+    
+    
+    func testcameraroll(){
         let app = XCUIApplication()
+        let validpassword = "testing"
+        let validemail = "CMPT275Group11Test@gmail.com"
+        
+        let userNameTextField =  app.textFields["Email"]
+        XCTAssertTrue(userNameTextField.exists)
+        userNameTextField.tap()
+        userNameTextField.typeText(validemail)
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordSecureTextField.exists)
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText(validpassword)
+        
+        app.buttons["Log In"].tap()
         let settingsbuttonButton = app.buttons["SettingsButton"]
         settingsbuttonButton.tap()
-        let cameraRollButton = app.buttons["- Camera Roll"]
-        cameraRollButton.tap()
-        let label = app.staticTexts["Camera Roll"]
-        XCTAssert(label.exists, "It's not on the Camera Roll page")
         
-        let customizationMenuButton = app.navigationBars["UIView"].buttons["Customization Menu"]
-        customizationMenuButton.tap()
-        app.buttons["- Drawing"].tap()
-        let label1 = app.staticTexts.matching(identifier: "Drawing").firstMatch
-        XCTAssert(label1.label == "Drawing", "It's not on the drawing page")
-     
-        customizationMenuButton.tap()
-        app.buttons["     Add Favourites"].tap()
-        let label2 = app.staticTexts["Add Favourites"]
-        XCTAssert(label2.exists, "It's not on the Add Favourites page")
-        customizationMenuButton.tap()
-        app.buttons["- Colours"].tap()
-        let label3 = app.staticTexts["Color and Size"]
-        XCTAssert(label3.exists, "It's not on the color and size page")
-        customizationMenuButton.tap()
-        app.buttons["- Title Size"].tap()
-        XCTAssert(label3.exists, "It's not on the color and size page")
-        customizationMenuButton.tap()
-        
-    
-        
-    }
-    
-    func testaddtionAndDeletion(){
-        let app = XCUIApplication()
-        let cellsQuery = XCUIApplication().collectionViews.cells
-        let catElement = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 2).cells.otherElements.containing(.image, identifier:"cat").element
-        XCTAssert(catElement.exists, "It's no cat on this page")
-        cellsQuery.otherElements.containing(.staticText, identifier:"cat").element.tap()
-        cellsQuery.otherElements.containing(.image, identifier:"Love").element.tap()
-        cellsQuery.otherElements.containing(.staticText, identifier:"Love").element.tap()
-        let loveElement = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 2).cells.otherElements.containing(.image, identifier:"Love").element
-        XCTAssert(loveElement.exists, "It's no love on this page")
-        cellsQuery.otherElements.containing(.image, identifier:"Milk").element.tap()
-        cellsQuery.otherElements.containing(.staticText, identifier:"Milk").element.tap()
-      
-        
-        let loveinSentence = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 0).cells.otherElements.containing(.image, identifier:"Love").element
-        app.buttons["DeletionButton"].tap()
-        sleep(1)
-        app.buttons["DeletionButton"].tap()
-        XCTAssertFalse(loveinSentence.exists, "There is not supposed to have love on this page")
+        let cameraButton = app.buttons["- Camera Roll"]
+        cameraButton.tap()
 
-        }
-    func testSpeakButton() {
+        let customizationMenuButton = app.navigationBars["PikSpeech_V1.UploadView"].buttons["Customization Menu"]
+        customizationMenuButton.tap()
         
-        let app = XCUIApplication()
-        let cellsQuery = app.collectionViews.cells
-        cellsQuery.otherElements.containing(.image, identifier:"chicken").element.tap()
-        cellsQuery.otherElements.containing(.image, identifier:"cow").element.tap()
-        cellsQuery.otherElements.containing(.image, identifier:"rabbit").element.tap()
-        app.buttons["SpeakButton"].tap()
-        let chickeninSentence = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 0).cells.otherElements.containing(.image, identifier:"chicken").element
-        let cowinSentence = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 0).cells.otherElements.containing(.image, identifier:"cow").element
-        let rabbitinSentence = app.otherElements.containing(.button, identifier:"SettingsButton").children(matching: .collectionView).element(boundBy: 0).cells.otherElements.containing(.image, identifier:"rabbit").element
-        XCTAssert(chickeninSentence.exists, "Chicken should be present in sentence")
-        XCTAssert(cowinSentence.exists, "Cow should be present in sentence")
-        XCTAssert(rabbitinSentence.exists, "rabbit should be present in sentence")
+        let backToMainButton = app/*@START_MENU_TOKEN@*/.buttons["Back to Main"]/*[[".otherElements[\"SettingsView\"].buttons[\"Back to Main\"]",".buttons[\"Back to Main\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        backToMainButton.tap()
+
         
     }
-    
 }
