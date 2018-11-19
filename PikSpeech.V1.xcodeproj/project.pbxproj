@@ -25,7 +25,6 @@
 		7EEA7418219D019000CBF04E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA7417219D018F00CBF04E /* LoginViewController.swift */; };
 		7EEA741A219E552F00CBF04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EEA7419219E552F00CBF04E /* GoogleService-Info.plist */; };
 		7EEA741E21A0CF5300CBF04E /* TileSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA741D21A0CF5300CBF04E /* TileSizeManager.swift */; };
-		7EEA742021A0CF7000CBF04E /* TileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA741F21A0CF7000CBF04E /* TileDataManager.swift */; };
 		7EEA742221A2973F00CBF04E /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA742121A2973F00CBF04E /* UploadViewController.swift */; };
 		7EEA742421A31B0C00CBF04E /* ColorTileSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA742321A31B0C00CBF04E /* ColorTileSizeViewController.swift */; };
 		7EEA742E21A34D3600CBF04E /* DrawingVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA742B21A34D3600CBF04E /* DrawingVIew.swift */; };
@@ -81,7 +80,6 @@
 		7EEA7417219D018F00CBF04E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7EEA7419219E552F00CBF04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7EEA741D21A0CF5300CBF04E /* TileSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileSizeManager.swift; sourceTree = "<group>"; };
-		7EEA741F21A0CF7000CBF04E /* TileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileDataManager.swift; sourceTree = "<group>"; };
 		7EEA742121A2973F00CBF04E /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		7EEA742321A31B0C00CBF04E /* ColorTileSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTileSizeViewController.swift; sourceTree = "<group>"; };
 		7EEA742B21A34D3600CBF04E /* DrawingVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingVIew.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				8A7EA3EE218F6F0A00737705 /* Initializer.swift */,
 				7EEA7417219D018F00CBF04E /* LoginViewController.swift */,
 				7EEA741D21A0CF5300CBF04E /* TileSizeManager.swift */,
-				7EEA741F21A0CF7000CBF04E /* TileDataManager.swift */,
 				8A0E406721A1EAE700A9B24B /* ColorManager.swift */,
 				7EEA742121A2973F00CBF04E /* UploadViewController.swift */,
 				7EEA742321A31B0C00CBF04E /* ColorTileSizeViewController.swift */,
@@ -459,7 +456,6 @@
 				7EEA742E21A34D3600CBF04E /* DrawingVIew.swift in Sources */,
 				7EEA7418219D019000CBF04E /* LoginViewController.swift in Sources */,
 				7E848F80218B746C00ABA01D /* ViewController.swift in Sources */,
-				7EEA742021A0CF7000CBF04E /* TileDataManager.swift in Sources */,
 				7EEA742F21A34D3600CBF04E /* DrawingSettingsViewController.swift in Sources */,
 				7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */,
 				7EEA743021A34D3600CBF04E /* Pencil.swift in Sources */,

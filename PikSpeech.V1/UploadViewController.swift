@@ -3,9 +3,11 @@
 //  PikSpeech.V1
 //
 //  Created by Lance Zhang on 2018-11-18.
+//  Collaboration with Miguel Taningco
 //  Copyright © 2018 cmpt275group11. All rights reserved.
 //
-
+//  Change Log:
+//      11/18/2018: Allowed users to uplaod tiles from camera roll  (Miguel Taningco and Lance Zhang)
 import UIKit
 import Firebase
 import FirebaseStorage
@@ -71,7 +73,7 @@ class UploadViewController: UIViewController {
                 (error) in
                 print(error.localizedDescription)
             }
-            //initialize reference in tileData
+            //  Initialize reference in tileData
             let uploadTileDataRef = userRef.child("tileData").child("\(self.uploadTileText.text ?? "i")")
             let uploadTileDataValue = ["Image":"\(date).jpg","frequency":0,"title":"\(self.uploadTileText.text ?? "i")"] as? [String: Any]
             uploadTileDataRef.setValue(uploadTileDataValue)
@@ -80,7 +82,7 @@ class UploadViewController: UIViewController {
         }
         
         
-    }//when upload button pressed
+    }// When upload button pressed
     var picker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -91,13 +93,11 @@ class UploadViewController: UIViewController {
         
     }
     
-    //    static func uploadImage(_ image: UIImage, at reference: StorageReference, completion: @escaping (?))
-    
-    
     
 }
 
 extension UploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    //  Invoke the camera roll to get access to the picture to upload
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             uploadImagePreview.contentMode = .scaleAspectFit

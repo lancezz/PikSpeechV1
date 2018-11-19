@@ -17,6 +17,7 @@
 //      11/05/2018: Provided documentation                                          (Miguel Taningco)
 //      11/18/2018: Allowed to authenticate users and query for data                (Miguel Taningco and Lance Zhang)
 
+
 import UIKit
 import AVFoundation
 import FirebaseDatabase
@@ -32,9 +33,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var speechBarTileData = [TileData]()
     var selectionBarTileData = Initializer.getDefaultSelectionBarData()
-    var categoryBarTileData = Initializer.getCategoryData()//TODO: i think this should be a let
-    var appDataTileData = Initializer.getAppDataTileData()//TODO: i think this should be a let
-    //var image2DArray = [[UIImages]]
+    var categoryBarTileData = Initializer.getCategoryData()
+    var appDataTileData = Initializer.getAppDataTileData()
     
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
@@ -106,14 +106,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //Download actual Data
         TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
-//        selectionCollection.backgroundColor = UIColor(displayP3Red: 1, green: 0, blue: 1, alpha: 1)
         ColorManager.downloadColorForCollectionView(collectionView: selectionCollection, collectionEnum: SpecificCollectionView.selectionCollectionView, appView: view)
         ColorManager.downloadColorForCollectionView(collectionView: categoryCollection, collectionEnum: SpecificCollectionView.categoryCollectionView, appView: view)
         ColorManager.downloadColorForCollectionView(collectionView: sentenceCollection, collectionEnum: SpecificCollectionView.speechCollectionView, appView: view)
         
         downloadAllSelectionDataAs2DArray()
         
-        //what we want in the tile manager is something that grabs a 2DArrayof images
         
     }
     
@@ -178,14 +176,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func downloadAllSelectionDataAs2DArray(){
-        //do the observe
-        //have the snapshot
-        //2d loop it so that you can update the tileData2DArray
-        //similarly, we update the categoryDataArray
-        
-        //at this point, your 2d array has been completely updated, which means it is ready to use for reloading data, also your categoryDataArray has been updated as well
-        //now you can reload your selectionBarTileData as well
-        //reload selectionCollectionView, categoryCllectionView
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
         {
@@ -195,57 +185,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         var ref: DatabaseReference!
         ref = Database.database().reference()
         let userRef = ref.child("user").child(uid)
-        ////trying
-//        userRef.child("categoryData/Animals/selectionData").observeSingleEvent(of: .value, with:
-//            {
-//                (snapshot) in
-//                var value = snapshot.value as? [String] ?? []
-//                let size = value.count
-//                value.append("i")
-//                userRef.child("categoryData/Animals/selectionData").setValue(value)
-//                print(value)
-//        }
-//        ){
-//            (error) in
-//            print(error.localizedDescription)
-//        }
-        //userRef.child("categoryData/Animals/selectionData").childByAutoId().setValue("12345")
-       
-        ///trying
         
+        //Listen to changes under categoryData JSON tree
         userRef.child("categoryData").observe(DataEventType.value, with:
             {
                 (snapshot) in
                 print("entered the observe function, the snapshot for this one is")
                 print(snapshot)
                 let dict = snapshot.value as? NSDictionary
-//                print("this is dict........................................", dict)
-                
                 var downloadedCategoryData = [TileData]()
                 var downloadedAppData2DString = [[String]]()
                 
                 
                 //go through each category
                 for currentCategory in dict!{
-//                    print("this is what currentCategory actually is ", currentCategory)
                     let postDict = currentCategory.value as? NSDictionary
-//                    print("currently in the category, here is the printed postDict ", postDict)
-                    
-                    //
+
                     var categoryImageFileName = ""
                     let categoryTitle = currentCategory.key as! String
                     
                     //go for each attribute in the category
                     for categoryChild in postDict!{
                         
-//                        print("the category child in the current child is ", categoryChild)
                         if(categoryChild.key as? String == "selectionData"){
                             let selectionDataArray = categoryChild.value as? NSArray
                             var stringDataArrayForSection = [String]()
                             
                             //go for each word in the selectionDataArray
                             for currentSelectionData in selectionDataArray!{
-//                                print("this is the currentSelectionData= ", currentSelectionData)
                                 //at this point, you have finally gone down to the lowest level in the selectionData of 1 category
                                 stringDataArrayForSection.append(currentSelectionData as! String)
                             }
@@ -333,7 +300,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             (error) in
             print(error.localizedDescription)
         }
-        //        tileData2DArray.removeAll()
     }
 }
 //class UIviewcontroller ends

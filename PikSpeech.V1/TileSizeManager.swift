@@ -15,6 +15,7 @@ import Firebase
 import FirebaseDatabase
 
 class TileSizeManager {
+    //  Retrieven tilesPerRow data of the logged in user from Firebase
     static func downloadTilesPerRow(viewWidth: CGFloat, collectionView: UICollectionView){
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else

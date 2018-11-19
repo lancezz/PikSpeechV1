@@ -3,19 +3,25 @@
 //  PikSpeech.V1
 //
 //  Created by Lance Zhang on 2018-11-02.
-//  Copyright © 2018 cmpt275group11. All rights reserved.
+//  Collaboration with Miguel Taningco & Sheel Soneji
+//  Copyright © 2018 CMPT 275 Group11: A-team. All rights reserved.
 //
+//  Changed Log:
+//      11/14/2018: Allow the user to log out to the sign up page   (Lance Zhang)
+
 
 import UIKit
 import Firebase
 import FirebaseDatabase
 
+//  Controls the behaviour of the settings page
 class SettingsViewController: UIViewController {
-    
+    //  Log out the user
     @IBAction func logoutButton(_ sender: Any) {
         handlelogout()
     }
     
+    // Task to do when the settings View gets loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +34,7 @@ class SettingsViewController: UIViewController {
     }
     
 
-    //logout handler
+    //  Logout handler
     func handlelogout() {
         do {
         try Auth.auth().signOut()

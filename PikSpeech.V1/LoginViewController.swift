@@ -9,20 +9,18 @@
 //  Change Log:
 //      11/18/2018: Allowed app to store images in the cache    (Miguel Taningco and Lance Zhang)
 
+
 import UIKit
 import Firebase
 import FirebaseDatabase
 
+//  Controlls the log in view
 class LoginViewController: UIViewController {
     
     
-    
-    
     @IBOutlet weak var loginEmailField: UITextField!
-    
-    
     @IBOutlet weak var loginPasswordField: UITextField!
-    
+    //  Logs user with Valid Authentication
     @IBAction func loginButton(_ sender: Any) {
 
         Auth.auth().signIn(withEmail: loginEmailField.text!, password: loginPasswordField.text!){
@@ -37,7 +35,7 @@ class LoginViewController: UIViewController {
         }
         
     }
-    
+    //  Register the User on Firebase
     @IBAction func signupButoon(_ sender: Any) {
         
         let alert = UIAlertController(title: "Register",
@@ -80,14 +78,7 @@ class LoginViewController: UIViewController {
                                 
                                             let numberOfTiles = ["tilesPerRow": 5]
                                             userRef.setValue(numberOfTiles)
-                                            //load the default structure of a user including
-                                            //name, email, categoryData/animal/image, title,selectionData/word1
-                                            //                                            let values: [String: Any] = ["email": emailtext.text!]
-                                            //                                            userRef.setValue(values)
-                                            //                                            userRef.observe(.value) { (snapshot) in
-                                            //                                                print(snapshot)
-                                            //                                            }
-                                            //initialize selectioncolor
+
                                             let selectioncolorRef = userRef.child("selectionColor")
                                             var colorValues: [String: Any] = ["R": 0.925, "G": 0.82, "B": 0.87]
                                             selectioncolorRef.setValue(colorValues)
@@ -198,14 +189,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        let listener = Auth.auth().addStateDidChangeListener{
-        //            auth, user in
-        //            if user != nil {
-        //                self.performSegue(withIdentifier: "logintoMain", sender: nil)
-        //            }
-        //        }
-        //        Auth.auth().removeStateDidChangeListener(listener)
-        // Do any additional setup after loading the view.
        
     }
     
@@ -213,14 +196,6 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }

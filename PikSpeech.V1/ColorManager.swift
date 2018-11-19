@@ -3,7 +3,7 @@
 //  PikSpeech.V1
 //
 //  Created by Lance Zhang on 2018-11-18.
-//  Collaboration with Miguel Taningco and Lance Zhang
+//  Collaboration with Miguel Taningco
 //  Copyright © 2018 CMPT 275 Group11: A-team. All rights reserved.
 //
 //  Change Log:
@@ -21,6 +21,7 @@ enum SpecificCollectionView{
 }
 
 class ColorManager{
+    //  Retrieve the RGB information from Firebase under logged in user
     static func downloadColorForCollectionView(collectionView: UICollectionView, collectionEnum: SpecificCollectionView, appView: UIView){
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
@@ -39,8 +40,7 @@ class ColorManager{
             childString = "selectionColor"
         case SpecificCollectionView.categoryCollectionView:
             childString = "categoryColor"
-//        case SpecificCollectionView.speechCollectionView:
-//            childString = "speechColor"
+
         default:
             childString = "speechColor"
         }
@@ -48,7 +48,6 @@ class ColorManager{
         userRef.child(childString).observe(DataEventType.value, with:
             {
                 (snapshot) in
-//                print(snapshot)
                 let postDict = snapshot.value as? [String: AnyObject] ?? [:]
                 
                 let r = postDict["R"] as? CGFloat ?? 1

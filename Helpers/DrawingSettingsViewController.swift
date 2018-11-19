@@ -1,3 +1,8 @@
+///******************************************
+///OriginalTitle: UIKit Drawing Tutorial: How to Make simple Drawing App source code
+///Auther: Ron Kliffer updated this tutorial for Xcode 10, Swift 4.2 and iOS 12. Abdul Azeem Khan wrote the original and Jean-Pierre Distler completed a previous update.
+///Availabile on: raywenderlich
+///******************************************
 /// Copyright (c) 2018 Razeware LLC
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +30,7 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+//
 
 import UIKit
 

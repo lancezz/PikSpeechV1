@@ -3,8 +3,11 @@
 //  PikSpeech.V1
 //
 //  Created by Lance Zhang on 2018-11-19.
+//  Collaboration with Miguel Taningco
 //  Copyright © 2018 cmpt275group11. All rights reserved.
 //
+//  Change Log:
+//      11/18/2018: Allowed users to change the color and tile size in the Main View    (Miguel Taningco and Lance Zhang)
 
 import UIKit
 import Firebase
@@ -13,7 +16,7 @@ import FirebaseDatabase
 
 class ColorTileSizeViewController: UIViewController {
     
-    
+    //  Change the attribute of color in Firebase to a preset
     @IBAction func themeOneButton(_ sender: Any) {
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
@@ -33,6 +36,7 @@ class ColorTileSizeViewController: UIViewController {
         
         
     }
+    //  Change the attribute of color in Firebase to default pink
     @IBAction func pinkColorButton(_ sender: Any) {
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
@@ -51,6 +55,7 @@ class ColorTileSizeViewController: UIViewController {
         speechcolorRef.setValue(speechColorValue)
         
     }
+    //  Change the attribute of color in Firebase to a preset
     @IBAction func themeTwoButton(_ sender: Any) {
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
@@ -68,7 +73,7 @@ class ColorTileSizeViewController: UIViewController {
         selectioncolorRef.setValue(selectionColorValue)
         speechcolorRef.setValue(speechColorValue)
     }
-    
+    //  Change the tile size to 6 per row
     @IBAction func smallSizeButton(_ sender: Any) {
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
@@ -83,7 +88,7 @@ class ColorTileSizeViewController: UIViewController {
         
     }
     
- 
+    //  Change the tile size to 5 per row
     @IBAction func mediumSizeButton(_ sender: Any) {
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
@@ -97,6 +102,7 @@ class ColorTileSizeViewController: UIViewController {
         userRef.updateChildValues(["tilesPerRow":5])
     }
     
+    //  Change the tile size to 4 per row
     @IBAction func largeSizeButton(_ sender: Any) {
         let user = Auth.auth().currentUser
         guard let uid = user?.uid else
@@ -113,7 +119,6 @@ class ColorTileSizeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
     
