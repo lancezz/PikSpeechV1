@@ -32,7 +32,7 @@ class UploadViewController: UIViewController {
     }
     
     @IBAction func uploadToFirebase(_ sender: Any) {
-        if uploadTileText != nil {
+        if uploadTileText.text != "" && uploadImagePreview.image != nil{
             let storage = Storage.storage()
             let storageRef = storage.reference()
             let date = NSDate().timeIntervalSince1970
@@ -76,7 +76,7 @@ class UploadViewController: UIViewController {
             let uploadTileDataValue = ["Image":"\(date).jpg","frequency":0,"title":"\(self.uploadTileText.text ?? "i")"] as? [String: Any]
             uploadTileDataRef.setValue(uploadTileDataValue)
         } else {
-            print("please enter a name for the picture")
+            print("please enter both name and choose a picture from camera roll")
         }
         
         
