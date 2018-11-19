@@ -195,6 +195,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         var ref: DatabaseReference!
         ref = Database.database().reference()
         let userRef = ref.child("user").child(uid)
+        ////trying
+//        userRef.child("categoryData/Animals/selectionData").observeSingleEvent(of: .value, with:
+//            {
+//                (snapshot) in
+//                var value = snapshot.value as? [String] ?? []
+//                let size = value.count
+//                value.append("i")
+//                userRef.child("categoryData/Animals/selectionData").setValue(value)
+//                print(value)
+//        }
+//        ){
+//            (error) in
+//            print(error.localizedDescription)
+//        }
+        //userRef.child("categoryData/Animals/selectionData").childByAutoId().setValue("12345")
+       
+        ///trying
         
         userRef.child("categoryData").observe(DataEventType.value, with:
             {
