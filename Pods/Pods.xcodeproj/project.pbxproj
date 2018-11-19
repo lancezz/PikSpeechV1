@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00221FFE7EA6F96590DB6A00C399AA8E /* FIRResetPasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DD900959A9F71C2722FC26418854AA /* FIRResetPasswordRequest.m */; };
 		0076BACC2F0AF36E15FB247AA005CF60 /* FWriteRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = DC48D68FDF70D914064F3DDEB70240A3 /* FWriteRecord.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		021A28547AB1C93F59C8DA0FEFFEDC45 /* Pods-PikSpeech.V1UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 038E121A3C264B5A21A02F25BA4BB838 /* Pods-PikSpeech.V1UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02237D01448034998F8F1AFE8FFA27B7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DED8048B3AB8930A329AC93CC7AF26 /* CFNetwork.framework */; };
 		026B25198575F5D92A8B2F8778B692F0 /* iterator.cc in Sources */ = {isa = PBXBuildFile; fileRef = 92AC9648037B4629662B2A0B8F015BD2 /* iterator.cc */; settings = {COMPILER_FLAGS = "-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX -fno-objc-arc"; }; };
 		031D55072D59C771E5BEFDB8FEBC9E37 /* FIRDatabaseQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D447383FF0404288DC3660D1F1FD5 /* FIRDatabaseQuery.m */; };
@@ -36,6 +37,7 @@
 		0BD2A2EDDAED2E2A7963DC58434830CF /* FTreeSortedDictionaryEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0952B6AE27D6459AF72B7E3AE00D4 /* FTreeSortedDictionaryEnumerator.m */; };
 		0C454010937B5EE109C129F2E9B61D2F /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7892FF6BFFB231D2D5E1E00414D23 /* NSData+SRB64Additions.m */; };
 		0CD359CC1F201CF2EAE368AD6CBF005D /* FIRVerifyPhoneNumberRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F355FBE5B0D1FF68ED6DF83A05EEB3 /* FIRVerifyPhoneNumberRequest.m */; };
+		0CE3556079ACA2FDD19E7AF80233C779 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4883C7E59790DD361AEE002CDABBD54 /* Foundation.framework */; };
 		0D085E16E602A752BC6743CF7B9DA327 /* FIRDeleteAccountResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E315F2805CD0BFC2B0EE060988A3EE42 /* FIRDeleteAccountResponse.m */; };
 		0D611A6D1BA11199662FCA250FFF8CF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4883C7E59790DD361AEE002CDABBD54 /* Foundation.framework */; };
 		0E66A295EB23F83B34686322CFB718EB /* FLLRBEmptyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3F52FC3971CD86346109AFFA7C8376 /* FLLRBEmptyNode.m */; };
@@ -51,6 +53,7 @@
 		1224E066CC73E587BB9F9E1EDF1B63BB /* FChildChangeAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 675AD19E100AFC9438B7D06E426BE17A /* FChildChangeAccumulator.m */; };
 		12793602606BC3D586602F3A1D503699 /* FIRAuthDataResult_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D1B25CAB3DF23D9CAB52016A116CA4 /* FIRAuthDataResult_Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		13003D33AF05DB1E83681A883779CCD5 /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6D05FBE6549231EC44ABAA0DD81D1 /* GTMSessionFetcherService.m */; };
+		14165C51B6C3F2B7D0D984DFD5FDDF4A /* Pods-PikSpeech.V1Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B554D8FE8A98244954EBEC0A9BCF9FB6 /* Pods-PikSpeech.V1Tests-dummy.m */; };
 		147F1EF5C5FE6CB14EE51C627A1FE770 /* leveldb-library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C10481BDDFB2D8773D69F4C019B4DCA7 /* leveldb-library-dummy.m */; };
 		14F1A5852377A5E01A1155C8608CAD17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4883C7E59790DD361AEE002CDABBD54 /* Foundation.framework */; };
 		150B3AFFA010468BBED904F03C78D1F6 /* version_edit.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4DA5F2E90DD475275DDA11EB676C475C /* version_edit.cc */; settings = {COMPILER_FLAGS = "-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX -fno-objc-arc"; }; };
@@ -60,6 +63,7 @@
 		1593707A31B1FD266ED94725A0518CE6 /* FIRGetAccountInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB81A51F3022C4E3AE0B379A847B73 /* FIRGetAccountInfoResponse.m */; };
 		161C32B344EF52CA796FBE008320A32D /* table.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BD6772D9CEFA2153FB68BA585A2E22E /* table.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16213B273AE1045FD468D9AD02BCCCAF /* block.h in Headers */ = {isa = PBXBuildFile; fileRef = 8272808012FCE8AE5F39260D06658907 /* block.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1657BC97614DC7AB3AFA16EDB7349370 /* Pods-PikSpeech.V1UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 620274C6A5717AB9CA0B229B1FAFDE91 /* Pods-PikSpeech.V1UITests-dummy.m */; };
 		1682B267A2AAE6A31285049B0E0541CD /* GULReachabilityChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A74133D67AD27B539DC71D3636C1041 /* GULReachabilityChecker.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		178A362E008EC7F53C6686A5885A5F37 /* FIRAppAssociationRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E185E28379872BFF19DB3FD1973155 /* FIRAppAssociationRegistration.m */; };
 		17E6E1179A81CB19FBCCED1063E34218 /* FIRDependency.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FF3ECDC22F2E0F710A2B91BEA75FBA /* FIRDependency.m */; };
@@ -132,7 +136,6 @@
 		32235362DD9321F8F1D265AD6C91FF5D /* FirebaseAuthVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 068B1466BA3DEE277222F3238730E021 /* FirebaseAuthVersion.m */; };
 		32B37E9B900022B5A8C7532B5DE05C0E /* FEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32963CC22CA1549B687D44B79759A37C /* FEventEmitter.m */; };
 		32E074346D043243A908CC9DA8710F0B /* FOverwrite.h in Headers */ = {isa = PBXBuildFile; fileRef = 255B31DE0442A209A92D74ADC8F57D58 /* FOverwrite.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		335E1BB245562F808230BE70F750EA97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4883C7E59790DD361AEE002CDABBD54 /* Foundation.framework */; };
 		339E2F217F71E4C40B294C0074D1A0F3 /* FIRVerifyCustomTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 25CD7EDD9802C844F37CAF40DA993A2F /* FIRVerifyCustomTokenResponse.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		33BA9D267B6690EB630BC55985C0419A /* FIRDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 33068FEA2F5EA6D27ACDE5BD7381B09D /* FIRDatabase.m */; };
 		34FE05FCB6CD157DB12864F8F6ABFCD4 /* FPendingPut.m in Sources */ = {isa = PBXBuildFile; fileRef = F339A644CD1E8756CC4A1105C3E6F805 /* FPendingPut.m */; };
@@ -192,6 +195,7 @@
 		48E61A2081023A296DEAF24A154DB91E /* FIRAuthSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAEBCEFFCCD599F79E7223803CED9D0 /* FIRAuthSettings.m */; };
 		48E67B0656FFD4F3122F6766F17D6FC6 /* FNextPushId.h in Headers */ = {isa = PBXBuildFile; fileRef = 022B26B55B0546013B87AE2A01309E7A /* FNextPushId.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4953CF449C6EF53A8DE1815C003BB6F5 /* options.cc in Sources */ = {isa = PBXBuildFile; fileRef = 41DED5BD992E6785545940246FFFFD28 /* options.cc */; settings = {COMPILER_FLAGS = "-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX -fno-objc-arc"; }; };
+		49CB699A2887F3344B90311BEFDAD3F9 /* Pods-PikSpeech.V1Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8EA43C313E712AA9736D6B09E81660 /* Pods-PikSpeech.V1Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49EA5D40898D6DDEB55F40109C6D7007 /* FMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE764C963BC053784077652F136785A /* FMerge.m */; };
 		4A9139E0A2BF3033A2F2C3231DC92774 /* Pods-PikSpeech.V1-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EADE2B1C4F1BE1050779C71A4486CC3 /* Pods-PikSpeech.V1-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AE5FFD6150078552E5E845995E89A6E /* FCancelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A591A44897DA02D4816345959E6978 /* FCancelEvent.m */; };
@@ -204,7 +208,6 @@
 		4CAA81084A6F24E794A1D910D74BDC70 /* FIRVerifyPasswordResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B258856998812BD61CCEBF21CA8BFA /* FIRVerifyPasswordResponse.m */; };
 		4D0680DA1F83118E3C6CBFDB65DE8F7E /* GULAppDelegateSwizzler_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A15FB5411A92F86F7C17D4F88C3883 /* GULAppDelegateSwizzler_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4D0A314654AD8D0AEDABB7D9758D4F10 /* FIRGetProjectConfigRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E10B25462B128A6C463EAE0B29597C99 /* FIRGetProjectConfigRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4DAC265816DC649AD9C5A41487E739E6 /* Pods-PikSpeech.V1Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8EA43C313E712AA9736D6B09E81660 /* Pods-PikSpeech.V1Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E58453ADDC97509E63A53AA03DF4EFD /* FIRAuthAppDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8937B22EAEF1E63B7ABD8FFBE83DCB09 /* FIRAuthAppDelegateProxy.m */; };
 		4F5D3AFB9CE59609CBAA9892B513EF43 /* FSyncTree.m in Sources */ = {isa = PBXBuildFile; fileRef = DC929AB3DBB0468AFED6C779493F683E /* FSyncTree.m */; };
 		505EC83DDF5521FFC49507A3951BEC9F /* dbformat.cc in Sources */ = {isa = PBXBuildFile; fileRef = C5B0597B049DCD45684825CA95962CDA /* dbformat.cc */; settings = {COMPILER_FLAGS = "-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX -fno-objc-arc"; }; };
@@ -263,7 +266,6 @@
 		621EDCD2C386598D5C97988C40293CCA /* FIRStorageTaskSnapshot_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A369CAAF25F2893FCC8CFA1873D1449 /* FIRStorageTaskSnapshot_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6223D016591E991E196D81CC2DD82030 /* FirebaseDatabase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 302EB75E155E8826ECB4766841FA33B9 /* FirebaseDatabase-dummy.m */; };
 		627A921FA1C99FE6345EB34B25E935DC /* FIRAppInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = C40D6FFD44DEFAA354ED70882036BC18 /* FIRAppInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		62C36C56449BC46F89CC1622D651BFDA /* Pods-PikSpeech.V1Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B554D8FE8A98244954EBEC0A9BCF9FB6 /* Pods-PikSpeech.V1Tests-dummy.m */; };
 		62FAC50D070921B6A84D8F989609BD51 /* FIRAuthRPCRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A17D205872BFF69247BFE365592A21D /* FIRAuthRPCRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6345178BFA5DEA72A4DEA9F821672DA6 /* FIRConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = D318E1AE9F70123A870A42858590DF2C /* FIRConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		638B799B762C2AE9D52ABA5A9FA71F45 /* env_posix.cc in Sources */ = {isa = PBXBuildFile; fileRef = 52ED08C93967683DA387497643AFD4E8 /* env_posix.cc */; settings = {COMPILER_FLAGS = "-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX -fno-objc-arc"; }; };
@@ -311,7 +313,6 @@
 		77E151EDF850C8E4E5183E6FFC11E432 /* FIRAuthWebUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D18340B1884EB4D5759682B910F6C5CA /* FIRAuthWebUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7812484639D1CEE71D8EB20A5EA3748C /* FIRSetAccountInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE40008BFFEA79337D7205B88C420B6 /* FIRSetAccountInfoResponse.m */; };
 		782B1BDF9311CD0212002103E7338AE5 /* FCachePolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E20B7193AC0D1C95DAF041761A834154 /* FCachePolicy.m */; };
-		7895FDEF9BAE60521166A841E1B30268 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4883C7E59790DD361AEE002CDABBD54 /* Foundation.framework */; };
 		78C9DCDC5A1E561DB8A5664CAA5DEFB4 /* mutexlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 809A4C70E3DB08B22731C95702F68080 /* mutexlock.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7938FFB039D3AD110C0581AD57ED722E /* FPersistentConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = BFCA2B7130105D98D8A9AEFF24106389 /* FPersistentConnection.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		79508CD6A1C358B128806A6D04318A8E /* FChildChangeAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DBAE8A7BF043BBBF4EC8D855D995B6E1 /* FChildChangeAccumulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -321,7 +322,6 @@
 		7B378963D99ED05F7AABE83673A9FC08 /* FTrackedQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = C6EC072CC7518007AB21A8380AE9C32D /* FTrackedQuery.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7BD2BAC007A188C85616ED83EEE729F1 /* FIRFacebookAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C380D1B4B4C69176353A77F553350DBA /* FIRFacebookAuthProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BE83B15D56D2946BC1240FDD2837378 /* FTupleRemovedQueriesEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14055C829DA9768646A3AD748F9E82 /* FTupleRemovedQueriesEvents.m */; };
-		7C2C2DD3E6DB5FFB35127919BA809594 /* Pods-PikSpeech.V1UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 620274C6A5717AB9CA0B229B1FAFDE91 /* Pods-PikSpeech.V1UITests-dummy.m */; };
 		7C6CBBA9958BB16A27C65FE9D324B357 /* FTuplePathValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BBE5320B6B2D527231606F7B97FABEE /* FTuplePathValue.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7CDF51FCDD43DD46BBFFFF34259897FA /* FPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E76228B805463808A3D3F222093FFECB /* FPersistenceManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7D092022CA999203CF87398A64B85B47 /* FIRAuthURLPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = E66D635D592389F736A3F4502320E787 /* FIRAuthURLPresenter.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -592,7 +592,6 @@
 		DB6135CF95B97AD7C9E548816937C339 /* FIRAuthGlobalWorkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D12EC4A1948BF4461509D0731D2761 /* FIRAuthGlobalWorkQueue.m */; };
 		DBFB159ACE2329AC247FC05CD4C1FCA6 /* FCachePolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 555EFDB3392DC98CAAA53245B88AA8FE /* FCachePolicy.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DC0985953CC6512BDF82767C6D4C3511 /* FIRSecureTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD5A9BBCF8407E323A4C1FA968450BD /* FIRSecureTokenResponse.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DC4C23E47C2E668F4CB218CF3F01BAF9 /* Pods-PikSpeech.V1UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 038E121A3C264B5A21A02F25BA4BB838 /* Pods-PikSpeech.V1UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCD3DC52261E26D23AF00B0A81A074DF /* FTupleTSN.h in Headers */ = {isa = PBXBuildFile; fileRef = AD4E0B1B3FC3D605F18849F1D6F5FAA5 /* FTupleTSN.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DD13A81CF1E48C7D24E395C0420B8D0A /* FIRDependency.h in Headers */ = {isa = PBXBuildFile; fileRef = E6BD7575CDBCDC745BC722201AFA4BE4 /* FIRDependency.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		DDA0E5D00CAE01640EECE8C5AA3C8F92 /* FIRVerifyClientResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = C482C94AEA7380E56B9EAD086F59E6B1 /* FIRVerifyClientResponse.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -613,6 +612,7 @@
 		E355A143414534F252F6EE7D3ADE2BA5 /* write_batch_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5B598CE409E2CDF51DC51D8600F4B1 /* write_batch_internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E4B27F1AEF0C043F26D82A4C4810FA83 /* FIRGetAccountInfoRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 45491FC33DECC8C2DD72BCCF660E06EC /* FIRGetAccountInfoRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E51898FC605C53CFAE8A681A96EA2285 /* GULLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4801631C46D60D954CADD31817703FEB /* GULLogger.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		E6643647E8703BE433965DC91D5F43CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4883C7E59790DD361AEE002CDABBD54 /* Foundation.framework */; };
 		E674BE47628CB31E12671D069BCEDDD2 /* crc32c.cc in Sources */ = {isa = PBXBuildFile; fileRef = ACE7501242C9D33D291DBC7D31EAE6B9 /* crc32c.cc */; settings = {COMPILER_FLAGS = "-DOS_MACOSX -DLEVELDB_PLATFORM_POSIX -fno-objc-arc"; }; };
 		E69844CC697DEA7D638C9ADA5DFD9847 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA8447F0F702594AFE962B4D34BAFC6 /* MobileCoreServices.framework */; };
 		E6F743BB99C64DB44A53DE22D002066C /* FIRVerifyAssertionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 29F18EC25CB64C7A2BB1DAD104AA6098 /* FIRVerifyAssertionRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -694,6 +694,27 @@
 			remoteGlobalIDString = 774012D64416685C9A3C8F547C310CED;
 			remoteInfo = FirebaseCore;
 		};
+		1F7AEC9598D686C6B6A638BBD7B67058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8364BB258018143B83798DE31C13546D;
+			remoteInfo = nanopb;
+		};
+		2056DC462FE5AD16D32176B01C47AC5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BDC8EBBAEA2C246BB2965B014F8C77D;
+			remoteInfo = FirebaseStorage;
+		};
+		21416F531007E6291DD902711F536C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 323459A91C8C652B6AAA063F85CE2316;
+			remoteInfo = GTMSessionFetcher;
+		};
 		26238638F94775CB95B27FF7CFF70FAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -722,7 +743,21 @@
 			remoteGlobalIDString = 8364BB258018143B83798DE31C13546D;
 			remoteInfo = nanopb;
 		};
+		42A02240FF27566687083864B3FD6BF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEC39F3E58CEE33F8C1F8453DF5C68D6;
+			remoteInfo = GoogleUtilities;
+		};
 		553A9D135C36DB5CE08961D0A33F8443 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEC39F3E58CEE33F8C1F8453DF5C68D6;
+			remoteInfo = GoogleUtilities;
+		};
+		56ACECD34B31590856074234E4EFCFCA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -736,12 +771,12 @@
 			remoteGlobalIDString = B8841C1CB84C43236CF55B42F805BE06;
 			remoteInfo = FirebaseDatabase;
 		};
-		5AE4D4A36014299A4EC8CD577AD64D14 /* PBXContainerItemProxy */ = {
+		714FD2A69493D6616AB91256AFA999D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D01D1AF8971795068649702DB6B0CAF3;
-			remoteInfo = "Pods-PikSpeech.V1";
+			remoteGlobalIDString = DE866D3318A5BE5366041B761F8CD7C2;
+			remoteInfo = "leveldb-library";
 		};
 		798836BA9B5981A1F35EC1420F0B569C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -749,6 +784,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8BDC8EBBAEA2C246BB2965B014F8C77D;
 			remoteInfo = FirebaseStorage;
+		};
+		7E9F6B8FD0694DF7DD583DB0146A5F30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09236661DCC642790FD8DBB2D3878CF2;
+			remoteInfo = FirebaseAuth;
+		};
+		82F1713C5A4803C9CCC14B5C9C0BCEAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09236661DCC642790FD8DBB2D3878CF2;
+			remoteInfo = FirebaseAuth;
+		};
+		8E9FF040B4FCAFD17649174EED17755B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D01D1AF8971795068649702DB6B0CAF3;
+			remoteInfo = "Pods-PikSpeech.V1";
+		};
+		90B689CD4E611B93740286AC71055862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 323459A91C8C652B6AAA063F85CE2316;
+			remoteInfo = GTMSessionFetcher;
 		};
 		918B7951E94C0D0BB95694107E027073 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -778,7 +841,28 @@
 			remoteGlobalIDString = 323459A91C8C652B6AAA063F85CE2316;
 			remoteInfo = GTMSessionFetcher;
 		};
+		9F7530B7E9F8AABCC688A4D75B48BA7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8841C1CB84C43236CF55B42F805BE06;
+			remoteInfo = FirebaseDatabase;
+		};
+		A54A5E2E212F2205137AADEB9C78A0C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8841C1CB84C43236CF55B42F805BE06;
+			remoteInfo = FirebaseDatabase;
+		};
 		AD7B51FC1AF1D29DD48BAB8D838C7300 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 774012D64416685C9A3C8F547C310CED;
+			remoteInfo = FirebaseCore;
+		};
+		B58FF3099AF4EF4AF58630C2EC106F02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -792,12 +876,19 @@
 			remoteGlobalIDString = 774012D64416685C9A3C8F547C310CED;
 			remoteInfo = FirebaseCore;
 		};
-		CC9905158C97B9E978DF10B4D5B31061 /* PBXContainerItemProxy */ = {
+		D4E7E198702163EEBDBC96C2FE33D47B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D01D1AF8971795068649702DB6B0CAF3;
-			remoteInfo = "Pods-PikSpeech.V1";
+			remoteGlobalIDString = DE866D3318A5BE5366041B761F8CD7C2;
+			remoteInfo = "leveldb-library";
+		};
+		D69E8393F475165A628A13420B8C9841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 774012D64416685C9A3C8F547C310CED;
+			remoteInfo = FirebaseCore;
 		};
 		D7E20E29847EAD81D627C196DA9AF51C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -826,6 +917,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 323459A91C8C652B6AAA063F85CE2316;
 			remoteInfo = GTMSessionFetcher;
+		};
+		EB3769AE2E83F81565141FFFF7AB7B39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D01D1AF8971795068649702DB6B0CAF3;
+			remoteInfo = "Pods-PikSpeech.V1";
+		};
+		F42D5B63701A9017E06652017FD12FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8364BB258018143B83798DE31C13546D;
+			remoteInfo = nanopb;
+		};
+		FF489AD1C237B8D880614D6B8616405F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BDC8EBBAEA2C246BB2965B014F8C77D;
+			remoteInfo = FirebaseStorage;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1571,11 +1683,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		232425B057A8CB56F326BD30A2180E6F /* Frameworks */ = {
+		1F9B8B9EF278BCAF9DD959627DDBE77C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7895FDEF9BAE60521166A841E1B30268 /* Foundation.framework in Frameworks */,
+				E6643647E8703BE433965DC91D5F43CF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1643,11 +1755,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C7EB427CDB6A9C3563BDFA53EB34160B /* Frameworks */ = {
+		DBACAD32848B1992BDA07233ACA2F6CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				335E1BB245562F808230BE70F750EA97 /* Foundation.framework in Frameworks */,
+				0CE3556079ACA2FDD19E7AF80233C779 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2986,11 +3098,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6F2F9B9652B6C949A758539F589900AA /* Headers */ = {
+		6E00A21CE5C2DC083EBE1AB82809BB4B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DAC265816DC649AD9C5A41487E739E6 /* Pods-PikSpeech.V1Tests-umbrella.h in Headers */,
+				021A28547AB1C93F59C8DA0FEFFEDC45 /* Pods-PikSpeech.V1UITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FF7C18E7A9B231AEA49633F6E3CBA45 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CB699A2887F3344B90311BEFDAD3F9 /* Pods-PikSpeech.V1Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3185,14 +3305,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C33F53C504431BF071040422AA35B1E9 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC4C23E47C2E668F4CB218CF3F01BAF9 /* Pods-PikSpeech.V1UITests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F1F26E0F4EA32EB93B375FC91E6CE73F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -3216,25 +3328,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		016A765303B0084460169034B3BEBE38 /* Pods-PikSpeech.V1Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C94FAF682A92A2C188FB98C55D5733B9 /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1Tests" */;
-			buildPhases = (
-				6F2F9B9652B6C949A758539F589900AA /* Headers */,
-				9D60FDC579570B2604D28DECF89F4102 /* Sources */,
-				232425B057A8CB56F326BD30A2180E6F /* Frameworks */,
-				C1C4095ED42654264C33D3796BF08A9D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F980EE3E37A6910AF7BD625D6F6A158C /* PBXTargetDependency */,
-			);
-			name = "Pods-PikSpeech.V1Tests";
-			productName = "Pods-PikSpeech.V1Tests";
-			productReference = 6BDEC40AD501AF695909CEC8E111D5A8 /* Pods_PikSpeech_V1Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		09236661DCC642790FD8DBB2D3878CF2 /* FirebaseAuth */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D4C4993074864813948172DE9AAA3FB /* Build configuration list for PBXNativeTarget "FirebaseAuth" */;
@@ -3254,6 +3347,60 @@
 			name = FirebaseAuth;
 			productName = FirebaseAuth;
 			productReference = 3A0118A5F2A4D0BB52A8FD41BB4D916D /* FirebaseAuth.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0D9154D7616CA6456BB6E0EFAB9066E7 /* Pods-PikSpeech.V1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5723EF1D75B694C07C40223075E848A /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1Tests" */;
+			buildPhases = (
+				6FF7C18E7A9B231AEA49633F6E3CBA45 /* Headers */,
+				DFC882FE5BB50B5AC78DC0166E162D45 /* Sources */,
+				1F9B8B9EF278BCAF9DD959627DDBE77C /* Frameworks */,
+				FEE5B68D82283062605471F931190F39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A397F921973F7CB9256DAF6E392E5051 /* PBXTargetDependency */,
+				E2D84F9DB80C7B710FF0E369AAFD8799 /* PBXTargetDependency */,
+				92C7C6D6A61F5032B3F52173D14615B9 /* PBXTargetDependency */,
+				2017D9080216E3D40AA86B9463D48A9E /* PBXTargetDependency */,
+				FB1C9C2A9F2A6D851B0A12923EAEB56F /* PBXTargetDependency */,
+				6CF3093346D562EE7E3C7B8E351EC138 /* PBXTargetDependency */,
+				39816A95F41F1074117C720F5350DC16 /* PBXTargetDependency */,
+				DB805F75FA532AA9169E7F9D67B29BFE /* PBXTargetDependency */,
+				C9CE0F7F5D5BCE0301B104E01F55CC12 /* PBXTargetDependency */,
+			);
+			name = "Pods-PikSpeech.V1Tests";
+			productName = "Pods-PikSpeech.V1Tests";
+			productReference = 6BDEC40AD501AF695909CEC8E111D5A8 /* Pods_PikSpeech_V1Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		225B6E563E23028FB9981EAA48D882EF /* Pods-PikSpeech.V1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EEBDF181293383218587FF07F357C69 /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1UITests" */;
+			buildPhases = (
+				6E00A21CE5C2DC083EBE1AB82809BB4B /* Headers */,
+				E59ACDE8087C613D3C16747BF0B2A967 /* Sources */,
+				DBACAD32848B1992BDA07233ACA2F6CD /* Frameworks */,
+				08594E54F438739E3AD917A5B579BCF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A21C2FC70322B5192B67000C6E16BDE8 /* PBXTargetDependency */,
+				5A896F333BA8CC1ECD01170F32E9999A /* PBXTargetDependency */,
+				5FF26D7AC5199578FB4CEB7C813E4972 /* PBXTargetDependency */,
+				3DB78B70992D0561032EB68082B3666E /* PBXTargetDependency */,
+				ABC0E5C12F68014DA87B84A8DFFA1C53 /* PBXTargetDependency */,
+				D8B8BBDC1D902DA42DB0797C62FE9596 /* PBXTargetDependency */,
+				BEFD349A43967080CC5D2A6422D5D4F0 /* PBXTargetDependency */,
+				A2516DEDFB2124B13417F933A02A51DF /* PBXTargetDependency */,
+				A8154493CDAFE58C8416D7E5312D0B5B /* PBXTargetDependency */,
+			);
+			name = "Pods-PikSpeech.V1UITests";
+			productName = "Pods-PikSpeech.V1UITests";
+			productReference = 4B8ED2F0B73D8BC3E3DD3926123DD367 /* Pods_PikSpeech_V1UITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		323459A91C8C652B6AAA063F85CE2316 /* GTMSessionFetcher */ = {
@@ -3397,25 +3544,6 @@
 			productReference = E849CF8086994AF1F95BA1BFA37A02CC /* leveldb.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E9A0D81BE3A0C9880BDA68840172148D /* Pods-PikSpeech.V1UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9E50B2CF542F1672E6F8D5452330C3F0 /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1UITests" */;
-			buildPhases = (
-				C33F53C504431BF071040422AA35B1E9 /* Headers */,
-				6EB1430944839573291903EDF7B85C6B /* Sources */,
-				C7EB427CDB6A9C3563BDFA53EB34160B /* Frameworks */,
-				516421EF09F8AE06D338B1A427B71160 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				869F3D8CB474CCBCB35221EE7E260BBD /* PBXTargetDependency */,
-			);
-			name = "Pods-PikSpeech.V1UITests";
-			productName = "Pods-PikSpeech.V1UITests";
-			productReference = 4B8ED2F0B73D8BC3E3DD3926123DD367 /* Pods_PikSpeech_V1UITests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		FEC39F3E58CEE33F8C1F8453DF5C68D6 /* GoogleUtilities */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C09E05F66432F1608C54F763C12F384 /* Build configuration list for PBXNativeTarget "GoogleUtilities" */;
@@ -3464,13 +3592,20 @@
 				DE866D3318A5BE5366041B761F8CD7C2 /* leveldb-library */,
 				8364BB258018143B83798DE31C13546D /* nanopb */,
 				D01D1AF8971795068649702DB6B0CAF3 /* Pods-PikSpeech.V1 */,
-				016A765303B0084460169034B3BEBE38 /* Pods-PikSpeech.V1Tests */,
-				E9A0D81BE3A0C9880BDA68840172148D /* Pods-PikSpeech.V1UITests */,
+				0D9154D7616CA6456BB6E0EFAB9066E7 /* Pods-PikSpeech.V1Tests */,
+				225B6E563E23028FB9981EAA48D882EF /* Pods-PikSpeech.V1UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		08594E54F438739E3AD917A5B579BCF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0C4B664CE27A0331C3422A84B727247B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3499,13 +3634,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		516421EF09F8AE06D338B1A427B71160 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A63D3C58D67DE74B0EA50834770DF868 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3520,13 +3648,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1C4095ED42654264C33D3796BF08A9D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F663F05F3A6CD3780F3EE8549199869E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3535,6 +3656,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FC5B91F3AD653B97BF402F244F710096 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE5B68D82283062605471F931190F39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3787,14 +3915,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6EB1430944839573291903EDF7B85C6B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7C2C2DD3E6DB5FFB35127919BA809594 /* Pods-PikSpeech.V1UITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		70403C94DF1251A7DB7F9FCACE7BC0F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3838,14 +3958,6 @@
 				9F079103D5C29C6CEC80848AE6E17873 /* FIRStorageUpdateMetadataTask.m in Sources */,
 				71F3656B9D647028753980B017263675 /* FIRStorageUploadTask.m in Sources */,
 				E165F55BE80D3EB93D959A44925A6712 /* FIRStorageUtils.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D60FDC579570B2604D28DECF89F4102 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				62C36C56449BC46F89CC1622D651BFDA /* Pods-PikSpeech.V1Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3907,6 +4019,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DFC882FE5BB50B5AC78DC0166E162D45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14165C51B6C3F2B7D0D984DFD5FDDF4A /* Pods-PikSpeech.V1Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E59ACDE8087C613D3C16747BF0B2A967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1657BC97614DC7AB3AFA16EDB7349370 /* Pods-PikSpeech.V1UITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EE9160E90314746E2B8E7CB6DD745E0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3946,6 +4074,18 @@
 			target = 323459A91C8C652B6AAA063F85CE2316 /* GTMSessionFetcher */;
 			targetProxy = 9331C1C35F1F0A1B8516D0F2CA2273B3 /* PBXContainerItemProxy */;
 		};
+		2017D9080216E3D40AA86B9463D48A9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseStorage;
+			target = 8BDC8EBBAEA2C246BB2965B014F8C77D /* FirebaseStorage */;
+			targetProxy = 2056DC462FE5AD16D32176B01C47AC5E /* PBXContainerItemProxy */;
+		};
+		39816A95F41F1074117C720F5350DC16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-PikSpeech.V1";
+			target = D01D1AF8971795068649702DB6B0CAF3 /* Pods-PikSpeech.V1 */;
+			targetProxy = 8E9FF040B4FCAFD17649174EED17755B /* PBXContainerItemProxy */;
+		};
 		39E3CE214EAF1AB84C3CDEDB6ACBF864 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleUtilities;
@@ -3957,6 +4097,12 @@
 			name = GoogleUtilities;
 			target = FEC39F3E58CEE33F8C1F8453DF5C68D6 /* GoogleUtilities */;
 			targetProxy = D7E20E29847EAD81D627C196DA9AF51C /* PBXContainerItemProxy */;
+		};
+		3DB78B70992D0561032EB68082B3666E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseStorage;
+			target = 8BDC8EBBAEA2C246BB2965B014F8C77D /* FirebaseStorage */;
+			targetProxy = FF489AD1C237B8D880614D6B8616405F /* PBXContainerItemProxy */;
 		};
 		53C4DDFCD080D7A7F80016798701DE64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3976,6 +4122,18 @@
 			target = 774012D64416685C9A3C8F547C310CED /* FirebaseCore */;
 			targetProxy = BF9381FDC7083AE700DB12B9F2766A8B /* PBXContainerItemProxy */;
 		};
+		5A896F333BA8CC1ECD01170F32E9999A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseCore;
+			target = 774012D64416685C9A3C8F547C310CED /* FirebaseCore */;
+			targetProxy = D69E8393F475165A628A13420B8C9841 /* PBXContainerItemProxy */;
+		};
+		5FF26D7AC5199578FB4CEB7C813E4972 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseDatabase;
+			target = B8841C1CB84C43236CF55B42F805BE06 /* FirebaseDatabase */;
+			targetProxy = 9F7530B7E9F8AABCC688A4D75B48BA7D /* PBXContainerItemProxy */;
+		};
 		64D4A98F4D38CB02BA76C2E1165B8BBB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FirebaseCore;
@@ -3988,17 +4146,53 @@
 			target = DE866D3318A5BE5366041B761F8CD7C2 /* leveldb-library */;
 			targetProxy = DD58CF8BF8707565763D3FBC6BFB60A6 /* PBXContainerItemProxy */;
 		};
+		6CF3093346D562EE7E3C7B8E351EC138 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleUtilities;
+			target = FEC39F3E58CEE33F8C1F8453DF5C68D6 /* GoogleUtilities */;
+			targetProxy = 42A02240FF27566687083864B3FD6BF4 /* PBXContainerItemProxy */;
+		};
 		8670D020F5705CF729EF612EF1BB4C5C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GTMSessionFetcher;
 			target = 323459A91C8C652B6AAA063F85CE2316 /* GTMSessionFetcher */;
 			targetProxy = E44631E36B4088671FB36BB6284BA4E4 /* PBXContainerItemProxy */;
 		};
-		869F3D8CB474CCBCB35221EE7E260BBD /* PBXTargetDependency */ = {
+		92C7C6D6A61F5032B3F52173D14615B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-PikSpeech.V1";
-			target = D01D1AF8971795068649702DB6B0CAF3 /* Pods-PikSpeech.V1 */;
-			targetProxy = CC9905158C97B9E978DF10B4D5B31061 /* PBXContainerItemProxy */;
+			name = FirebaseDatabase;
+			target = B8841C1CB84C43236CF55B42F805BE06 /* FirebaseDatabase */;
+			targetProxy = A54A5E2E212F2205137AADEB9C78A0C1 /* PBXContainerItemProxy */;
+		};
+		A21C2FC70322B5192B67000C6E16BDE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseAuth;
+			target = 09236661DCC642790FD8DBB2D3878CF2 /* FirebaseAuth */;
+			targetProxy = 7E9F6B8FD0694DF7DD583DB0146A5F30 /* PBXContainerItemProxy */;
+		};
+		A2516DEDFB2124B13417F933A02A51DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "leveldb-library";
+			target = DE866D3318A5BE5366041B761F8CD7C2 /* leveldb-library */;
+			targetProxy = 714FD2A69493D6616AB91256AFA999D5 /* PBXContainerItemProxy */;
+		};
+		A397F921973F7CB9256DAF6E392E5051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseAuth;
+			target = 09236661DCC642790FD8DBB2D3878CF2 /* FirebaseAuth */;
+			targetProxy = 82F1713C5A4803C9CCC14B5C9C0BCEAA /* PBXContainerItemProxy */;
+		};
+		A8154493CDAFE58C8416D7E5312D0B5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nanopb;
+			target = 8364BB258018143B83798DE31C13546D /* nanopb */;
+			targetProxy = 1F7AEC9598D686C6B6A638BBD7B67058 /* PBXContainerItemProxy */;
+		};
+		ABC0E5C12F68014DA87B84A8DFFA1C53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMSessionFetcher;
+			target = 323459A91C8C652B6AAA063F85CE2316 /* GTMSessionFetcher */;
+			targetProxy = 21416F531007E6291DD902711F536C69 /* PBXContainerItemProxy */;
 		};
 		B9C4A7E8D4D60EB0E1D4C1A9A0CC7D6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4006,11 +4200,41 @@
 			target = 774012D64416685C9A3C8F547C310CED /* FirebaseCore */;
 			targetProxy = AD7B51FC1AF1D29DD48BAB8D838C7300 /* PBXContainerItemProxy */;
 		};
+		BEFD349A43967080CC5D2A6422D5D4F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-PikSpeech.V1";
+			target = D01D1AF8971795068649702DB6B0CAF3 /* Pods-PikSpeech.V1 */;
+			targetProxy = EB3769AE2E83F81565141FFFF7AB7B39 /* PBXContainerItemProxy */;
+		};
+		C9CE0F7F5D5BCE0301B104E01F55CC12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nanopb;
+			target = 8364BB258018143B83798DE31C13546D /* nanopb */;
+			targetProxy = F42D5B63701A9017E06652017FD12FBF /* PBXContainerItemProxy */;
+		};
+		D8B8BBDC1D902DA42DB0797C62FE9596 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleUtilities;
+			target = FEC39F3E58CEE33F8C1F8453DF5C68D6 /* GoogleUtilities */;
+			targetProxy = 56ACECD34B31590856074234E4EFCFCA /* PBXContainerItemProxy */;
+		};
+		DB805F75FA532AA9169E7F9D67B29BFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "leveldb-library";
+			target = DE866D3318A5BE5366041B761F8CD7C2 /* leveldb-library */;
+			targetProxy = D4E7E198702163EEBDBC96C2FE33D47B /* PBXContainerItemProxy */;
+		};
 		E27550191B45B717652640F19FAE72B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleUtilities;
 			target = FEC39F3E58CEE33F8C1F8453DF5C68D6 /* GoogleUtilities */;
 			targetProxy = 553A9D135C36DB5CE08961D0A33F8443 /* PBXContainerItemProxy */;
+		};
+		E2D84F9DB80C7B710FF0E369AAFD8799 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseCore;
+			target = 774012D64416685C9A3C8F547C310CED /* FirebaseCore */;
+			targetProxy = B58FF3099AF4EF4AF58630C2EC106F02 /* PBXContainerItemProxy */;
 		};
 		E7ED254071B69D7E66FDA0A15914E270 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4036,11 +4260,11 @@
 			target = 774012D64416685C9A3C8F547C310CED /* FirebaseCore */;
 			targetProxy = 1C8625CECC96122E0577027364D7405A /* PBXContainerItemProxy */;
 		};
-		F980EE3E37A6910AF7BD625D6F6A158C /* PBXTargetDependency */ = {
+		FB1C9C2A9F2A6D851B0A12923EAEB56F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-PikSpeech.V1";
-			target = D01D1AF8971795068649702DB6B0CAF3 /* Pods-PikSpeech.V1 */;
-			targetProxy = 5AE4D4A36014299A4EC8CD577AD64D14 /* PBXContainerItemProxy */;
+			name = GTMSessionFetcher;
+			target = 323459A91C8C652B6AAA063F85CE2316 /* GTMSessionFetcher */;
+			targetProxy = 90B689CD4E611B93740286AC71055862 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -4115,83 +4339,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		1E7B9C3C06AE69D736060FB36CD2D0B4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D68A3EE560D6548AD865F0C2F8CB62A /* Pods-PikSpeech.V1Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Pods-PikSpeech.V1Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		2DADCE08E569344991766040B60F5F49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4BB7F7D93ABE2220DDA5E1505F4E653 /* Pods-PikSpeech.V1Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Pods-PikSpeech.V1Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		3E54C925E38597ED245235E86E26193E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -4401,44 +4548,6 @@
 			};
 			name = Release;
 		};
-		5F1CEB215A66840A4BAE3268157DBF4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9AEB7C2FB907CB9FA9425778CE59A40 /* Pods-PikSpeech.V1UITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Pods-PikSpeech.V1UITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		5F53924CA3E68B0AF0EED00C89A194A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 959561E25D4799296C01D925C29C683D /* FirebaseCore.xcconfig */;
@@ -4503,6 +4612,45 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7D8587A95B69D1A9FA4BE4FE2A7B439F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D68A3EE560D6548AD865F0C2F8CB62A /* Pods-PikSpeech.V1Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Pods-PikSpeech.V1Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4611,6 +4759,44 @@
 			};
 			name = Debug;
 		};
+		A85DEAEEF80E4ECE1D4D5602D1951F8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9AEB7C2FB907CB9FA9425778CE59A40 /* Pods-PikSpeech.V1UITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Pods-PikSpeech.V1UITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B0E645E5C23A5AE2B40E22B4DD4DF7B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C8FD38953C22B40AAF3AE46C67651E6 /* GTMSessionFetcher.xcconfig */;
@@ -4705,45 +4891,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		BC9C34CD37F46F17DA137A3B7775A7DC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C82DD664D1B343B2AA9FA907D4F0EDD /* Pods-PikSpeech.V1UITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Pods-PikSpeech.V1UITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -4858,6 +5005,45 @@
 			};
 			name = Debug;
 		};
+		D96C52A0C802C1EAD5B4BEA76E716B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C82DD664D1B343B2AA9FA907D4F0EDD /* Pods-PikSpeech.V1UITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1UITests/Pods-PikSpeech.V1UITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		DDCB232895EA3BEC091CDFAFFB8FFBAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0ABF1BAC4864E1CA8342B90E73DD272D /* FirebaseDatabase.xcconfig */;
@@ -4892,6 +5078,44 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		EE05632C710B8C4D7010CA2D8A1CFF32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4BB7F7D93ABE2220DDA5E1505F4E653 /* Pods-PikSpeech.V1Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PikSpeech.V1Tests/Pods-PikSpeech.V1Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		F1E96AD1952A4A1864CD6871B41D91D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4967,6 +5191,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0EEBDF181293383218587FF07F357C69 /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A85DEAEEF80E4ECE1D4D5602D1951F8E /* Debug */,
+				D96C52A0C802C1EAD5B4BEA76E716B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1D4C4993074864813948172DE9AAA3FB /* Build configuration list for PBXNativeTarget "FirebaseAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -5030,15 +5263,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E50B2CF542F1672E6F8D5452330C3F0 /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F1CEB215A66840A4BAE3268157DBF4E /* Debug */,
-				BC9C34CD37F46F17DA137A3B7775A7DC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A54B95AC2E23BB0947B35EFE5E1F0EFB /* Build configuration list for PBXNativeTarget "nanopb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -5057,20 +5281,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C94FAF682A92A2C188FB98C55D5733B9 /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2DADCE08E569344991766040B60F5F49 /* Debug */,
-				1E7B9C3C06AE69D736060FB36CD2D0B4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D4C7675DBA4A33D5070D1918797B81FB /* Build configuration list for PBXNativeTarget "FirebaseStorage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8680ACE2051CFFD2AD140A8B2F766A6 /* Debug */,
 				434301CFA29F315428DE25E77C97F1AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5723EF1D75B694C07C40223075E848A /* Build configuration list for PBXNativeTarget "Pods-PikSpeech.V1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE05632C710B8C4D7010CA2D8A1CFF32 /* Debug */,
+				7D8587A95B69D1A9FA4BE4FE2A7B439F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

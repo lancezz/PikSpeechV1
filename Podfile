@@ -15,11 +15,22 @@ target 'PikSpeech.V1' do
 
   target 'PikSpeech.V1Tests' do
     inherit! :search_paths
+    pod 'Firebase/Core'
+    pod 'Firebase'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
     # Pods for testing
   end
 
   target 'PikSpeech.V1UITests' do
+
     inherit! :search_paths
+    pod 'Firebase/Core'
+    pod 'Firebase'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
     # Pods for testing
   end
 
