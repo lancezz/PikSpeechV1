@@ -86,14 +86,18 @@ class LoginViewController: UIViewController {
                                             //                                            }
                                             //initialize selectioncolor
                                             let selectioncolorRef = userRef.child("selectionColor")
-                                            let colorValues: [String: Any] = ["R": 0.1, "G": 0.2, "B": 0.3]
+                                            var colorValues: [String: Any] = ["R": 0.925, "G": 0.82, "B": 0.87]
                                             selectioncolorRef.setValue(colorValues)
-                                            
-                                            let categoryColorRef = userRef.child("categoryColor")
-                                            categoryColorRef.setValue(colorValues)
                                             
                                             let speechColorRef = userRef.child("speechColor")
                                             speechColorRef.setValue(colorValues)
+                                            
+                                            colorValues["R"] = 0.5
+                                            colorValues["G"] = 0.5
+                                            colorValues["B"] = 0.5
+                                            let categoryColorRef = userRef.child("categoryColor")
+                                            categoryColorRef.setValue(colorValues)
+                                            
                                             ///////crate a reference to category Data under the uid
                                             let categoryDataRef = userRef.child("categoryData")
                                             let animalRef = categoryDataRef.child("Animals")
@@ -127,13 +131,13 @@ class LoginViewController: UIViewController {
                                             selectionDrinksRef.setValue(selectionDrinksValues)
                                             
                                             //feeling default reference
-                                            let feelingsvalues: [String: Any] = ["title": "Feelings","image": "Love.jpeg"]
+                                            let feelingsvalues: [String: Any] = ["title": "Feelings","image": "Love.jpg"]
                                             feelingsRef.setValue(feelingsvalues)
                                             let selectionFeelingsRef = feelingsRef.child("selectionData")
                                             let selectionFeelingsValues = ["Angry","Cold","confused","disgust","Happy","Hot","hungry","Love","Sad","shocked","Sick","Sleepy"]
                                             selectionFeelingsRef.setValue(selectionFeelingsValues)
                                             //foodref default reference
-                                            let foodvalues: [String: Any] = ["title": "Food","image": "Pizza.jpeg"]
+                                            let foodvalues: [String: Any] = ["title": "Food","image": "Pizza.jpg"]
                                             foodRef.setValue(foodvalues)
                                             let selectionFoodRef = foodRef.child("selectionData")
                                             let selectionFoodValues = ["Bagels","burger","carrot","cheese","Chocolate","Eggs","Ice-cream","nuts","pasta","Pizza","potato","Sandwich","vegetables"]

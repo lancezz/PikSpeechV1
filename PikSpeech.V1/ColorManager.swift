@@ -45,7 +45,7 @@ class ColorManager{
         userRef.child(childString).observe(DataEventType.value, with:
             {
                 (snapshot) in
-                print(snapshot)
+//                print(snapshot)
                 let postDict = snapshot.value as? [String: AnyObject] ?? [:]
                 
                 let r = postDict["R"] as? CGFloat ?? 1

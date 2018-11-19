@@ -20,6 +20,7 @@ import UIKit
 import AVFoundation
 import FirebaseDatabase
 import Firebase
+import FirebaseStorage
 
 
 
@@ -109,7 +110,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         ColorManager.downloadColorForCollectionView(collectionView: categoryCollection, collectionEnum: SpecificCollectionView.categoryCollectionView, appView: view)
         ColorManager.downloadColorForCollectionView(collectionView: sentenceCollection, collectionEnum: SpecificCollectionView.speechCollectionView, appView: view)
         
-        //here, we want to download the actual TileData, which can be taken from TileDataManager.downloadAllSelectionDataAs2DArray(...)
+        downloadAllSelectionDataAs2DArray()
+        
         //what we want in the tile manager is something that grabs a 2DArrayof images
         
     }
@@ -174,7 +176,147 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return appDataTileData[categoryIndex]
     }
     
-   
+    func downloadAllSelectionDataAs2DArray(){
+        //do the observe
+        //have the snapshot
+        //2d loop it so that you can update the tileData2DArray
+        //similarly, we update the categoryDataArray
+        
+        //at this point, your 2d array has been completely updated, which means it is ready to use for reloading data, also your categoryDataArray has been updated as well
+        //now you can reload your selectionBarTileData as well
+        //reload selectionCollectionView, categoryCllectionView
+        let user = Auth.auth().currentUser
+        guard let uid = user?.uid else
+        {
+            return
+        }
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let userRef = ref.child("user").child(uid)
+        
+        userRef.child("categoryData").observe(DataEventType.value, with:
+            {
+                (snapshot) in
+                print("entered the observe function, the snapshot for this one is")
+                print(snapshot)
+                let dict = snapshot.value as? NSDictionary
+//                print("this is dict........................................", dict)
+                
+                var downloadedCategoryData = [TileData]()
+                var downloadedAppData2DString = [[String]]()
+                
+                
+                //go through each category
+                for currentCategory in dict!{
+//                    print("this is what currentCategory actually is ", currentCategory)
+                    let postDict = currentCategory.value as? NSDictionary
+//                    print("currently in the category, here is the printed postDict ", postDict)
+                    
+                    //
+                    var categoryImageFileName = ""
+                    let categoryTitle = currentCategory.key as! String
+                    
+                    //go for each attribute in the category
+                    for categoryChild in postDict!{
+                        
+//                        print("the category child in the current child is ", categoryChild)
+                        if(categoryChild.key as? String == "selectionData"){
+                            let selectionDataArray = categoryChild.value as? NSArray
+                            var stringDataArrayForSection = [String]()
+                            
+                            //go for each word in the selectionDataArray
+                            for currentSelectionData in selectionDataArray!{
+//                                print("this is the currentSelectionData= ", currentSelectionData)
+                                //at this point, you have finally gone down to the lowest level in the selectionData of 1 category
+                                stringDataArrayForSection.append(currentSelectionData as! String)
+                            }
+                            
+                            downloadedAppData2DString.append(stringDataArrayForSection)
+                        }
+                        if(categoryChild.key as? String == "image"){
+                            categoryImageFileName = (categoryChild.value as? String)!
+                            downloadedCategoryData.append(TileData(categoryImageFileName, categoryTitle))
+                        }
+                    }
+                }
+                
+                
+                //at this point, the tileData for the categories (downloadedCategoryData) is set up, and the (downloadedAppData2DString)is also set up.
+                //we now need to take the image file names of each of the pictures
+                print("below is the downloadedCategoryData")
+                for currentRow in downloadedCategoryData{
+                    print("TileData:")
+                    print("\t", currentRow.getImageTitle())
+                    print("\t", currentRow.getImageFileName())
+                }
+                print("below is the downloadedAppData2DString")
+                for currentRow in downloadedAppData2DString{
+                    print(currentRow)
+                }
+                var downloadedAppData2DTileData = [[TileData]]()
+                var downloadedSelectionBarTileData = [TileData]()
+                
+                userRef.child("tileData").observe(DataEventType.value, with:
+                    {
+                        (nestedSnapshot) in
+                        print("now inside the nested observe, here is the snapshot")
+                        print(nestedSnapshot)
+                        let dictTileData = nestedSnapshot.value as? NSDictionary
+                        
+                        //go through each tileData in the tileData attribute
+                        var tileDataArray = [TileData]()
+                        for currentTileData in dictTileData!{
+                            let tileDataDict = currentTileData.value as? NSDictionary
+                            tileDataArray.append(TileData(tileDataDict!["Image"] as! String, tileDataDict!["title"] as! String))
+                        }
+                        
+                        for currentRow in downloadedAppData2DString{
+                            var currentCategoryTileData = [TileData]()
+                            for currentString in currentRow{
+                                for currentTileData in tileDataArray{
+                                    if(currentTileData.getImageTitle() == currentString){
+                                        currentCategoryTileData.append(currentTileData)
+                                    }
+                                }
+                            }
+                            downloadedAppData2DTileData.append(currentCategoryTileData)
+                        }
+                        
+                        //at this point, your downloadedAppData2DTileData has been properly initialized
+                        print("below is the downloadedAppData2DTileData")
+                        for currentRow in downloadedAppData2DTileData{
+                            print("printing one row of 2D Tile Data:")
+                            for currentTile in currentRow{
+                                print("\tTileData:")
+                                print("\t\t", currentTile.getImageTitle())
+                                print("\t\t", currentTile.getImageFileName())
+                            }
+                        }
+                        downloadedSelectionBarTileData = downloadedAppData2DTileData[0]
+                        
+                        self.appDataTileData = downloadedAppData2DTileData
+                        self.categoryBarTileData = downloadedCategoryData
+                        self.selectionBarTileData = downloadedSelectionBarTileData
+                        
+                        self.selectionCollection.reloadData()
+                        self.categoryCollection.reloadData()
+                        self.sentenceCollection.reloadData()
+                        
+                        print("successfully did all the printing... we have updated the arrays and reloaded the collectionViews")
+                        
+                }
+                ){
+                    (error) in
+                    print(error.localizedDescription)
+                }
+        }
+        ){
+            (error) in
+            print(error.localizedDescription)
+        }
+        //        tileData2DArray.removeAll()
+    }
 }
 //class UIviewcontroller ends
 
@@ -212,9 +354,27 @@ class Tile: UICollectionViewCell{
     var tileData: TileData!{
         didSet{
             //over here, we do the observe thing... we query for the specific image, and we run that asynchronously
-            var img = UIImage(named: tileData.getImageFileName())//var img = getImageFrom2DArray(tileData.getImageFileName())
-            imageView.image = img
-            labelView.text = tileData.getImageTitle()
+//            var img = UIImage(named: tileData.getImageFileName())//var img = getImageFrom2DArray(tileData.getImageFileName())
+//            imageView.image = img
+//            labelView.text = tileData.getImageTitle()
+            
+            
+            
+            
+            let storageRef = Storage.storage().reference()
+            
+            let imageRef = storageRef.child(tileData.getImageFileName())
+            imageRef.getData(maxSize: 1 * 1024 * 1024, completion: {
+                data, error in
+                if let error = error{
+                    print("an error occured while downloading a picture from storage! Here is the error:\n", error)
+                }
+                else{
+                    let img = UIImage(data : data!)
+                    self.imageView.image = img
+                    self.labelView.text = self.tileData.getImageTitle()
+                }
+            })
         }
     }
     
