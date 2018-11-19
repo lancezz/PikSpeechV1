@@ -2,9 +2,12 @@
 //  ColorManager.swift
 //  PikSpeech.V1
 //
-//  Created by Miguel Taningco on 2018-11-18.
-//  Copyright © 2018 cmpt275group11. All rights reserved.
+//  Created by Lance Zhang on 2018-11-18.
+//  Collaboration with Miguel Taningco and Lance Zhang
+//  Copyright © 2018 CMPT 275 Group11: A-team. All rights reserved.
 //
+//  Change Log:
+//      11/18/2018: Allows app to query for data regarding colors (Miguel Taningco and Lance Zhang)
 
 import Foundation
 import UIKit

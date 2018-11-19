@@ -15,6 +15,7 @@
 //                  Data flow of tiles now correctly illustrated by collectionViews (Miguel Taningco)
 //                  Implemented Text-to-Speech feature                              (Lance Zhang)
 //      11/05/2018: Provided documentation                                          (Miguel Taningco)
+//      11/18/2018: Allowed to authenticate users and query for data                (Miguel Taningco and Lance Zhang)
 
 import UIKit
 import AVFoundation
@@ -353,36 +354,10 @@ class Tile: UICollectionViewCell{
     
     var tileData: TileData!{
         didSet{
-            //over here, we do the observe thing... we query for the specific image, and we run that asynchronously
-//            var img = UIImage(named: tileData.getImageFileName())//var img = getImageFrom2DArray(tileData.getImageFileName())
-//            imageView.image = img
-//            labelView.text = tileData.getImageTitle()
-            
-            
-            
-            
-            let storageRef = Storage.storage().reference()
-            
-            let imageRef = storageRef.child(tileData.getImageFileName())
-            imageRef.getData(maxSize: 1 * 1024 * 1024, completion: {
-                data, error in
-                if let error = error{
-                    print("an error occured while downloading a picture from storage! Here is the error:\n", error)
-                }
-                else{
-                    let img = UIImage(data : data!)
-                    self.imageView.image = img
-                    self.labelView.text = self.tileData.getImageTitle()
-                }
-            })
+            labelView.text = tileData.getImageTitle()
+            imageView.loadImageUsingCacheWithFileNameString(fileName: tileData.getImageFileName())
         }
     }
-    
-    //  Constructor for Tile using a frame
-//    override init(frame: CGRect){
-//        super.init(frame: frame)
-////        setupViews()
-//    }
     
     //  Constructor for Tile using a labelName, imageName, and a rect
     init(_ labelName: String, _ imageName: String, _ rect: CGRect){
@@ -390,22 +365,6 @@ class Tile: UICollectionViewCell{
         labelView.text = labelName
         imageView.image = UIImage(named: imageName)
     }
-    
-    //  Sets the label of the Tile
-//    func setLabel(_ text: String){
-//        labelView.text = text
-//    }
-//
-//    //  Sets the image of the Tile
-//    func setImage(_ image: UIImage){
-//        imageView.image = image
-//    }
-//
-//    //  Sets up the views of the tile
-//    func setupViews(){
-//        addSubview(imageView)
-//        addSubview(labelView)
-//    }
     
     //  Required constructor for the Tile
     required init?(coder aDecoder: NSCoder) {

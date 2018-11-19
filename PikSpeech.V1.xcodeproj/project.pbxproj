@@ -27,6 +27,7 @@
 		7EEA741E21A0CF5300CBF04E /* TileSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA741D21A0CF5300CBF04E /* TileSizeManager.swift */; };
 		7EEA742021A0CF7000CBF04E /* TileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA741F21A0CF7000CBF04E /* TileDataManager.swift */; };
 		8A0E406821A1EAE700A9B24B /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E406721A1EAE700A9B24B /* ColorManager.swift */; };
+		8A73A74A21A2383900032BA0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73A74921A2383900032BA0 /* Extensions.swift */; };
 		8A7EA3EF218F6F0A00737705 /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7EA3EE218F6F0A00737705 /* Initializer.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		7EEA741F21A0CF7000CBF04E /* TileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileDataManager.swift; sourceTree = "<group>"; };
 		8751E93922D82C64F6FF7E5C /* Pods-PikSpeech.V1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PikSpeech.V1UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PikSpeech.V1UITests/Pods-PikSpeech.V1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0E406721A1EAE700A9B24B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		8A73A74921A2383900032BA0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8A7EA3EE218F6F0A00737705 /* Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 		7E848F71218B746C00ABA01D = {
 			isa = PBXGroup;
 			children = (
+				8A73A74821A2381000032BA0 /* Helpers */,
 				7E848F7C218B746C00ABA01D /* PikSpeech.V1 */,
 				7E848F94218B746E00ABA01D /* PikSpeech.V1Tests */,
 				7E848F9F218B746E00ABA01D /* PikSpeech.V1UITests */,
@@ -180,6 +183,14 @@
 				509937B6B2A333468FC6E077 /* Pods_PikSpeech_V1UITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A73A74821A2381000032BA0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8A73A74921A2383900032BA0 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9B34AB3714CC3EE1D8AF3C8A /* Pods */ = {
@@ -433,6 +444,7 @@
 				7E848F80218B746C00ABA01D /* ViewController.swift in Sources */,
 				7EEA742021A0CF7000CBF04E /* TileDataManager.swift in Sources */,
 				7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */,
+				8A73A74A21A2383900032BA0 /* Extensions.swift in Sources */,
 				7E848F86218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld in Sources */,
 				8A0E406821A1EAE700A9B24B /* ColorManager.swift in Sources */,
 				7E848FAF218D0A5600ABA01D /* SettingsViewController.swift in Sources */,

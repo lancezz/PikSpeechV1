@@ -3,8 +3,11 @@
 //  PikSpeech.V1
 //
 //  Created by Lance Zhang on 2018-11-14.
-//  Copyright © 2018 cmpt275group11. All rights reserved.
+//  Collaboration with Miguel Taningco and Lance Zhang
+//  Copyright © 2018 CMPT 275 Group11: A-team. All rights reserved.
 //
+//  Change Log:
+//      11/18/2018: Allowed app to store images in the cache    (Miguel Taningco and Lance Zhang)
 
 import UIKit
 import Firebase
