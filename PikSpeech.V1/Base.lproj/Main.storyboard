@@ -517,21 +517,68 @@
             </objects>
             <point key="canvasLocation" x="1516.7266187050361" y="21.582733812949641"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Tile Size View Controller-->
         <scene sceneID="7jq-ic-VIJ">
             <objects>
-                <viewController id="gQE-FZ-Quz" sceneMemberID="viewController">
+                <viewController id="gQE-FZ-Quz" customClass="ColorTileSizeViewController" customModule="PikSpeech_V1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1z-eY-iAr">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color and Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="u0H-wL-Ajq">
-                                <rect key="frame" x="463" y="399" width="186" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5r-Fx-DFt">
+                                <rect key="frame" x="486" y="314" width="140" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Default Pink"/>
+                                <connections>
+                                    <action selector="pinkColorButton:" destination="gQE-FZ-Quz" eventType="touchUpInside" id="R0h-AE-BcL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmG-YV-Cfh">
+                                <rect key="frame" x="234" y="314" width="77" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="color 1"/>
+                                <connections>
+                                    <action selector="themeOneButton:" destination="gQE-FZ-Quz" eventType="touchUpInside" id="U9d-s0-H7j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ay7-y5-KSM">
+                                <rect key="frame" x="793" y="314" width="81" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="color 3"/>
+                                <connections>
+                                    <action selector="themeTwoButton:" destination="gQE-FZ-Quz" eventType="touchUpInside" id="JLq-B1-br6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zO-kL-JEW">
+                                <rect key="frame" x="240" y="598" width="65" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Small"/>
+                                <connections>
+                                    <action selector="smallSizeButton:" destination="gQE-FZ-Quz" eventType="touchUpInside" id="gND-VV-Jd7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOE-5k-Fj4">
+                                <rect key="frame" x="509" y="598" width="95" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Medium"/>
+                                <connections>
+                                    <action selector="mediumSizeButton:" destination="gQE-FZ-Quz" eventType="touchUpInside" id="h8H-gu-ieH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfN-qM-GN3">
+                                <rect key="frame" x="801" y="598" width="66" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Large"/>
+                                <connections>
+                                    <action selector="largeSizeButton:" destination="gQE-FZ-Quz" eventType="touchUpInside" id="7Y9-Ni-HqW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.81960784310000001" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="UlF-Ut-jWM"/>
