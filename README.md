@@ -1,30 +1,29 @@
 # Starting up PikSpeech
 
-After downloading the project to run the app, ensure to go into the terminal with the appropriate path and provide the command:
+To run the app, first download the project. Then, go into the terminal and navigate to the path with the source code, and provide the command:
  *pod install*
    This will allow all the pods to be installed for the app to function correctly.
    
-Finally when running the app, ensure that one is using an iPad since we have constrained the app to work on only these devices. To ensure that the UI is working at its best, the recommended device is an iPad Pro (10.5-inch) since the UI constraints still have issues with other models.
+Finally when running the app, ensure that you are using an iPad, since we have constrained the app to work on only these devices. To ensure that the UI is working at its best, the recommended device is an iPad Pro (10.5-inch) since the UI constraints still have issues with other models.
 
 # Register into PikSpeech
 
-On start up of the app, you will be provided a screen that allows you to register for the account or to sign in to an already registered one. Specifically for registering, one needs to provide a valid email and a non trivial password (a password like “password” is non trivial enough). If the email is currently not valid or if the password is too trivial, ***there will be no indication that you have made a mistake***. This is so due to time constraints of implementing these features. Upon registering, there will be ***no need to verify the email*** for ease of use of testing or time constraints of implementing this feature.
+On start up of the app, you will be provided a screen that allows you to register an account or sign in to an already registered one. Specifically for registering, one needs to provide a valid email and a non trivial password (a password like “password” is non trivial enough). If the email is currently not valid or if the password is too trivial, ***there will be no indication that you have made a mistake***. This is due to time constraints of implementing these features. Upon registering, there will be ***no need to verify the email*** for ease of use of testing or time constraints of implementing this feature.
 
 # Sign into PikSpeech
-If you have already registered an account, you can sign in with that else you can use the credentials below. 
+If you have already registered an account, you can sign in with that. Otherwise, you can use the credentials below. 
 * **User**: CMPT275Group11Test@gmail.com
 * **Password**: testing
 
-* **Note:** If the email is not valid or the password is not correct, there will be no indication that you have made a mistake. This is due to time constraints of implementing thcanese features. In terms of user experience, using the keyboard will overshadow the text field that one is writing towards. This is expected as we have not taken into account the issue.*
+* **Note:** If the email is not valid or the password is not correct, there will be no indication that you have made a mistake. This is due to time constraints of implementing these features. In terms of user experience, using the keyboard will overshadow the text field that you are writing on. This is expected, as we have not taken into account the issue.*
 
 # Main Activity View
 
-In this view, you will be presented by the activity that the user will most often use. As previously promised in Version 1, we can do Tile-to-Sentence and Sentence-to-Speech when choosing the appropriate categories and tiles. No functionality has been changed other that the customizability of the app which is to be described in the later section of the README file.
+In this view, you will see the activity that the user will most often use. As previously promised in Version 1, we can do Tile-to-Sentence and Sentence-to-Speech when choosing the appropriate categories and tiles. No functionality has been changed other that the customizability of the app which is to be described in the later section of the README file.
 
 ## Parental Settings Features
 
-
-Shown below are features that have been implemented. Due to time constraints, not all features are quite perfect, but this will change for the better in the final version.
+Shown below are features that have been implemented. Due to time constraints, not all features are finished, but this will change for the better in the final version.
 
 ### Camera Roll
 Entering into the Camera Roll View will give a prototype of the view. There will be an option to Upload from the Camera Roll, choose for a particular category to place the Tile, and an option to place a name on the Tile.
@@ -39,8 +38,7 @@ and upload the image through there. Once you have gone through the Camera Roll F
 the same steps.
 
 ### Colours/ Sizes
-Colours and sizes are customizable with the given presets. As we have not yet given much thought into the User Experience,
-what is in the view is still its prototype. The first row corresponds to the color customization. The second row corresponds to the amount of tiles per row.
+Colours and sizes are customizable with the given presets. What is in the view is still its prototype. The first row corresponds to the color customization. The second row corresponds to the amount of tiles per row.
 * **Note:** If the user has tapped onto a preset, there will be no indication that the user’s customization has changed.
 This is due to time constraints of implementing these features.*
 
