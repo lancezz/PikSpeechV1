@@ -129,33 +129,43 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let userRef = ref.child("user").child(uid)
             
             let favRef = userRef.child("categoryData").child("Favourite").child("selectionData")
-            favRef.observe(DataEventType.value, with:
+        favRef.observeSingleEvent(of: .value, with:
                 { (snapshot) in
+                    //make the snapshot as a string array
                     var value = snapshot.value as? [String] ?? []
+                    
+                    
                     print (value)
-                    for dataInArray in value {
-                        print("inside of snapshot loop******************")
-
-                        for TileData in self.speechBarTileData{
-                            print("inside of tiledata loop")
-                            let titleForFav = TileData.getImageTitle()
-                            print(titleForFav)
-                            if dataInArray == titleForFav{
-                                print("already in favourite category")
-                                continue
+                    
+                    for tileData in self.speechBarTileData{
+                        print("now inside each of the thing that we are about to favourite")
+                        var isDuplicate = false;//here, assume that it is not a duplicate
+                        for dataInArray in value{
+                            if dataInArray == tileData.getImageTitle(){
+                                isDuplicate = true;
+                                break
                             }
-                            value.append(titleForFav)
+                        }
+                        if isDuplicate{
+                            continue
+                            
+                        }
+                        else{
+                            //add the tile
+                            value.append(tileData.getImageTitle())
                             print("append successfuly")
                             favRef.setValue(value)
                         }
-                     
-                        
                     }
-                    
-            })
+                    self.speechBarTileData.removeAll()
+                    self.sentenceCollection.reloadData()
+            }){
+                (error) in
+                print(error.localizedDescription)
+        }
         
-        speechBarTileData.removeAll()
-        self.sentenceCollection.reloadData()
+
+        //self.sentenceCollection.reloadData()
         self.selectionCollection.reloadData()
     }
     //  Deletes one Tile object from the SpeechBar array when DeleteButton is tapped
