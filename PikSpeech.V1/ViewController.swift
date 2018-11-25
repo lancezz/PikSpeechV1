@@ -117,6 +117,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.sentenceCollection.reloadData()
         self.selectionCollection.reloadData()
     }
+    //  Very similar to the deletion button, the user can 
+    @IBAction func favouriteButtonPressed(_ sender: Any) {
+        
+    }
     //  Deletes one Tile object from the SpeechBar array when DeleteButton is tapped
     @IBAction func deletionButton(_ sender: Any){
         if speechBarTileData.count > 0{
