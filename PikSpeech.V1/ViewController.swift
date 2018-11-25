@@ -48,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             speechBarTileData.removeLast()
             
             if speechBarTileData.count > 0 {
-               speechBarTileData.removeLast()
+                speechBarTileData.removeLast()
             }
             sentenceCollection.reloadData()
             sentenceCollection.layoutIfNeeded()
@@ -63,11 +63,64 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             synth.speak(myUtterance)
         }
     }
-    
+    //  Permanently delete the pic from your personal library
+    @IBAction func deleteFromLibrary(_ sender: Any) {
+        for TileData in speechBarTileData{
+            let titleForDelete = TileData.getImageTitle()
+            let user = Auth.auth().currentUser
+            guard let uid = user?.uid else
+            {
+                return
+            }
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let userRef = ref.child("user").child(uid)
+            
+            userRef.child("categoryData").observe(DataEventType.value, with:
+                { (snapshot) in
+                    let dict = snapshot.value as? NSDictionary
+                    for currentCategory in dict!{
+                        let postDict = currentCategory.value as? NSDictionary
+                        let currentCategoryName = currentCategory.key
+                        //go for each attribute in the category
+                        for categoryChild in postDict!{
+                            
+                            if(categoryChild.key as? String == "selectionData"){
+                                let selectionDataArray = categoryChild.value as? NSArray
+                                var stringDataArrayForSection = [String]()
+                                
+                                //go for each word in the selectionDataArray
+                                for currentSelectionData in selectionDataArray!{
+                                    //at this point, you have finally gone down to the lowest level in the selectionData of 1 category
+                                    
+                                    stringDataArrayForSection.append(currentSelectionData as! String)
+                                }
+                                if let index = stringDataArrayForSection.index(of: titleForDelete) {
+                                    print("found a string with the same data")
+                                    stringDataArrayForSection.remove(at: index)
+                                    let deleteRef = userRef.child("categoryData/\(currentCategoryName)/selectionData")
+                                    deleteRef.setValue(stringDataArrayForSection)
+                                    
+                                }
+                                else{
+                                    print("did not find a string with the same data.. here is what we were trying to delete: " + titleForDelete)
+                                }
+                                print(stringDataArrayForSection)
+                                
+                            }
+                            
+                        }
+                    }
+            })
+        }
+        speechBarTileData.removeAll()
+        self.sentenceCollection.reloadData()
+        self.selectionCollection.reloadData()
+    }
     //  Deletes one Tile object from the SpeechBar array when DeleteButton is tapped
     @IBAction func deletionButton(_ sender: Any){
         if speechBarTileData.count > 0{
-        speechBarTileData.removeLast()
+            speechBarTileData.removeLast()
             sentenceCollection.reloadData()
             sentenceCollection.layoutIfNeeded()
         }
@@ -200,7 +253,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 //go through each category
                 for currentCategory in dict!{
                     let postDict = currentCategory.value as? NSDictionary
-
+                    
                     var categoryImageFileName = ""
                     let categoryTitle = currentCategory.key as! String
                     
@@ -354,3 +407,4 @@ class Tile: UICollectionViewCell{
         super.init(coder: aDecoder)
     }
 }
+
