@@ -119,7 +119,44 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     //  Very similar to the deletion button, the user can 
     @IBAction func favouriteButtonPressed(_ sender: Any) {
+            let user = Auth.auth().currentUser
+            guard let uid = user?.uid else
+            {
+                return
+            }
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let userRef = ref.child("user").child(uid)
+            
+            let favRef = userRef.child("categoryData").child("Favourite").child("selectionData")
+            favRef.observe(DataEventType.value, with:
+                { (snapshot) in
+                    var value = snapshot.value as? [String] ?? []
+                    print (value)
+                    for dataInArray in value {
+                        print("inside of snapshot loop******************")
+
+                        for TileData in self.speechBarTileData{
+                            print("inside of tiledata loop")
+                            let titleForFav = TileData.getImageTitle()
+                            print(titleForFav)
+                            if dataInArray == titleForFav{
+                                print("already in favourite category")
+                                continue
+                            }
+                            value.append(titleForFav)
+                            print("append successfuly")
+                            favRef.setValue(value)
+                        }
+                     
+                        
+                    }
+                    
+            })
         
+        speechBarTileData.removeAll()
+        self.sentenceCollection.reloadData()
+        self.selectionCollection.reloadData()
     }
     //  Deletes one Tile object from the SpeechBar array when DeleteButton is tapped
     @IBAction func deletionButton(_ sender: Any){

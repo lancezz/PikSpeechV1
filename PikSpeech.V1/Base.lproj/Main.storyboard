@@ -423,6 +423,9 @@
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="     Add Favourites"/>
+                                        <connections>
+                                            <segue destination="yTl-Zc-6Ls" kind="show" id="5Be-uE-Pq6"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Customize" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fp-qg-rtn">
                                         <rect key="frame" x="0.0" y="383" width="391" height="62"/>
@@ -1483,6 +1486,7 @@
         <image name="trash_can_PNG18440" width="355" height="468"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="5Be-uE-Pq6"/>
         <segue reference="iL2-VS-4Vn"/>
         <segue reference="IdA-yh-n2n"/>
     </inferredMetricsTieBreakers>
