@@ -1187,6 +1187,17 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pG0-sI-xOJ" userLabel="DeletionButton">
+                                <rect key="frame" x="982" y="126" width="80" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="492-Jf-fvg"/>
+                                    <constraint firstAttribute="height" constant="120" id="FgD-Ig-Oqk"/>
+                                </constraints>
+                                <state key="normal" title="DeletionButton" image="trash_can_PNG18440"/>
+                                <connections>
+                                    <action selector="deleteFromLibrary:" destination="4km-Mr-WcA" eventType="touchUpInside" id="JRQ-Qv-VBk"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uuE-IW-Rrd" userLabel="SentenceCollection">
                                 <rect key="frame" x="11" y="126" width="868" height="120"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.81960784310000001" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1235,15 +1246,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pG0-sI-xOJ" userLabel="DeletionButton">
-                                <rect key="frame" x="982" y="126" width="80" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="492-Jf-fvg"/>
-                                    <constraint firstAttribute="height" constant="120" id="FgD-Ig-Oqk"/>
-                                </constraints>
-                                <state key="normal" title="DeletionButton" image="trash_can_PNG18440"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select and click on the trash bin to remove from library." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaZ-Uv-6Vy">
+                                <rect key="frame" x="322" y="43" width="472" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.1211975582" green="0.46623631090000001" blue="0.90090673580000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AL-RQ-4jS">
+                                <rect key="frame" x="11" y="53" width="75" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="&lt; Back"/>
                                 <connections>
-                                    <action selector="deleteFromLibrary:" destination="4km-Mr-WcA" eventType="touchUpInside" id="JRQ-Qv-VBk"/>
+                                    <segue destination="fHB-V1-Ptv" kind="show" id="YeF-E9-2Xp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1257,9 +1272,11 @@
                             <constraint firstItem="4dS-aK-bda" firstAttribute="bottom" secondItem="Tjr-SK-FUz" secondAttribute="bottom" constant="420" id="O6k-Zh-aFF"/>
                             <constraint firstItem="NlU-uq-rt2" firstAttribute="leading" secondItem="4dS-aK-bda" secondAttribute="leading" id="Q7D-PO-Z3m"/>
                             <constraint firstItem="NlU-uq-rt2" firstAttribute="trailing" secondItem="4dS-aK-bda" secondAttribute="trailing" id="cQN-9e-vXc"/>
+                            <constraint firstItem="7AL-RQ-4jS" firstAttribute="top" secondItem="4dS-aK-bda" secondAttribute="top" constant="33" id="cWF-8F-orF"/>
                             <constraint firstItem="NlU-uq-rt2" firstAttribute="bottom" secondItem="4dS-aK-bda" secondAttribute="bottom" id="hXz-2B-5Li"/>
                             <constraint firstItem="Tjr-SK-FUz" firstAttribute="leading" secondItem="4dS-aK-bda" secondAttribute="leading" id="rHY-hc-pc2"/>
                             <constraint firstItem="4dS-aK-bda" firstAttribute="trailing" secondItem="pG0-sI-xOJ" secondAttribute="trailing" constant="50" id="svp-gZ-TPL"/>
+                            <constraint firstItem="7AL-RQ-4jS" firstAttribute="leading" secondItem="4dS-aK-bda" secondAttribute="leading" constant="11" id="vmP-GP-sFe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4dS-aK-bda"/>
                     </view>
@@ -1293,6 +1310,7 @@
         <image name="trash_can_PNG18440" width="355" height="468"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gKt-2G-HJs"/>
         <segue reference="IdA-yh-n2n"/>
     </inferredMetricsTieBreakers>
 </document>
