@@ -300,8 +300,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return cell
         }
         else{
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
             cell.tileData = speechBarTileData[indexPath.row]
+            cell.imageView.layer.borderWidth = 2
+            let color = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1.0)
+            cell.imageView.layer.borderColor = color.cgColor
             return cell
         }
     }
@@ -310,6 +314,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         if collectionView == self.selectionCollection{
             speechBarTileData.append(selectionBarTileData[indexPath.row])
+            
+            myUtterance = AVSpeechUtterance(string: selectionBarTileData[indexPath.row].getImageTitle())
+            myUtterance.rate = 0.3
+            synth.speak(myUtterance)
+            
             sentenceCollection.reloadData()
             sentenceCollection.layoutIfNeeded()
         }
