@@ -129,10 +129,6 @@
                                             <constraint firstItem="5TN-gt-r3A" firstAttribute="top" secondItem="wQy-BR-lvg" secondAttribute="top" id="YAo-m8-x9e"/>
                                             <constraint firstAttribute="trailing" secondItem="5TN-gt-r3A" secondAttribute="trailing" id="wpl-7h-0aN"/>
                                         </constraints>
-                                        <connections>
-                                            <outlet property="imageView" destination="5TN-gt-r3A" id="U0R-5c-2lF"/>
-                                            <outlet property="labelView" destination="f4c-f7-XFd" id="Vf1-TL-TKr"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -202,7 +198,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="uA7-xG-Nhp">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="uA7-xG-Nhp" customClass="Tile" customModule="PikSpeech_V1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -229,6 +225,10 @@
                                             <constraint firstAttribute="bottom" secondItem="iqb-gC-bDn" secondAttribute="bottom" id="dxY-eI-3mU"/>
                                             <constraint firstAttribute="trailing" secondItem="iqb-gC-bDn" secondAttribute="trailing" id="swf-vS-tVA"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="4dK-b1-sIP" id="Btf-n7-O61"/>
+                                            <outlet property="labelView" destination="iqb-gC-bDn" id="Dfr-0o-GnF"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
