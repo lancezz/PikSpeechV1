@@ -182,7 +182,45 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //  Segues into the SettingsSegue
     @IBAction func settingsButton(_sender: UIButton){
-        performSegue(withIdentifier: "SettingsSegue", sender: self)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        let alert = UIAlertController(title: "Parental Control",
+                                      message: "Please Provide Your Pin to change settings",
+                                      preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Confirm",
+            style: .default) { action in
+            let pinEntered = alert.textFields![0]
+            let user = Auth.auth().currentUser
+            guard let uid = user?.uid else
+            {
+             return
+            }
+                                        
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let userRef = ref.child("user").child(uid)
+                userRef.child("pin").observeSingleEvent(of: .value, with: { snapshot in
+                    let userPin = snapshot.value as? String
+                    if pinEntered.text == userPin {
+                        self.performSegue(withIdentifier: "SettingsSegue", sender: self)
+                    }
+                    else {
+                        print("pin wrong")
+                    }
+                    
+                })
+                                        
+        }
+        alert.addTextField { enteredPin in
+            enteredPin.placeholder = "Pin here"
+            
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+      
     }
     
     //  Initializes properties of views

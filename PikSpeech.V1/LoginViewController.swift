@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
                                        style: .default) { action in
                                         let emailtext = alert.textFields![0]
                                         let passwordtext = alert.textFields![1]
-                                        
+                                        let pintext = alert.textFields![2]
                                         
                                         //Create user with email and password on Firebase authentication
                                         //and initialize the user uid information in the real time database
@@ -76,8 +76,8 @@ class LoginViewController: UIViewController {
                                             //Initlize tilesPerRow
                                             
                                 
-                                            let numberOfTiles = ["tilesPerRow": 5]
-                                            userRef.setValue(numberOfTiles)
+                                            let rowAndPin = ["tilesPerRow": 5,"pin":pintext.text!] as [String : Any]
+                                            userRef.setValue(rowAndPin)
 
                                             let selectioncolorRef = userRef.child("selectionColor")
                                             var colorValues: [String: Any] = ["R": 0.925, "G": 0.82, "B": 0.87]
@@ -188,7 +188,10 @@ class LoginViewController: UIViewController {
             textPassword.isSecureTextEntry = true
             textPassword.placeholder = "Enter your password"
         }
-        
+        alert.addTextField { pin in
+            pin.placeholder = "Set pin for Parental Control"
+            
+        }
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
