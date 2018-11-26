@@ -177,6 +177,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    @IBOutlet weak var predictionCollection: UICollectionView!
     @IBOutlet weak var categoryCollection: UICollectionView!
     @IBOutlet weak var sentenceCollection: UICollectionView!
     
@@ -235,7 +236,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let layout = selectionCollection.collectionViewLayout as! UICollectionViewFlowLayout
         
         layout.itemSize = CGSize(width: width, height: width)
-        
+        let layout2 = sentenceCollection.collectionViewLayout as! UICollectionViewFlowLayout
+        layout2.itemSize = CGSize(width: 130,height: 130)
         selectionCollection.delegate = self
         selectionCollection.dataSource = self
         
