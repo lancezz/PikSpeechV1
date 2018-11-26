@@ -35,7 +35,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var selectionBarTileData = Initializer.getDefaultSelectionBarData()
     var categoryBarTileData = Initializer.getCategoryData()
     var appDataTileData = Initializer.getAppDataTileData()
-    
+    var predictionTileData = [TileData]()
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
@@ -247,7 +247,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         sentenceCollection.delegate = self
         sentenceCollection.dataSource = self
         
-        
+        predictionCollection.delegate = self
+        predictionCollection.delegate = self
         //Download actual Data
         TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
         ColorManager.downloadColorForCollectionView(collectionView: selectionCollection, collectionEnum: SpecificCollectionView.selectionCollectionView, appView: view)
@@ -273,6 +274,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else if collectionView == self.categoryCollection{
             return categoryBarTileData.count
         }
+        else if collectionView == self.predictionCollection{
+            return predictionTileData.count
+        }
         else{
             return speechBarTileData.count
         }
@@ -288,6 +292,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else if collectionView == self.categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
             cell.tileData = categoryBarTileData[indexPath.row]
+            return cell
+        }
+        else if collectionView == self.predictionCollection{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
+            cell.tileData = predictionTileData[indexPath.row]
             return cell
         }
         else{
