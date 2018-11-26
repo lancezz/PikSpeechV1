@@ -129,6 +129,10 @@
                                             <constraint firstItem="5TN-gt-r3A" firstAttribute="top" secondItem="wQy-BR-lvg" secondAttribute="top" id="YAo-m8-x9e"/>
                                             <constraint firstAttribute="trailing" secondItem="5TN-gt-r3A" secondAttribute="trailing" id="wpl-7h-0aN"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="5TN-gt-r3A" id="zXx-2b-IyL"/>
+                                            <outlet property="labelView" destination="f4c-f7-XFd" id="J0j-GI-0uc"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

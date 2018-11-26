@@ -248,7 +248,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         sentenceCollection.dataSource = self
         
         predictionCollection.delegate = self
-        predictionCollection.delegate = self
+        predictionCollection.dataSource = self
         //Download actual Data
         TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
         ColorManager.downloadColorForCollectionView(collectionView: selectionCollection, collectionEnum: SpecificCollectionView.selectionCollectionView, appView: view)
