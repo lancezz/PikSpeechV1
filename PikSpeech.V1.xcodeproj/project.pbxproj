@@ -10,6 +10,7 @@
 		23F43638E670D8D0987B4EEB /* Pods_PikSpeech_V1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54628EA4E25D237E3187106E /* Pods_PikSpeech_V1Tests.framework */; };
 		5FC32253A4A6308FEEC86834 /* Pods_PikSpeech_V1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509937B6B2A333468FC6E077 /* Pods_PikSpeech_V1UITests.framework */; };
 		77E6266709AD791C37453F70 /* Pods_PikSpeech_V1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D78B3991B96CD36673D605 /* Pods_PikSpeech_V1.framework */; };
+		7E0B1A3221AFA96B00890242 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B1A3121AFA96B00890242 /* StatisticsViewController.swift */; };
 		7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848F7D218B746C00ABA01D /* AppDelegate.swift */; };
 		7E848F80218B746C00ABA01D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E848F7F218B746C00ABA01D /* ViewController.swift */; };
 		7E848F83218B746C00ABA01D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E848F81218B746C00ABA01D /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		66BC05BDDFE40C92BBD72286 /* Pods-PikSpeech.V1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PikSpeech.V1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PikSpeech.V1/Pods-PikSpeech.V1.debug.xcconfig"; sourceTree = "<group>"; };
 		68D78B3991B96CD36673D605 /* Pods_PikSpeech_V1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PikSpeech_V1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3FAAA6D2AC69F5EB7379CB /* Pods-PikSpeech.V1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PikSpeech.V1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PikSpeech.V1Tests/Pods-PikSpeech.V1Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7E0B1A3121AFA96B00890242 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		7E848F7A218B746C00ABA01D /* PikSpeech.V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PikSpeech.V1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E848F7D218B746C00ABA01D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E848F7F218B746C00ABA01D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				8A0E406721A1EAE700A9B24B /* ColorManager.swift */,
 				7EEA742121A2973F00CBF04E /* UploadViewController.swift */,
 				7EEA742321A31B0C00CBF04E /* ColorTileSizeViewController.swift */,
+				7E0B1A3121AFA96B00890242 /* StatisticsViewController.swift */,
 			);
 			path = PikSpeech.V1;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				7EEA7418219D019000CBF04E /* LoginViewController.swift in Sources */,
 				7E848F80218B746C00ABA01D /* ViewController.swift in Sources */,
 				7EEA742F21A34D3600CBF04E /* DrawingSettingsViewController.swift in Sources */,
+				7E0B1A3221AFA96B00890242 /* StatisticsViewController.swift in Sources */,
 				7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */,
 				7EEA743021A34D3600CBF04E /* Pencil.swift in Sources */,
 				8A73A74A21A2383900032BA0 /* Extensions.swift in Sources */,

@@ -17,12 +17,12 @@
 //      11/05/2018: Provided documentation                                          (Miguel Taningco)
 //      11/18/2018: Allowed to authenticate users and query for data                (Miguel Taningco and Lance Zhang)
 
-
 import UIKit
 import AVFoundation
 import FirebaseDatabase
 import Firebase
 import FirebaseStorage
+import SQLite3
 
 
 
@@ -30,6 +30,8 @@ import FirebaseStorage
 
 //  ViewController Class controls the views of the app and manages the flow of data within the main activity
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    var db: OpaquePointer? = nil
     
     var speechBarTileData = [TileData]()
     var selectionBarTileData = Initializer.getDefaultSelectionBarData()
@@ -117,54 +119,54 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.sentenceCollection.reloadData()
         self.selectionCollection.reloadData()
     }
-    //  Very similar to the deletion button, the user can 
+    //  Very similar to the deletion button, the user can
     @IBAction func favouriteButtonPressed(_ sender: Any) {
-            let user = Auth.auth().currentUser
-            guard let uid = user?.uid else
-            {
-                return
-            }
-            var ref: DatabaseReference!
-            ref = Database.database().reference()
-            let userRef = ref.child("user").child(uid)
-            
-            let favRef = userRef.child("categoryData").child("Favourite").child("selectionData")
+        let user = Auth.auth().currentUser
+        guard let uid = user?.uid else
+        {
+            return
+        }
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let userRef = ref.child("user").child(uid)
+        
+        let favRef = userRef.child("categoryData").child("Favourite").child("selectionData")
         favRef.observeSingleEvent(of: .value, with:
-                { (snapshot) in
-                    //make the snapshot as a string array
-                    var value = snapshot.value as? [String] ?? []
-                    
-                    
-                    print (value)
-                    
-                    for tileData in self.speechBarTileData{
-                        print("now inside each of the thing that we are about to favourite")
-                        var isDuplicate = false;//here, assume that it is not a duplicate
-                        for dataInArray in value{
-                            if dataInArray == tileData.getImageTitle(){
-                                isDuplicate = true;
-                                break
-                            }
-                        }
-                        if isDuplicate{
-                            continue
-                            
-                        }
-                        else{
-                            //add the tile
-                            value.append(tileData.getImageTitle())
-                            print("append successfuly")
-                            favRef.setValue(value)
+            { (snapshot) in
+                //make the snapshot as a string array
+                var value = snapshot.value as? [String] ?? []
+                
+                
+                print (value)
+                
+                for tileData in self.speechBarTileData{
+                    print("now inside each of the thing that we are about to favourite")
+                    var isDuplicate = false;//here, assume that it is not a duplicate
+                    for dataInArray in value{
+                        if dataInArray == tileData.getImageTitle(){
+                            isDuplicate = true;
+                            break
                         }
                     }
-                    self.speechBarTileData.removeAll()
-                    self.sentenceCollection.reloadData()
-            }){
-                (error) in
-                print(error.localizedDescription)
+                    if isDuplicate{
+                        continue
+                        
+                    }
+                    else{
+                        //add the tile
+                        value.append(tileData.getImageTitle())
+                        print("append successfuly")
+                        favRef.setValue(value)
+                    }
+                }
+                self.speechBarTileData.removeAll()
+                self.sentenceCollection.reloadData()
+        }){
+            (error) in
+            print(error.localizedDescription)
         }
         
-
+        
         //self.sentenceCollection.reloadData()
         self.selectionCollection.reloadData()
     }
@@ -189,27 +191,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                       message: "Please Provide Your Pin to change settings",
                                       preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Confirm",
-            style: .default) { action in
-            let pinEntered = alert.textFields![0]
-            let user = Auth.auth().currentUser
-            guard let uid = user?.uid else
-            {
-             return
-            }
+                                       style: .default) { action in
+                                        let pinEntered = alert.textFields![0]
+                                        let user = Auth.auth().currentUser
+                                        guard let uid = user?.uid else
+                                        {
+                                            return
+                                        }
                                         
-            var ref: DatabaseReference!
-            ref = Database.database().reference()
-            let userRef = ref.child("user").child(uid)
-                userRef.child("pin").observeSingleEvent(of: .value, with: { snapshot in
-                    let userPin = snapshot.value as? String
-                    if pinEntered.text == userPin {
-                        self.performSegue(withIdentifier: "SettingsSegue", sender: self)
-                    }
-                    else {
-                        print("pin wrong")
-                    }
-                    
-                })
+                                        var ref: DatabaseReference!
+                                        ref = Database.database().reference()
+                                        let userRef = ref.child("user").child(uid)
+                                        userRef.child("pin").observeSingleEvent(of: .value, with: { snapshot in
+                                            let userPin = snapshot.value as? String
+                                            if pinEntered.text == userPin {
+                                                self.performSegue(withIdentifier: "SettingsSegue", sender: self)
+                                            }
+                                            else {
+                                                print("pin wrong")
+                                            }
+                                            
+                                        })
                                         
         }
         alert.addTextField { enteredPin in
@@ -221,15 +223,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
-      
+        
     }
     
     //  Initializes properties of views
     override func viewDidLoad(){
         super.viewDidLoad()
-        //Firebase
         
-        //Firebase
         //All these are default things
         let actualWidth = view.frame.size.width
         let width = view.frame.size.width / 6.0
@@ -257,6 +257,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         downloadAllSelectionDataAs2DArray()
         
+        //SQLite stuff
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent("wordPredictionDB.sqlite")
+        
+        if sqlite3_open(fileURL.path, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(fileURL)")
+        } else {
+            print("Unable to open database. Verify that you created the directory described " +
+                "in the Getting Started section.")
+        }
+        createTable()
         
     }
     
@@ -463,9 +474,33 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             print(error.localizedDescription)
         }
     }
+    
+    //SQlite part//////
+    //func openDatabase() -> OpaquePointer? {
+    //    var db: OpaquePointer? = nil
+    //    if sqlite3_open(part1DbPath, &db) == SQLITE_OK {
+    //        print("Successfully opened connection to database at \(part1DbPath)")
+    //        return db
+    //    } else {
+    //        print("Unable to open database. Verify that you created the directory described " +
+    //            "in the Getting Started section.")
+    //        PlaygroundPage.current.finishExecution()
+    //    }
+    //
+    //}
+    
+    func createTable() {
+        
+        //creating table
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Prediction (word TEXT PRIMARY KEY NOT NULL UNIQUE, prediction1 TEXT, prediction2 TEXT,prediction3 TEXT, prediction4 TEXT, prediction5 TEXT)", nil, nil, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error creating table: \(errmsg)")
+        }
+    }
+    
+    
 }
 //class UIviewcontroller ends
-
 
 //  TileData Class contains information needed to make a Tile UICollectionViewCell
 class TileData{
@@ -516,4 +551,3 @@ class Tile: UICollectionViewCell{
         super.init(coder: aDecoder)
     }
 }
-
