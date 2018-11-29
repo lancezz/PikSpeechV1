@@ -348,8 +348,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             myUtterance.rate = 0.3
             synth.speak(myUtterance)
             
-//            sentenceCollection.reloadData()
-//            sentenceCollection.layoutIfNeeded()
+            sentenceCollection.reloadData()
+            sentenceCollection.layoutIfNeeded()
         }
         else if collectionView == self.categoryCollection{
             selectionBarTileData = replaceSelectionDataForCategory(indexPath.row)
@@ -433,7 +433,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 var downloadedAppData2DTileData = [[TileData]]()
                 var downloadedSelectionBarTileData = [TileData]()
                 
-                userRef.child("tileData").observe(DataEventType.value, with:
+                userRef.child("tileData").observeSingleEvent(of: .value, with:
                     {
                         (nestedSnapshot) in
                         print("now inside the nested observe, here is the snapshot")
