@@ -325,13 +325,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         if collectionView == self.selectionCollection{
             speechBarTileData.append(selectionBarTileData[indexPath.row])
+            let user = Auth.auth().currentUser
+            guard let uid = user?.uid else
+            {
+                return
+            }
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let userRef = ref.child("user").child(uid)
+            
+            let tileFreq = userRef.child("tileData").child("\(selectionBarTileData[indexPath.row].getImageTitle())").child("frequency")
+            tileFreq.observeSingleEvent(of: .value, with: { snapshot in
+                var currentFreq = snapshot.value as! Int
+                currentFreq = currentFreq + 1
+                print("frequencyy change today")
+                tileFreq.setValue(currentFreq)
+                
+                
+            })
             
             myUtterance = AVSpeechUtterance(string: selectionBarTileData[indexPath.row].getImageTitle())
             myUtterance.rate = 0.3
             synth.speak(myUtterance)
             
-            sentenceCollection.reloadData()
-            sentenceCollection.layoutIfNeeded()
+//            sentenceCollection.reloadData()
+//            sentenceCollection.layoutIfNeeded()
         }
         else if collectionView == self.categoryCollection{
             selectionBarTileData = replaceSelectionDataForCategory(indexPath.row)
