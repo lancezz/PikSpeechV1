@@ -34,6 +34,9 @@
 		8A0E406821A1EAE700A9B24B /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E406721A1EAE700A9B24B /* ColorManager.swift */; };
 		8A73A74A21A2383900032BA0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73A74921A2383900032BA0 /* Extensions.swift */; };
 		8A7EA3EF218F6F0A00737705 /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7EA3EE218F6F0A00737705 /* Initializer.swift */; };
+		8ADA5C7021AFCCAD003C0FBE /* DailyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA5C6F21AFCCAD003C0FBE /* DailyInformation.swift */; };
+		8ADA5C7221B0533A003C0FBE /* WordCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA5C7121B0533A003C0FBE /* WordCounter.swift */; };
+		8ADA5C7421B054D6003C0FBE /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA5C7321B054D6003C0FBE /* DataPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,9 @@
 		8A0E406721A1EAE700A9B24B /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		8A73A74921A2383900032BA0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8A7EA3EE218F6F0A00737705 /* Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
+		8ADA5C6F21AFCCAD003C0FBE /* DailyInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyInformation.swift; sourceTree = "<group>"; };
+		8ADA5C7121B0533A003C0FBE /* WordCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCounter.swift; sourceTree = "<group>"; };
+		8ADA5C7321B054D6003C0FBE /* DataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,9 @@
 				7EEA742121A2973F00CBF04E /* UploadViewController.swift */,
 				7EEA742321A31B0C00CBF04E /* ColorTileSizeViewController.swift */,
 				7E0B1A3121AFA96B00890242 /* StatisticsViewController.swift */,
+				8ADA5C6F21AFCCAD003C0FBE /* DailyInformation.swift */,
+				8ADA5C7121B0533A003C0FBE /* WordCounter.swift */,
+				8ADA5C7321B054D6003C0FBE /* DataPoint.swift */,
 			);
 			path = PikSpeech.V1;
 			sourceTree = "<group>";
@@ -512,16 +521,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ADA5C7421B054D6003C0FBE /* DataPoint.swift in Sources */,
 				7EEA741E21A0CF5300CBF04E /* TileSizeManager.swift in Sources */,
 				7EEA742221A2973F00CBF04E /* UploadViewController.swift in Sources */,
 				7EEA742E21A34D3600CBF04E /* DrawingVIew.swift in Sources */,
 				7EEA7418219D019000CBF04E /* LoginViewController.swift in Sources */,
 				7E848F80218B746C00ABA01D /* ViewController.swift in Sources */,
 				7EEA742F21A34D3600CBF04E /* DrawingSettingsViewController.swift in Sources */,
+				8ADA5C7221B0533A003C0FBE /* WordCounter.swift in Sources */,
 				7E0B1A3221AFA96B00890242 /* StatisticsViewController.swift in Sources */,
 				7E848F7E218B746C00ABA01D /* AppDelegate.swift in Sources */,
 				7EEA743021A34D3600CBF04E /* Pencil.swift in Sources */,
 				8A73A74A21A2383900032BA0 /* Extensions.swift in Sources */,
+				8ADA5C7021AFCCAD003C0FBE /* DailyInformation.swift in Sources */,
 				7E848F86218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld in Sources */,
 				8A0E406821A1EAE700A9B24B /* ColorManager.swift in Sources */,
 				7EEA742421A31B0C00CBF04E /* ColorTileSizeViewController.swift in Sources */,

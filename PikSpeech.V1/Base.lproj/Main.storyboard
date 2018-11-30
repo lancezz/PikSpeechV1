@@ -86,7 +86,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController title="MainView" id="BYZ-38-t0r" customClass="ViewController" customModule="PikSpeech_V1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -147,7 +147,7 @@
                                     <action selector="settingsButtonWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XOp-aU-VfF"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xiO-sa-sZ8" userLabel="SelectionCollection">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xiO-sa-sZ8" userLabel="SelectionCollection">
                                 <rect key="frame" x="0.0" y="416" width="1024" height="352"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.81960784310000001" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nth-ll-Z3A">
@@ -1149,19 +1149,43 @@
                                     <constraint firstAttribute="width" constant="150" id="vEw-Vx-Aq5"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FMq-Db-Aek">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="120" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DFA-NR-AIO">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="DFA-NR-AIO" customClass="Tile" customModule="PikSpeech_V1" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="0.0" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-Xe-daO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSq-i5-GLf">
+                                                    <rect key="frame" x="0.0" y="100" width="120" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="s0C-Xe-daO" firstAttribute="top" secondItem="DFA-NR-AIO" secondAttribute="top" id="9cR-F9-1ES"/>
+                                            <constraint firstAttribute="bottom" secondItem="wSq-i5-GLf" secondAttribute="bottom" id="AAL-dk-Yaa"/>
+                                            <constraint firstAttribute="bottom" secondItem="s0C-Xe-daO" secondAttribute="bottom" constant="20" id="IoG-bE-bgI"/>
+                                            <constraint firstItem="s0C-Xe-daO" firstAttribute="leading" secondItem="DFA-NR-AIO" secondAttribute="leading" id="RBo-Pi-mRA"/>
+                                            <constraint firstAttribute="trailing" secondItem="s0C-Xe-daO" secondAttribute="trailing" id="Y6q-CM-o6l"/>
+                                            <constraint firstAttribute="trailing" secondItem="wSq-i5-GLf" secondAttribute="trailing" id="fN1-Jl-xXz"/>
+                                            <constraint firstItem="wSq-i5-GLf" firstAttribute="leading" secondItem="DFA-NR-AIO" secondAttribute="leading" id="yfo-pp-SGC"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="s0C-Xe-daO" id="OUv-G3-21U"/>
+                                            <outlet property="labelView" destination="wSq-i5-GLf" id="Nms-Id-sP9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1630,7 +1654,6 @@
         <image name="trash_can_PNG18440" width="355" height="468"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Be-uE-Pq6"/>
         <segue reference="iL2-VS-4Vn"/>
         <segue reference="IdA-yh-n2n"/>
     </inferredMetricsTieBreakers>
