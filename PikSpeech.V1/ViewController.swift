@@ -350,6 +350,159 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             sentenceCollection.reloadData()
             sentenceCollection.layoutIfNeeded()
+            
+            //do statistics stuff
+            
+            userRef.child("dailyInformation").observeSingleEvent(of: .value, with:{
+                (snapshot) in
+                
+                let dailyInformationQueryArray = snapshot.value as? [String: AnyObject] ?? [:]
+                print("inside snapshot: \n", snapshot)
+                print("about to leave")
+                if dailyInformationQueryArray.count == 0{
+                    print("snapshot is nil")
+                    
+                    //this is where we make our first dailyInformation
+                    //it will loook like this
+                    
+                    /*
+                     dailyInformation
+                        |_12342134123424.4
+                            |_timeStamp: 12342134123424.4
+                     */
+                    
+                    let dailyInformationValue = NSDate().timeIntervalSince1970
+                    let timeStampRounded = Int(dailyInformationValue)
+                    print(String(timeStampRounded))
+                    let dailyInformationRef = userRef.child("dailyInformation").child(String(timeStampRounded)).child("timeStamp")
+                    
+                    dailyInformationRef.setValue(timeStampRounded)
+                    print("hopefully created a new dailyInformation")
+                    
+                }
+                else{
+                    //there is at least one thing in the dailyInformation
+                    
+                    //the purpose of this block is to find the latest date
+                    var mostCurrentDateInterval = 0
+                    var smallestDateInterval = Int(NSDate().timeIntervalSinceNow)
+                    var currentIndex = 0
+//                    var indexToKeepTrack = 0
+                    for currentDailyInformation in dailyInformationQueryArray{
+                        let postDict = currentDailyInformation.value as? NSDictionary
+                        //                    print("looking into the specific dailyInformationElement:\n", postDict!)
+                        
+                        
+//                        var dailyInformationDate : NSDate? = nil
+                        //go for each attribute in the category
+                        
+                        //traverse through the DailyInformation query
+                        for dailyInformationData in postDict!{
+                            //                        print("now traversing through the data of the dailyInformationElement:\n")
+                            if(dailyInformationData.key as? String == "timeStamp"){
+                                let dailySessionInformationTimeInterval = dailyInformationData.value as? Int ?? 0
+                                if dailySessionInformationTimeInterval > mostCurrentDateInterval{
+                                    mostCurrentDateInterval = dailySessionInformationTimeInterval
+                                    print("the most recent date is now ", dailySessionInformationTimeInterval)
+                                }
+                                
+                                if dailySessionInformationTimeInterval < smallestDateInterval{
+                                    smallestDateInterval = dailySessionInformationTimeInterval
+                                }
+                            }
+                        }
+                        currentIndex += 1
+                    }
+                    
+                    //right now you have the most current date
+                    
+                    let timeIntervalToday = NSDate().timeIntervalSince1970
+                    let currentDay = NSDate(timeIntervalSince1970: timeIntervalToday)
+                    let mostCurrentDate = NSDate(timeIntervalSince1970: TimeInterval(mostCurrentDateInterval))
+                    
+                    if !Calendar.current.isDate(currentDay as Date, inSameDayAs: mostCurrentDate as Date){
+                        //make a new session for the current date with only the time stamp inside, put it at the bottom of the list
+                        
+                        let dailyInformationRef = userRef.child("dailyInformation").child(String(Int(timeIntervalToday))).child("timeStamp")
+                        
+//                        let dailyInformationValue = NSDate().timeIntervalSince1970
+                        dailyInformationRef.setValue(Int(timeIntervalToday))
+                        print("hopefully created a new dailyInformation")
+                        
+                        //update the data from the mostcurrent old date using the currentIndex, now it will have the top 5 words
+                        
+                        //we need to search through the tile data, grab the top 5 words, and populate the top 5 words
+                        userRef.child("tileData").observeSingleEvent(of: .value, with:{
+                            (snapshot) in
+                            
+                            //set up the wordCounterArray
+                            let tileDataArray = snapshot.value as? [String: AnyObject] ?? [:]
+                            var wordCounterArray = [WordCounter]()
+                            for tileData in tileDataArray{
+                                let tileDataDictionary = tileData.value as? NSDictionary
+                                wordCounterArray.append(WordCounter(word: tileDataDictionary!["title"] as! String, count: tileDataDictionary!["frequency"] as! Int))
+                                print(wordCounterArray)
+                            }
+                            
+                            //sort
+//                            print(wordCounterArray.count)
+//                            for wordCounter in wordCounterArray{
+//                                print("word: ", wordCounter.getWord(), " frequency: ", wordCounter.getCount())
+//                            }
+                            wordCounterArray = wordCounterArray.sorted(by: {$0.getCount() > $1.getCount()})
+//                            print(wordCounterArray.count)
+//                            for wordCounter in wordCounterArray{
+//                                print("word: ", wordCounter.getWord(), " frequency: ", wordCounter.getCount())
+//                            }
+                            
+                            //grab top 5 words
+                            var top5WordCountsArray = [WordCounter]()
+                            var currentIndex = 0
+                            for currentWordCount in wordCounterArray{
+                                if(currentIndex >= 5){
+                                    break;
+                                }
+                                top5WordCountsArray.append(currentWordCount)
+                                currentIndex += 1
+                            }
+                            //used for printing the top 5 words
+//                            print(top5WordCountsArray)
+//                            for wordCounter in top5WordCountsArray{
+//                                print("word: ", wordCounter.getWord(), " frequency: ", wordCounter.getCount())
+//                            }
+                            
+                            //push these top 5 words into the firebase
+                            let top5WordsRef = userRef.child("dailyInformation").child(String(mostCurrentDateInterval)).child("top5Words")
+                            currentIndex = 0
+                            for currentTop5Word in top5WordCountsArray{
+                                let currentTopRef = top5WordsRef.child(String(currentIndex))
+                                let top5Value = ["frequency": currentTop5Word.getCount(), "word": currentTop5Word.getWord()] as [String : Any]
+                                currentTopRef.setValue(top5Value)
+                                currentIndex += 1
+                            }
+                            
+                            //clear the frequency data from all the tiles
+                            for tileData in tileDataArray{
+                                let tileDataDictionary = tileData.value as? NSDictionary
+                                print(wordCounterArray)
+                                let tileFreq = userRef.child("tileData").child(tileDataDictionary!["title"] as! String).child("frequency")
+                                tileFreq.observeSingleEvent(of: .value, with: { snapshot in
+                                    var currentFreq = snapshot.value as! Int
+                                    currentFreq = 0
+                                    print("frequency change today")
+                                    tileFreq.setValue(currentFreq)
+                                    
+                                    
+                                })
+                            }
+                        })
+                        
+                        //TODO: delete the 0th element of dailyInformation if currentIndex is above 60
+                        //might use smallestDateInterval here, make sure you put it in the right scope
+                    }
+                }
+                
+            })
         }
         else if collectionView == self.categoryCollection{
             selectionBarTileData = replaceSelectionDataForCategory(indexPath.row)

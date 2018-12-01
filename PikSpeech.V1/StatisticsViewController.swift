@@ -51,15 +51,16 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
 //                print("shown is the snapshot:\n",snapshot)
                 
                 //set up the datapoints list
-                let dailyInformationQueryArray = snapshot.value as? NSArray ?? []
+                let dailyInformationQueryArray = snapshot.value as? [String: AnyObject] ?? [:]
 //                print("here is the snapshot that was turned to a dictionary\n", dailyInformationQueryArray)
                 for currentDailyInformation in dailyInformationQueryArray{
-                    let postDict = currentDailyInformation as? NSDictionary
+                    let postDict = currentDailyInformation.value as? NSDictionary
 //                    print("looking into the specific dailyInformationElement:\n", postDict!)
                     
                     
                     var dailyInformationDate : NSDate? = nil
                     var currentTop5WordsArray = [WordCounter]()
+                    var hasTop5Words = false
                     //go for each attribute in the category
                     
                     //traverse through the DailyInformation query
@@ -71,10 +72,9 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                             let dailySessionInformationTimeInterval = dailyInformationData.value as? TimeInterval
                             dailyInformationDate = NSDate(timeIntervalSince1970: dailySessionInformationTimeInterval ?? 0)
                             
-                            //TODO: also have a check on what day it is so that you can log the top 5 words
-                            //you will need to do an observe on tileData to get tileData
                         }
-                        else{
+                        else if(dailyInformationData.key as? String == "top5Words"){
+                            hasTop5Words = true
                             //it must be the top 5 words
 //                            print("found the top 5 words")
                             let top5Words = dailyInformationData.value as? Array ?? []
@@ -98,7 +98,9 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                             }
                         }
                     }
-                    self.dailyInformationArray.append(DailyInformation(logDate: dailyInformationDate!, top5WordsArray: currentTop5WordsArray))
+                    if hasTop5Words{
+                        self.dailyInformationArray.append(DailyInformation(logDate: dailyInformationDate!, top5WordsArray: currentTop5WordsArray))
+                    }
                 }
                 //at this point, you have created all of your daily information stuff
                 
@@ -118,7 +120,7 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                 //here we want to get the most recent stuff
                 
                 //find the dailyInformation that is the most recent
-                var indexToUse = 0
+                var indexToUse = -1
                 var currentIndex = 0
                 var mostCurrentDate = NSDate(timeIntervalSince1970: 0)
                 for currentDailyInfo in self.dailyInformationArray{
@@ -128,6 +130,11 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                         indexToUse = currentIndex
                     }
                     currentIndex += 1
+                }
+                
+                if indexToUse == -1{
+                    //there are no dailyInformation data, you need to press at least once on 2 separate days for it to work
+                    return;
                 }
                 
                 //put all the top 5 words in a string
@@ -151,6 +158,8 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                                 }
                             }
                         }
+                        self.topFiveTileData = self.topFiveTileData.sorted(by: {$0.getImageTitle() > $1.getImageTitle()})
+                        
                         self.topFiveCollection.reloadData()
                         
                         //at this point, all tile data has been loaded
@@ -201,6 +210,12 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                     dataPointArray.append(DataPoint(date: dailyInformation.getLogDate(), frequency: wordCount.getCount()))
                 }
             }
+        }
+        
+        //used for debugging
+        print("switching to word: ", wordOfInterest)
+        for dataPoint in dataPointArray{
+            print("date: ", dataPoint.getDate(), ", frequency: ", dataPoint.getFrequency())
         }
     }
 }

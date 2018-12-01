@@ -25,4 +25,10 @@ class DailyInformation{
     func getTop5WordsArray() -> [WordCounter]{
         return top5WordsArray
     }
+    
+    func getLogDateAsString() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: logDate as Date)
+    }
 }
