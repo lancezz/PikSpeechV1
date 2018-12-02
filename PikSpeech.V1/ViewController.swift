@@ -57,6 +57,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             sentenceCollection.reloadData()
             sentenceCollection.layoutIfNeeded()
+            
+            if(speechBarTileData.count > 1){
+                let lastWord = speechBarTileData.last
+                predictNextWords(inputText: (lastWord?.getImageTitle())!)
+            }
+            if(speechBarTileData.count == 0){
+                predictNextWords(inputText: "I")
+            }
         }
     }
     
@@ -179,6 +187,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             speechBarTileData.removeLast()
             sentenceCollection.reloadData()
             sentenceCollection.layoutIfNeeded()
+            
+            //look for the last tile, predict with that
+            
+            if(speechBarTileData.count > 1){
+                let lastWord = speechBarTileData.last
+                predictNextWords(inputText: (lastWord?.getImageTitle())!)
+            }
+            if(speechBarTileData.count == 0){
+                predictNextWords(inputText: "I")
+            }
+            
         }
     }
     
@@ -353,13 +372,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             myUtterance = AVSpeechUtterance(string: selectionBarTileData[indexPath.row].getImageTitle())
             myUtterance.rate = 0.3
             synth.speak(myUtterance)
-            
-            sentenceCollection.reloadData()
-            sentenceCollection.layoutIfNeeded()
-            
             //predition part after a tile is clicked
             let clickedImageTitle = selectionBarTileData[indexPath.row].getImageTitle()
             predictNextWords(inputText: clickedImageTitle)
+            sentenceCollection.reloadData()
+            sentenceCollection.layoutIfNeeded()
+            
+           
             
             
         }
