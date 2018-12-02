@@ -40,6 +40,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var predictionTileData = [TileData]()
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
+    var prediction = ""
+    var previousWord = "I"
+    
     
     
     @IBOutlet weak var selectionCollection: UICollectionView!
@@ -249,6 +252,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         predictionCollection.delegate = self
         predictionCollection.dataSource = self
+        predictionCollection.layer.borderColor = UIColor.black.cgColor
+        predictionCollection.layer.borderWidth = 1.0
         //Download actual Data
         TileSizeManager.downloadTilesPerRow(viewWidth: actualWidth, collectionView: selectionCollection)
         ColorManager.downloadColorForCollectionView(collectionView: selectionCollection, collectionEnum: SpecificCollectionView.selectionCollectionView, appView: view)
@@ -308,6 +313,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else if collectionView == self.predictionCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! Tile
             cell.tileData = predictionTileData[indexPath.row]
+            
             return cell
         }
         else{
@@ -350,14 +356,51 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             sentenceCollection.reloadData()
             sentenceCollection.layoutIfNeeded()
+            
+            //predition part after a tile is clicked
+            let clickedImageTitle = selectionBarTileData[indexPath.row].getImageTitle()
+            predictNextWords(inputText: clickedImageTitle)
+            
+            
         }
         else if collectionView == self.categoryCollection{
             selectionBarTileData = replaceSelectionDataForCategory(indexPath.row)
             selectionCollection.reloadData()
             selectionCollection.layoutIfNeeded()
         }
-        else{
-            //do nothing
+        else if collectionView == self.predictionCollection{
+            speechBarTileData.append(predictionTileData[indexPath.row])
+            let user = Auth.auth().currentUser
+            guard let uid = user?.uid else
+            {
+                return
+            }
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let userRef = ref.child("user").child(uid)
+            
+            let tileFreq = userRef.child("tileData").child("\(predictionTileData[indexPath.row].getImageTitle())").child("frequency")
+            tileFreq.observeSingleEvent(of: .value, with: { snapshot in
+                var currentFreq = snapshot.value as! Int
+                currentFreq = currentFreq + 1
+                print("frequencyy change today")
+                tileFreq.setValue(currentFreq)
+                
+                
+            })
+            
+            myUtterance = AVSpeechUtterance(string: predictionTileData[indexPath.row].getImageTitle())
+            myUtterance.rate = 0.3
+            synth.speak(myUtterance)
+            
+            sentenceCollection.reloadData()
+            sentenceCollection.layoutIfNeeded()
+            
+            //predition part after a tile is clicked
+            let clickedImageTitle = predictionTileData[indexPath.row].getImageTitle()
+            predictNextWords(inputText: clickedImageTitle)
+            
+            
         }
     }
     
@@ -479,6 +522,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         self.categoryCollection.reloadData()
                         self.sentenceCollection.reloadData()
                         
+                        
+                        self.predictNextWords(inputText: self.previousWord)
+                        
                         print("successfully did all the printing... we have updated the arrays and reloaded the collectionViews")
                         
                 }
@@ -516,7 +562,195 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    func predictNextWords(inputText: String) ->(){
+        print("about to use createAndUpdatePreviousWord\n");
+        createAndUpdatePreviousWord(inputText: inputText);
+        
+        //print out the prediction or make a new record for the inputText
+        print("about to use createAndPrintPrediction");
+        createAndPrintPrediction(inputText: inputText);
+        
+        print("the previous word is now the text you just placed");
+        previousWord = inputText;
+    }
     
+    func createAndUpdatePreviousWord(inputText: String) ->(){
+        var isPresent = false
+        var stmt: OpaquePointer? = nil
+        
+        print("check if the inputText: " + previousWord + " exists in the db in the first place");
+        let queryString = "SELECT * FROM Prediction WHERE word = '" + previousWord + "'"
+        
+        if sqlite3_prepare_v2(db, queryString, -1, &stmt, nil) == SQLITE_OK{
+            while (sqlite3_step(stmt) == SQLITE_ROW) {
+                print("you have found the word in db, ispresent is true now")
+                isPresent = true
+            }
+
+        }
+        else{
+            print("previous word was not present, gonna make a new one")
+            let insertQueryString = "INSERT INTO Prediction (word) VALUES ('" + previousWord + "')"
+            var insertStatement: OpaquePointer? = nil
+            if sqlite3_prepare_v2(db, insertQueryString, -1, &insertStatement, nil) == SQLITE_OK {
+                if sqlite3_step(insertStatement) == SQLITE_ROW {
+                    print("Successfully insert row.",insertQueryString)
+                } else {
+                    print("Could not update row.")
+                }
+            }
+            sqlite3_finalize(insertStatement)
+        }
+        sqlite3_finalize(stmt)
+        print("query for the previous word now for real now that we know it will exist for sure")
+        var realQueryStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, queryString, -1, &realQueryStatement, nil)  == SQLITE_OK {
+            var predictionList = [String]()
+            if sqlite3_step(realQueryStatement) == SQLITE_ROW{    //??
+
+                for  i in  1 ... 5{
+                    
+                    if sqlite3_column_text(realQueryStatement, Int32(i)) == nil {
+                        print("empty prediction list")
+                        break
+                    }
+                        predictionList.append(String(cString:sqlite3_column_text(realQueryStatement, Int32(i))))
+                }
+            }
+            if(predictionList.contains(inputText)){
+                //error check if this is so
+                
+                //delete the word and replace it to the top
+                print("the predictionList contained the word: " + inputText + " will now delete and place in the beginning of the list");
+                if let idx = predictionList.index(where: { $0 == inputText }) {
+                    predictionList.remove(at: idx)
+                }
+                predictionList.insert(inputText,at: 0);
+            }
+            else{
+                //put the word at the first element of the list
+                print("the word did not exist in the first place, going to place in the beginning");
+                predictionList.insert(inputText,at: 0);
+            }
+            //putting things into the database
+            let prefix = "prediction"
+            var currentPredictionNum = 1
+            print("now putting the predictionList into the db")
+            for currentWord in predictionList{
+                if currentPredictionNum >= 6 {
+                    break
+                }
+                var currentPrediction = prefix + String(currentPredictionNum)
+                let currentQuery = "UPDATE Prediction SET " + currentPrediction + " = '" + currentWord + "' WHERE word = '" + previousWord + "'"
+                var updateStatement: OpaquePointer? = nil
+                if sqlite3_prepare_v2(db, currentQuery, -1, &updateStatement, nil) == SQLITE_OK{
+                    if sqlite3_step(updateStatement) == SQLITE_DONE{
+                        print("here is current query",currentQuery)
+                    }
+                    else {
+                        print("cannot update")
+                    }
+                    currentPredictionNum = currentPredictionNum + 1
+                }
+                sqlite3_finalize(updateStatement)
+            }
+            
+        }
+        sqlite3_finalize(realQueryStatement)
+        print("done doing the entire updating")
+    }
+    func createAndPrintPrediction(inputText: String) ->(){
+        var isPresent = false
+        var stmt: OpaquePointer? = nil
+        
+        print("check if the inputText: " + inputText + " exists in the db in the first place");
+        let queryString = "SELECT * FROM Prediction WHERE word = '" + inputText + "'"
+        
+        if sqlite3_prepare_v2(db, queryString, -1, &stmt, nil) == SQLITE_OK{
+            var predictionList = [String]()
+            while (sqlite3_step(stmt) == SQLITE_ROW) {
+                print("the word exist")
+                isPresent = true
+                for  i in  1 ... 5{
+                    
+                    if sqlite3_column_text(stmt, Int32(i)) == nil {
+                        print("empty prediction list")
+                        break
+                    }
+                    predictionList.append(String(cString:sqlite3_column_text(stmt, Int32(i))))
+                }
+            }
+//            var predictionList = [String]()
+//            if isPresent == true{
+//                for  i in  1 ... 5{
+//
+//                    if sqlite3_column_text(stmt, Int32(i)) == nil {
+//                        print("empty prediction list")
+//                        break
+//                    }
+//                    predictionList.append(String(cString:sqlite3_column_text(stmt, Int32(i))))
+//                }
+//
+//            }
+            if isPresent != true {
+                print("previous word was not present, gonna make a new one")
+                let insertQueryString = "INSERT INTO Prediction (word) VALUES ('" + inputText + "')"
+                var insertStatement: OpaquePointer? = nil
+                if sqlite3_prepare_v2(db, insertQueryString, -1, &insertStatement, nil) == SQLITE_OK {
+                    if sqlite3_step(insertStatement) == SQLITE_DONE {
+                        print("Successfully insert word.")
+                    } else {
+                        print("Could not update row.")
+                    }
+                }
+                sqlite3_finalize(insertStatement)
+            }
+            
+            //this is where we put the prediction into the prediction bar
+            
+            //for each word in the prediction
+                //find that inside the 2d array
+                    //if you find the word, get that tile data and append it to the prediction
+                        //continue
+            predictionTileData.removeAll()
+            for word in predictionList{
+                print(word)
+                //might have to do case where nothing inside
+                for category in appDataTileData{
+                    var hasAppended = false
+                    for currentTileData in category{
+                        if currentTileData.getImageTitle() == word{
+                            predictionTileData.append(currentTileData)
+                            hasAppended = true
+                            break
+                        }
+                    }
+                    if hasAppended{
+                        break
+                    }
+                }
+            }
+            print(predictionList)
+            
+            predictionCollection.reloadData()
+        }
+        else{
+            print("inputText was not present, gonna make a new one")
+            let insertQueryString = "INSERT INTO Prediction (word) VALUES ('" + inputText + "')"
+            var insertStatement: OpaquePointer? = nil
+            if sqlite3_prepare_v2(db, insertQueryString, -1, &insertStatement, nil) == SQLITE_OK {
+                if sqlite3_step(insertStatement) == SQLITE_ROW {
+                    print("Successfully insert row.",insertQueryString)
+                    predictionTileData.removeAll()
+                    predictionCollection.reloadData()
+                } else {
+                    print("Could not update row.")
+                }
+            }
+            sqlite3_finalize(insertStatement)
+        }
+        sqlite3_finalize(stmt)
+    }
 }
 //class UIviewcontroller ends
 
