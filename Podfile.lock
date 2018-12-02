@@ -70,6 +70,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SwiftChart (1.0.1)
 
 DEPENDENCIES:
   - Firebase
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - SwiftChart
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -93,6 +95,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - SwiftChart
 
 SPEC CHECKSUMS:
   Firebase: 8c957f9cb3852b519180fb378801b7eeeba4d288
@@ -108,7 +111,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
 
-PODFILE CHECKSUM: 540a851b933cff2c77649eab3e19cc816808b0eb
+PODFILE CHECKSUM: a834d1b143c1942e24f9a65931a6a065865d9cbe
 
 COCOAPODS: 1.5.3

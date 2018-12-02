@@ -1189,9 +1189,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Yvc-GJ-R5R">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Yvc-GJ-R5R">
                                 <rect key="frame" x="532" y="98" width="121" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Week"/>
                                     <segment title="Month"/>
@@ -1200,22 +1199,44 @@
                                     <action selector="weekMonthSwitch:" destination="0WZ-2i-1Pg" eventType="valueChanged" id="wIb-25-JKt"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwU-Oe-LX0">
+                                <rect key="frame" x="245" y="159" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-uO-jqM" userLabel="Chart" customClass="Chart" customModule="PikSpeech_V1" customModuleProvider="target">
+                                <rect key="frame" x="242" y="267" width="700" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.81960784310000001" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="FOq-uO-jqM" firstAttribute="top" secondItem="Yvc-GJ-R5R" secondAttribute="bottom" constant="62" id="3jg-AG-fnE"/>
+                            <constraint firstItem="FOq-uO-jqM" firstAttribute="top" secondItem="IwU-Oe-LX0" secondAttribute="bottom" constant="8" id="6Vx-Dx-8bq"/>
+                            <constraint firstItem="IwU-Oe-LX0" firstAttribute="leading" secondItem="F6V-Ap-5WM" secondAttribute="trailingMargin" constant="-759" id="C8J-lG-A4n"/>
+                            <constraint firstItem="LG0-7u-4ys" firstAttribute="trailing" secondItem="FOq-uO-jqM" secondAttribute="trailing" constant="102" id="KTy-do-FKb"/>
                             <constraint firstItem="LG0-7u-4ys" firstAttribute="bottom" secondItem="Dat-Kg-Mqi" secondAttribute="bottom" id="MlS-v1-V3y"/>
                             <constraint firstItem="Dat-Kg-Mqi" firstAttribute="leading" secondItem="LG0-7u-4ys" secondAttribute="leading" id="Wmw-u4-Y2I"/>
+                            <constraint firstItem="Yvc-GJ-R5R" firstAttribute="leading" secondItem="LG0-7u-4ys" secondAttribute="leading" constant="532" id="a6b-Z1-yub"/>
                             <constraint firstItem="Dat-Kg-Mqi" firstAttribute="top" secondItem="LG0-7u-4ys" secondAttribute="top" constant="150" id="bDJ-9u-UJB"/>
+                            <constraint firstItem="LG0-7u-4ys" firstAttribute="trailing" secondItem="Yvc-GJ-R5R" secondAttribute="trailing" constant="371" id="nQS-Vq-qNq"/>
+                            <constraint firstItem="FOq-uO-jqM" firstAttribute="leading" secondItem="Dat-Kg-Mqi" secondAttribute="trailing" constant="129" id="rjw-NU-4OE"/>
+                            <constraint firstItem="Yvc-GJ-R5R" firstAttribute="top" secondItem="LG0-7u-4ys" secondAttribute="top" constant="78" id="rto-Zo-GPZ"/>
+                            <constraint firstItem="LG0-7u-4ys" firstAttribute="bottom" secondItem="FOq-uO-jqM" secondAttribute="bottom" constant="68" id="vkk-If-Ueo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LG0-7u-4ys"/>
                     </view>
                     <connections>
+                        <outlet property="LabelLeadingMarginConstraint" destination="C8J-lG-A4n" id="ajy-yQ-I58"/>
+                        <outlet property="chart" destination="FOq-uO-jqM" id="VUx-RB-dGi"/>
+                        <outlet property="label" destination="IwU-Oe-LX0" id="sJ3-CQ-s6s"/>
                         <outlet property="topFiveCollection" destination="Dat-Kg-Mqi" id="ysn-39-eqU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7P-BJ-92G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2813" y="704"/>
+            <point key="canvasLocation" x="2812.5" y="703.90625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nf3-bO-WaW">

@@ -25,4 +25,10 @@ class DataPoint{
     func getFrequency() -> Int{
         return frequency
     }
+    
+    func getLogDateAsString() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date as Date)
+    }
 }
