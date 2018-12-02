@@ -10,7 +10,7 @@ target 'PikSpeech.V1' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
-    pod "SwiftChart"
+    pod 'SwiftChart'
 
   # Pods for PikSpeech.V1
 
