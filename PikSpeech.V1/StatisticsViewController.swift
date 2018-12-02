@@ -314,7 +314,9 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
             return "AKJSHDFKJHASDFJK"
         }
         // Add some padding above the x-axis
-        chart.minY = seriesData.min()! - 5
+        chart.minY = -1
+        print("series max: ", seriesData.max()!)
+        chart.maxY = seriesData.max()! + 3
         
         chart.add(series)
     }
