@@ -78,7 +78,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - SwiftChart
+  - SwiftChart (from `https://github.com/SheelSoneji/SwiftChart`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -95,7 +95,15 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
-    - SwiftChart
+
+EXTERNAL SOURCES:
+  SwiftChart:
+    :git: https://github.com/SheelSoneji/SwiftChart
+
+CHECKOUT OPTIONS:
+  SwiftChart:
+    :commit: 4949a94090641ca85b8133129f7a7b2230694788
+    :git: https://github.com/SheelSoneji/SwiftChart
 
 SPEC CHECKSUMS:
   Firebase: 8c957f9cb3852b519180fb378801b7eeeba4d288
@@ -111,8 +119,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
+  SwiftChart: 41623bcfb7d5d31ccf74130451e41b156b7a4c8b
 
-PODFILE CHECKSUM: 41627a61fe78f473ae7dcebdfd61e2092832d1be
+PODFILE CHECKSUM: ee869484d335c8cf81344b9d13cda751afdffbf2
 
 COCOAPODS: 1.5.3
