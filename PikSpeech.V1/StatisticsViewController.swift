@@ -285,16 +285,17 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         var seriesData: [Double] = []
         var labels: [Double] = []
         var labelsAsString: Array<String> = []
+        var xLabels = [Double]()
         
-//        let array = [x: Int, y: Int]()
-//        var data = [
-//            (x: 0.0, y: 0.0)
-//        ]
-//        data.removeAll()
+        var data = [(x: Double, y: Double)]()
+        //        var data = [
+        //            (x: 0.0, y: 0.0)
+        //        ]
+        //        data.removeAll()
         
         var counter = 0.0
-//        var minX = Double.greatestFiniteMagnitude
-//        var maxX = 0.0
+        var minX = Double.greatestFiniteMagnitude
+        var maxX = 0.0
         for datapoint in dataArray {
             
             seriesData.append(Double(datapoint.getFrequency()))
@@ -305,9 +306,9 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
             //func string(from date: Date) -> String
             //let monthAsString:String = dateFormatter.monthSymbols[month - 1]
             //let compdateAsString:String = dateFormatter.string(from: value[compdate - 1])'
-//            minX = minX > datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : minX
-//            maxX = maxX < datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : maxX
-//            data.append((x: datapoint.getDate().timeIntervalSince1970, y: Double(datapoint.getFrequency())))
+            minX = minX > datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : minX
+            maxX = maxX < datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : maxX
+            data.append((x: datapoint.getDate().timeIntervalSince1970, y: Double(datapoint.getFrequency())))
             print (compdate)
             labels.append(counter)
             labelsAsString.append(compdate)
@@ -320,8 +321,21 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
             //            }
         }
         
-//        let series = ChartSeries(data: data)
-        let series = ChartSeries(seriesData)
+        if graphResolution == GraphResulotion.WEEK{
+            for i in -1 ... 6{
+                xLabels.append(maxX - Double(i*3600*24))
+            }
+        }
+        else{
+            for i in -1 ... 4{
+                xLabels.append(maxX - Double(i*3600*24*7))
+            }
+        }
+        
+        chart.xLabels = xLabels
+        
+        let series = ChartSeries(data: data)
+        //        let series = ChartSeries(seriesData)
         series.area = true
         series.color = ChartColors.colorFromHex(0x454545)
         
@@ -329,19 +343,23 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         
         
         
-        chart.xLabels = labels
+        //        chart.xLabels = labels
         chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in
+            
+            
             if labelsAsString.count != 0{
-                return labelsAsString[labelIndex]
+                //                return labelsAsString[labelIndex]
+                return DataPoint(date: NSDate(timeIntervalSince1970: labelValue), frequency: 0).getLogDateAsString()
+                
             }
             return "AKJSHDFKJHASDFJK"
         }
-        // Add some padding above the x-axis
-        chart.minY = -1
-        print("series max: ", seriesData.max()!)
-        chart.maxY = seriesData.max()! + 3
-//        chart.minX = minX
-//        chart.maxX = maxX
+        //        // Add some padding above the x-axis
+        chart.minY = 0
+        //        print("series max: ", seriesData.max()!)
+        //        chart.maxY = seriesData.max()! + 3
+        //        chart.minX = minX
+        //        chart.maxX = maxX
         
         chart.add(series)
     }
