@@ -81,7 +81,9 @@ class UploadViewController: UIViewController {
             print("please enter both name and choose a picture from camera roll")
         }
         
-        
+        //Clear the text field and imageview
+        uploadImagePreview.image = nil
+        uploadTileText.text = nil
     }// When upload button pressed
     var picker = UIImagePickerController()
     
