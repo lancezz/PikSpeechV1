@@ -68,22 +68,24 @@ class UploadViewController: UIViewController {
                     value.append("\(self.uploadTileText.text ?? "i")")
                     userRef.child("categoryData/\(self.uploadCategorySegment)/selectionData").setValue(value)
                     print(value)
+                    //  Initialize reference in tileData
+                    let uploadTileDataRef = userRef.child("tileData").child("\(self.uploadTileText.text ?? "i")")
+                    let uploadTileDataValue = ["Image":"\(date).jpg","frequency":0,"title":"\(self.uploadTileText.text ?? "i")"] as? [String: Any]
+                    uploadTileDataRef.setValue(uploadTileDataValue)
+                    self.uploadImagePreview.image = nil
+                    self.uploadTileText.text = nil
             }
             ){
                 (error) in
                 print(error.localizedDescription)
             }
-            //  Initialize reference in tileData
-            let uploadTileDataRef = userRef.child("tileData").child("\(self.uploadTileText.text ?? "i")")
-            let uploadTileDataValue = ["Image":"\(date).jpg","frequency":0,"title":"\(self.uploadTileText.text ?? "i")"] as? [String: Any]
-            uploadTileDataRef.setValue(uploadTileDataValue)
+           
         } else {
             print("please enter both name and choose a picture from camera roll")
         }
         
         //Clear the text field and imageview
-        uploadImagePreview.image = nil
-        uploadTileText.text = nil
+       
     }// When upload button pressed
     var picker = UIImagePickerController()
     
