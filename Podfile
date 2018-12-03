@@ -22,6 +22,7 @@ target 'PikSpeech.V1' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'SwiftChart', :git => 'https://github.com/SheelSoneji/SwiftChart'
     # Pods for testing
   end
 
@@ -33,6 +34,7 @@ target 'PikSpeech.V1' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'SwiftChart', :git => 'https://github.com/SheelSoneji/SwiftChart'
     # Pods for testing
   end
 

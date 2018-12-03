@@ -5,6 +5,10 @@
 //  Created by Lance Zhang on 2018-11-28.
 //  Copyright © 2018 cmpt275group11. All rights reserved.
 //
+//  Change Log:
+//      2018-11-28: Created initializeChart() function                    (Miguel Taningco & Sheel Soneji)
+//      2018-11-29: Created setDataPointsForWord() function               (Miguel Taningco & Sheel Soneji)
+//      2018-11-30: Provided documentation & tied it together with quering                           (Miguel Taningco & Sheel Soneji)
 
 import UIKit
 import SwiftChart
@@ -16,21 +20,6 @@ enum GraphResulotion{
 }
 
 class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ChartDelegate {
-    /*
-    
-    func didTouchChart(_ chart: Chart, indexes: [Int?], x: Double, left: CGFloat) {
-        
-    }
-    
-    func didFinishTouchingChart(_ chart: Chart) {
-        
-    }
-    
-    func didEndTouchingChart(_ chart: Chart) {
-        
-    }
-    
-    */
 
     var topFiveTileData = [TileData]()
     var dailyInformationArray = [DailyInformation]()
@@ -79,8 +68,6 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         ref = Database.database().reference()
         let userRef = ref.child("user").child(uid)
         
-//        print("-------------------------------------------------\n")
-//        print("looking into the dailyInformation")
         userRef.child("dailyInformation").observe(DataEventType.value, with:
             { (snapshot) in
 //                print("shown is the snapshot:\n",snapshot)
@@ -207,62 +194,11 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                         
                 })
         })
-        //labelLeadingMarginInitialConstant = LabelLeadingMarginConstraint.constant
         
-/*
-        // Create a new series specifying x and y values
-        chart.delegate = self
-        
-        var oneElementSet = [
-            DataPoint(date: NSDate(timeIntervalSince1970: 0), frequency: 7)
-        ]
-        
-        let data = [
-            (x: 0, y: 0),
-            (x: 1, y: 3.1),
-            (x: 4, y: 2),
-            (x: 5, y: 4.2),
-            (x: 7, y: 5),
-            (x: 9, y: 9),
-            (x: 10, y: 8)
-        ]
-        let series = ChartSeries(data: data)
-        series.color = ChartColors.greenColor()
-        chart.add(series)
-        //chart.setNeedsDisplay()
-        */
     }//view did load
     
     func initializeChart() {
         chart.delegate = self
-        
-//        var datapoint = DataPoint(date: NSDate(timeIntervalSince1970: 0), frequency: 7)
-        
-//        print("date as string: ", datapoint.getLogDateAsString())
-//        print("frequency: ", datapoint.getFrequency())
-//        print("")
-    
-        // Initialize data series and labels
-//        let stockValues = getStockValues()
-        
-        
-        
-        // Date formatter to retrieve the month names
-//        let dateFormatter = DateFormatter()
-        //dateFormatter.dateFormat = "MM"
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        dataPointArray = [
-//            DataPoint(date: NSDate(timeIntervalSince1970: 0), frequency: 7),
-//            DataPoint(date: NSDate(timeIntervalSince1970: 3600*24), frequency: 4),
-//            DataPoint(date: NSDate(timeIntervalSince1970: 2*3600*24), frequency: 2),
-//            DataPoint(date: NSDate(timeIntervalSince1970: 3*3600*24), frequency: 8),
-//            DataPoint(date: NSDate(timeIntervalSince1970: 4*3600*24), frequency: 4),
-//            DataPoint(date: NSDate(timeIntervalSince1970: 5*3600*24), frequency: 7),
-//            DataPoint(date: NSDate(timeIntervalSince1970: 6*3600*24), frequency: 9),
-//        ]
-        
-        
-        
         setUpDataWithChart(dataArray: dataPointArray)
         
         chart.areaAlphaComponent = 0.5
@@ -288,24 +224,15 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         var xLabels = [Double]()
         
         var data = [(x: Double, y: Double)]()
-        //        var data = [
-        //            (x: 0.0, y: 0.0)
-        //        ]
-        //        data.removeAll()
-        
         var counter = 0.0
         var minX = Double.greatestFiniteMagnitude
         var maxX = 0.0
         for datapoint in dataArray {
             
             seriesData.append(Double(datapoint.getFrequency()))
-            
-            // Use only one label for each month
-            //let month = Int(dateFormatter.string(from: value["date"] as! Date))!
+
             let compdate = datapoint.getLogDateAsString()
-            //func string(from date: Date) -> String
-            //let monthAsString:String = dateFormatter.monthSymbols[month - 1]
-            //let compdateAsString:String = dateFormatter.string(from: value[compdate - 1])'
+           
             minX = minX > datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : minX
             maxX = maxX < datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : maxX
             data.append((x: datapoint.getDate().timeIntervalSince1970, y: Double(datapoint.getFrequency())))
@@ -313,12 +240,7 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
             labels.append(counter)
             labelsAsString.append(compdate)
             counter += 1
-            //            if (labels.count == 0 || labelsAsString.last != compdate) {
-            //                labels.append(Double(i))
-            //                labelsAsString.append(compdate)
-            //
-            //
-            //            }
+           
         }
         
         if graphResolution == GraphResulotion.WEEK{
@@ -356,40 +278,12 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         //        // Add some padding above the x-axis
         chart.minY = 0
-        //        print("series max: ", seriesData.max()!)
-        //        chart.maxY = seriesData.max()! + 3
-        //        chart.minX = minX
-        //        chart.maxX = maxX
         
         chart.add(series)
     }
     
     func didTouchChart(_ chart: Chart, indexes: Array<Int?>, x: Double, left: CGFloat) {
-        
-//        if let value = chart.valueForSeries(0, atIndex: indexes[0]) {
-//
-//            let numberFormatter = NumberFormatter()
-//            numberFormatter.minimumFractionDigits = 2
-//            numberFormatter.maximumFractionDigits = 2
-//            label.text = numberFormatter.string(from: NSNumber(value: value))
-//
-//            // Align the label to the touch left position, centered
-//            var constant = labelLeadingMarginInitialConstant + left - (label.frame.width / 2)
-//
-//            // Avoid placing the label on the left of the chart
-//            if constant < labelLeadingMarginInitialConstant {
-//                constant = labelLeadingMarginInitialConstant
-//            }
-//
-//            // Avoid placing the label on the right of the chart
-//            let rightMargin = chart.frame.width - label.frame.width
-//            if constant > rightMargin {
-//                constant = rightMargin
-//            }
-//
-//            //LabelLeadingMarginConstraint.constant = constant
-//
-//        }
+     
         
     }
     
@@ -432,10 +326,7 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         chart.setNeedsDisplay()
         
     }
-    //////////////////////////////////////////////////
-    
-
-
+   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return topFiveTileData.count
     }

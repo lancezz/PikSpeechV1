@@ -40,7 +40,6 @@
 		9A4802EA21B22995003728B6 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4802E721B22994003728B6 /* Chart.swift */; };
 		9A4802EB21B22995003728B6 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4802E821B22994003728B6 /* ChartSeries.swift */; };
 		9A4802EC21B22995003728B6 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4802E921B22995003728B6 /* ChartColors.swift */; };
-		9A4802EE21B33D8C003728B6 /* AAPL.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A4802ED21B33D8B003728B6 /* AAPL.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +103,6 @@
 		9A4802E721B22994003728B6 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		9A4802E821B22994003728B6 /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
 		9A4802E921B22995003728B6 /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
-		9A4802ED21B33D8B003728B6 /* AAPL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AAPL.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +165,6 @@
 				7E848F7F218B746C00ABA01D /* ViewController.swift */,
 				7E848F81218B746C00ABA01D /* Main.storyboard */,
 				7E848F87218B746E00ABA01D /* Assets.xcassets */,
-				9A4802ED21B33D8B003728B6 /* AAPL.json */,
 				7E848F89218B746E00ABA01D /* LaunchScreen.storyboard */,
 				7E848F8C218B746E00ABA01D /* Info.plist */,
 				7E848F84218B746C00ABA01D /* PikSpeech_V1.xcdatamodeld */,
@@ -353,7 +350,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E848F8B218B746E00ABA01D /* LaunchScreen.storyboard in Resources */,
-				9A4802EE21B33D8C003728B6 /* AAPL.json in Resources */,
 				7EEA741A219E552F00CBF04E /* GoogleService-Info.plist in Resources */,
 				7E848F88218B746E00ABA01D /* Assets.xcassets in Resources */,
 				7E848F83218B746C00ABA01D /* Main.storyboard in Resources */,
@@ -440,6 +436,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PikSpeech.V1UITests/Pods-PikSpeech.V1UITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftChart/SwiftChart.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -449,6 +446,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -490,6 +488,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PikSpeech.V1Tests/Pods-PikSpeech.V1Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftChart/SwiftChart.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -499,6 +498,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
