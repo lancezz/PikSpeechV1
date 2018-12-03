@@ -11,6 +11,10 @@ import SwiftChart
 import FirebaseDatabase
 import Firebase
 
+enum GraphResulotion{
+    case WEEK, MONTH
+}
+
 class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ChartDelegate {
     /*
     
@@ -31,6 +35,8 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
     var topFiveTileData = [TileData]()
     var dailyInformationArray = [DailyInformation]()
     var dataPointArray = [DataPoint]()
+    var graphResolution = GraphResulotion.WEEK
+    var currentWord = ""
 
     @IBOutlet weak var LabelLeadingMarginConstraint: NSLayoutConstraint!
     
@@ -38,8 +44,12 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var chart: Chart!
     fileprivate var labelLeadingMarginInitialConstant: CGFloat!
-    @IBAction func weekMonthSwitch(_ sender: Any) {
+    @IBAction func weekMonthSwitch(_ sender: UISegmentedControl) {
         //compile a different set of data, give it to the graph
+        var state = sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "Week"
+        graphResolution = state == "Week" ? GraphResulotion.WEEK : GraphResulotion.MONTH
+        setWeekDataPointsForWord(wordOfInterest: currentWord, graphRes: graphResolution)
+        print("here")
     }
     
     @IBOutlet weak var topFiveCollection: UICollectionView!
@@ -191,7 +201,8 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
                         
                         //now load all the datapoints with default as your top one
                         //sort daily information based on
-                        self.setDataPointsForWord(wordOfInterest: self.topFiveTileData[0].getImageTitle())
+                        self.currentWord = self.topFiveTileData[0].getImageTitle()
+                        self.setWeekDataPointsForWord(wordOfInterest: self.topFiveTileData[0].getImageTitle(), graphRes: self.graphResolution)
                         self.initializeChart()
                         
                 })
@@ -275,7 +286,15 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         var labels: [Double] = []
         var labelsAsString: Array<String> = []
         
+//        let array = [x: Int, y: Int]()
+//        var data = [
+//            (x: 0.0, y: 0.0)
+//        ]
+//        data.removeAll()
+        
         var counter = 0.0
+//        var minX = Double.greatestFiniteMagnitude
+//        var maxX = 0.0
         for datapoint in dataArray {
             
             seriesData.append(Double(datapoint.getFrequency()))
@@ -286,6 +305,9 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
             //func string(from date: Date) -> String
             //let monthAsString:String = dateFormatter.monthSymbols[month - 1]
             //let compdateAsString:String = dateFormatter.string(from: value[compdate - 1])'
+//            minX = minX > datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : minX
+//            maxX = maxX < datapoint.getDate().timeIntervalSince1970 ? datapoint.getDate().timeIntervalSince1970 : maxX
+//            data.append((x: datapoint.getDate().timeIntervalSince1970, y: Double(datapoint.getFrequency())))
             print (compdate)
             labels.append(counter)
             labelsAsString.append(compdate)
@@ -298,6 +320,7 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
             //            }
         }
         
+//        let series = ChartSeries(data: data)
         let series = ChartSeries(seriesData)
         series.area = true
         series.color = ChartColors.colorFromHex(0x454545)
@@ -317,36 +340,38 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         chart.minY = -1
         print("series max: ", seriesData.max()!)
         chart.maxY = seriesData.max()! + 3
+//        chart.minX = minX
+//        chart.maxX = maxX
         
         chart.add(series)
     }
     
     func didTouchChart(_ chart: Chart, indexes: Array<Int?>, x: Double, left: CGFloat) {
         
-        if let value = chart.valueForSeries(0, atIndex: indexes[0]) {
-            
-            let numberFormatter = NumberFormatter()
-            numberFormatter.minimumFractionDigits = 2
-            numberFormatter.maximumFractionDigits = 2
-            label.text = numberFormatter.string(from: NSNumber(value: value))
-            
-            // Align the label to the touch left position, centered
-            var constant = labelLeadingMarginInitialConstant + left - (label.frame.width / 2)
-            
-            // Avoid placing the label on the left of the chart
-            if constant < labelLeadingMarginInitialConstant {
-                constant = labelLeadingMarginInitialConstant
-            }
-            
-            // Avoid placing the label on the right of the chart
-            let rightMargin = chart.frame.width - label.frame.width
-            if constant > rightMargin {
-                constant = rightMargin
-            }
-            
-            //LabelLeadingMarginConstraint.constant = constant
-            
-        }
+//        if let value = chart.valueForSeries(0, atIndex: indexes[0]) {
+//
+//            let numberFormatter = NumberFormatter()
+//            numberFormatter.minimumFractionDigits = 2
+//            numberFormatter.maximumFractionDigits = 2
+//            label.text = numberFormatter.string(from: NSNumber(value: value))
+//
+//            // Align the label to the touch left position, centered
+//            var constant = labelLeadingMarginInitialConstant + left - (label.frame.width / 2)
+//
+//            // Avoid placing the label on the left of the chart
+//            if constant < labelLeadingMarginInitialConstant {
+//                constant = labelLeadingMarginInitialConstant
+//            }
+//
+//            // Avoid placing the label on the right of the chart
+//            let rightMargin = chart.frame.width - label.frame.width
+//            if constant > rightMargin {
+//                constant = rightMargin
+//            }
+//
+//            //LabelLeadingMarginConstraint.constant = constant
+//
+//        }
         
     }
     
@@ -406,7 +431,8 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         //look for all daily info with the correct word
         //generate the new array from that
-        setDataPointsForWord(wordOfInterest: topFiveTileData[indexPath.row].getImageTitle())
+        currentWord = topFiveTileData[indexPath.row].getImageTitle()
+        setWeekDataPointsForWord(wordOfInterest: topFiveTileData[indexPath.row].getImageTitle(), graphRes: graphResolution)
     }
     
 
@@ -449,5 +475,55 @@ class StatisticsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         setUpDataWithChart(dataArray: dataPointArray)
+    }
+    
+    func setWeekDataPointsForWord(wordOfInterest: String, graphRes : GraphResulotion){
+        //here we only output the word of interest for 1 week
+        
+        dataPointArray.removeAll()
+        var mostRecentTimeInterval = NSDate(timeIntervalSince1970: 0).timeIntervalSince1970
+        for dailyInformation in dailyInformationArray{
+            for wordCount in dailyInformation.getTop5WordsArray(){
+                if wordCount.getWord() == wordOfInterest{
+                    mostRecentTimeInterval = mostRecentTimeInterval < dailyInformation.getLogDate().timeIntervalSince1970 ? dailyInformation.getLogDate().timeIntervalSince1970 : mostRecentTimeInterval;
+                    dataPointArray.append(DataPoint(date: dailyInformation.getLogDate(), frequency: wordCount.getCount()))
+                }
+            }
+        }
+        //at this point, dataPointArray contains all info of the word
+        let resolution = graphRes == GraphResulotion.WEEK ? 7.0 : 30.0
+        
+        let interval7WeeksBefore = mostRecentTimeInterval - 3600*24*resolution
+        
+        //now we want to only get it within the past week
+        var tempDataPointArray = [DataPoint]()
+        for dataPoint in dataPointArray{
+            //if it lies within the bounds, put that into the temp array
+            if dataPoint.getDate().timeIntervalSince1970 >= interval7WeeksBefore && dataPoint.getDate().timeIntervalSince1970 <= mostRecentTimeInterval{
+                tempDataPointArray.append(dataPoint)
+            }
+        }
+        
+        dataPointArray = tempDataPointArray
+        
+        //used for debugging
+        print("switching to word: ", wordOfInterest)
+        for dataPoint in dataPointArray{
+            print("date: ", dataPoint.getDate(), ", frequency: ", dataPoint.getFrequency())
+        }
+        
+        
+        dataPointArray = dataPointArray.sorted(by: {$0.getDate().timeIntervalSince1970 < $1.getDate().timeIntervalSince1970})
+        
+        print("switching to word: ", wordOfInterest)
+        for dataPoint in dataPointArray{
+            print("date: ", dataPoint.getDate(), ", frequency: ", dataPoint.getFrequency())
+        }
+        
+        setUpDataWithChart(dataArray: dataPointArray)
+    }
+    
+    func setMonthDataPointsForWord(wordOfInterest: String){
+        //here we only output the word of interst for 1 month
     }
 }
